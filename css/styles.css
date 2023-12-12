@@ -1,0 +1,227 @@
+:root {
+    --terminalGreen: rgb(84, 222, 93);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    overflow-x: hidden;
+
+    & body {
+        color: white;
+        font-family: "Courier New", Courier, monospace;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        overflow: -x hidden;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+
+        & input {
+            border: none;
+        }
+    }
+}
+
+
+#sections_container {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background-image: url(../assets/terminalVideoBackground.jpg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    & #terminal_Container {
+        position: absolute;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        z-index: 3;
+        transition: display ease-in-out 0.5s;
+
+        & .terminal_Container_Inputs{
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            aspect-ratio: 16 / 9;
+            
+            & .SM_instagram,
+            & .SM_tiktok,
+            & .SM_twitter{
+                background-color: rgba(255,255,255,0.0);
+                opacity: 0;
+                transition: all ease-out 0.3s;      
+                border-radius: 10px;                
+                cursor: pointer;
+                position: absolute;
+                  
+            }
+            & .SM_instagram{
+                left:85.68%;
+                top:3.24%;
+                width: 3.65%; 
+                height: 5.55%;
+              }
+              & .SM_tiktok{
+                left: 80.7%;
+                top: 5%;
+                width: 4.6%;
+                height: 5.6%;
+              }
+              & .SM_twitter{
+                left: 89.5%;
+                top: 5%;
+                width: 4.6%;
+                height: 5.6%;
+              }
+        }
+
+        & #chatbox_Container {
+            position: absolute;
+            width: 41%;
+            height: 64.56%;
+            top: 17.5%;
+            left: 30.30%;
+            background: repeating-linear-gradient(0deg, rgba(0, 255, 0, 0.07) -3px, transparent 2px);
+            border-radius: 10% / 13%;
+            transition: transform ease-in-out 0.20s;
+            transform: scaleY(0);            
+
+            & #chatbox {
+                width: calc(96% - 6px);
+                height: calc(96% - 40px);
+                margin: 2% 2% 0;
+                overflow: auto;
+                color: #FFF;
+                font-size: 1em;
+                line-height: 1.2em;
+                animation-duration: 0.05s;
+                animation-name: textflicker;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+                padding: 3%;
+                scrollbar-width: thin;
+                /* Standard scrollbar width property */
+                scrollbar-color: rgba(60, 60, 60, 0.2) transparent;
+                /* Standard scrollbar color property */
+
+            }
+
+            & strong {
+                font-weight: bold;
+            }
+
+            & p {
+                margin-bottom: 0.5em;
+                position: relative;
+                
+                &:last-of-type::after {
+                    content: "";
+                    width: 5px;
+                    height: 1rem;
+                    background: #ec7fff;
+                    display: inline-block;
+                    animation: cursor-blink 1.5s steps(2) infinite;
+                    position: absolute;
+                    bottom: 5px;
+                }
+            }
+            
+
+            & #chatbox::-webkit-scrollbar-track {
+                -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+                background-color: transparent;
+                border-radius: 0.75vw;
+            }
+
+            & #chatbox::-webkit-scrollbar {
+                width: 0.9vw;
+                border-radius: 0.75vw;
+                background-color: rgba(60, 60, 60, 0.2);
+            }
+
+            & #chatbox::-webkit-scrollbar-thumb {
+                border-radius: 0.75vw;
+                background-color: #FFF;
+                background-color: rgba(84, 222, 93, 0.3);
+            }
+
+        }
+    }
+}
+
+
+
+/*Text flicker animation */
+@keyframes textflicker {
+    from {
+      text-shadow: 0.5px 0 0 #bdea36, -1px 0 0 #75fa69;
+    }
+  
+    to {
+      text-shadow: 1px 0.3px 1px #bdea36, -1px -0.3px 1px #75fa69;
+    }
+  }
+  /* Ends text flicker animation */
+
+  @keyframes cursor-blink {
+    0% {
+      opacity: 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    /* CSS rules for mobile styles go here */
+  }
+  
+  /* Media Queries */
+  @media only screen and (max-width: 768px) {
+    html,body{
+      height: 100%;
+    }
+    
+    #sections_container{
+        top: 0;
+    }
+  
+    #terminal_Container{
+      
+      & #chatbox_Container {
+        
+        background: repeating-linear-gradient( 0deg, rgba(0,255,0, 0.07) -1px, transparent 1px) !important;
+  
+        & #chatbox {
+          font-size: 0.4em !important;
+          animation-direction: normal !important;
+        }
+        & #userInput{
+          height: 25px;
+          font-size: 0.5em !important;
+        }
+      }
+      
+    } 
+    #welcome_container {
+      background-size: 60% auto !important;
+    }
+  }
+  
+  @media (min-aspect-ratio: 16/9) {
+    #sections_container{
+      height: 100%;
+      width: auto;
+    }
+  }
