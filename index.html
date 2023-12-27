@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G02567D2BY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-G02567D2BY');
+  </script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
   <meta name="description" content="RantCPU" />
 
-  <title>Coming Soon</title>
+  <title>RantCPU</title>
 
   <link rel="shortcut icon" href="assets/favicon.ico" type="image/ico" />
   <link rel="stylesheet" href="css/reset.css">
@@ -18,10 +27,27 @@
     rel="stylesheet">
 </head>
 
-<body> 
+<body>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G02567D2BY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-  <div id="sections_container">
+    gtag('config', 'G-G02567D2BY');
+  </script>
+  <div id="main_Container" class="">
     <div id="terminal_Container">
+      <div id="terminalLight" class="terminalLight red hide"></div>
+      <div id="toggleSwitch" class="toggleSwitch hide"></div>
+      <div id="powerButton" class="powerButton hide"></div>
+      
+      <div id="chatButton" data-mood="Chat" class="mood chatButton hide"></div>
+      <div id="rantButton" data-mood="Rant" class="mood rantButton hide"></div>
+      <div id="puzzleButton" data-mood="Puzzle" class="mood puzzleButton hide"></div>
+      <div id="curiousButton" data-mood="Curious" class="mood curiousButton hide"></div>
+
       <div class="terminal_Container_Inputs">
         <a type="button" class="SM_tiktok" title="TikTok" target="_blank" href="https://www.tiktok.com/@rantcpu"></a>
         <a type="button" class="SM_instagram" title="Youtube" target="_blank"
@@ -30,18 +56,25 @@
       </div>
 
       <div id="chatbox_Container">
-        <div id="chatbox">  
-          
-        </div>        
-      </div>      
+        <div id="chatbox"></div>
+        <input id="userInput" type="text" class="hide"
+          onkeydown="if (event.key === 'Enter') generateResponse(this.value)" autofocus disabled/>
+      </div>
     </div>
     <div id="videoBackground"></div>
   </div>
   <!-- js -->
 
   <script src="https://player.vimeo.com/api/player.js"></script>
+  <script src="js/html5Preloader.js"></script>
+  <script src="js/typeText.js"></script>
+  <script src="js/initVideoBackground.js"></script>
 
-  <script src="js/script.js"></script>
+  <script src="js/rantCPUobj.js"></script>
+  <script src="js/blockElements.js"></script>
+  <script src="js/generateResponse.js"></script>
+  <script src="js/introChat.js"></script>
+  <script src="js/pressToStart.js"></script>
   <script src="js/script.js"></script>
 
 </body>
