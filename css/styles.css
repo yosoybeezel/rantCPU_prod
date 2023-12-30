@@ -43,6 +43,13 @@ html {
   background-repeat: no-repeat;
   transition: all 1.6s ease-out;
 
+<<<<<<< HEAD
+=======
+  &.fullHeight {
+    transform: scale(1.4);
+  }
+
+>>>>>>> d7f2f6fd5206689102d4af210c76b236118b6139
   & #terminal_Container {
     position: absolute;
     width: 100%;
@@ -68,12 +75,16 @@ html {
         border-radius: 10px;
         cursor: pointer;
         position: absolute;
+<<<<<<< HEAD
         box-shadow: 0 0 20px 10px rgba(181, 222, 84, 0.5)
+=======
+>>>>>>> d7f2f6fd5206689102d4af210c76b236118b6139
 
       }
 
       & .SM_instagram {
         left: 85.68%;
+<<<<<<< HEAD
         top: 3.5%;
         width: 3.65%;
         height: 5%;    
@@ -93,6 +104,25 @@ html {
         width: 3.2%;
         height: 5.6%;
         transform: rotate(15deg);
+=======
+        top: 3.24%;
+        width: 3.65%;
+        height: 5.55%;
+      }
+
+      & .SM_tiktok {
+        left: 80.7%;
+        top: 5%;
+        width: 4.6%;
+        height: 5.6%;
+      }
+
+      & .SM_twitter {
+        left: 89.5%;
+        top: 5%;
+        width: 4.6%;
+        height: 5.6%;
+>>>>>>> d7f2f6fd5206689102d4af210c76b236118b6139
       }
     }
 
@@ -105,13 +135,21 @@ html {
       background: repeating-linear-gradient(0deg, rgba(0, 255, 0, 0.07) -3px, transparent 2px);
       border-radius: 10% / 13%;
       transition: transform ease-in-out 0.20s;
+<<<<<<< HEAD
+=======
+      transform: scaleY(0);
+>>>>>>> d7f2f6fd5206689102d4af210c76b236118b6139
 
       & #chatbox {
         width: calc(96% - 6px);
         height: calc(96% - 40px);
         margin: 2% 2% 0;
+<<<<<<< HEAD
         overflow-y: auto;
         overflow-x: hidden;
+=======
+        overflow: auto;
+>>>>>>> d7f2f6fd5206689102d4af210c76b236118b6139
         color: #FFF;
         font-size: 1em;
         line-height: 1.2em;
@@ -135,7 +173,11 @@ html {
         margin-bottom: 0.5em;
         position: relative;
 
+<<<<<<< HEAD
         /* &:last-of-type::after {
+=======
+        &:last-of-type::after {
+>>>>>>> d7f2f6fd5206689102d4af210c76b236118b6139
           content: "";
           width: 5px;
           height: 1rem;
@@ -144,7 +186,11 @@ html {
           animation: cursor-blink 1.5s steps(2) infinite;
           position: absolute;
           bottom: 5px;
+<<<<<<< HEAD
         } */
+=======
+        }
+>>>>>>> d7f2f6fd5206689102d4af210c76b236118b6139
       }
 
 
@@ -266,6 +312,7 @@ html {
       
     }
   }
+<<<<<<< HEAD
 
   &.portraitMode{
     width: 100%;
@@ -297,6 +344,8 @@ html {
       }
     }
   }
+=======
+>>>>>>> d7f2f6fd5206689102d4af210c76b236118b6139
 }
 
 .hide {
@@ -307,11 +356,19 @@ html {
 /*Text flicker animation */
 @keyframes textflicker {
   from {
+<<<<<<< HEAD
     text-shadow: 0.3px 0 0.3px #bdea36, -0.3px 0 0.3px #75fa69;
   }
 
   to {
     text-shadow: 0.5px 0.3px 0.6px #bdea36, -0.5px -0.3px 0.6px #75fa69;
+=======
+    text-shadow: 0.5px 0 0 #bdea36, -1px 0 0 #75fa69;
+  }
+
+  to {
+    text-shadow: 1px 0.3px 1px #bdea36, -1px -0.3px 1px #75fa69;
+>>>>>>> d7f2f6fd5206689102d4af210c76b236118b6139
   }
 }
 
@@ -330,6 +387,7 @@ html {
 /* Media Queries */
 @media only screen and (max-width: 768px) {
 
+<<<<<<< HEAD
   #main_Container {
 
     #terminal_Container {
@@ -350,14 +408,50 @@ html {
         & #userInput {
           height: 24px !important;
         }
+=======
+  html,
+  body {
+    height: 100%;
+  }
+
+  #main_Container {
+    top: 0;
+  }
+
+  #terminal_Container {
+
+    & #chatbox_Container {
+
+      background: repeating-linear-gradient(0deg, rgba(0, 255, 0, 0.07) -1px, transparent 1px) !important;
+
+      & #chatbox {
+        font-size: 0.4em !important;
+        animation-direction: normal !important;
+      }
+
+      & #userInput {
+        height: 25px;
+        font-size: 0.5em !important;
+>>>>>>> d7f2f6fd5206689102d4af210c76b236118b6139
       }
     }
+
   }
+<<<<<<< HEAD
 }
  
 
 
 @media (min-aspect-ratio: 16 / 9) {
+=======
+
+  #welcome_container {
+    background-size: 60% auto !important;
+  }
+}
+
+@media (min-aspect-ratio: 16/9) {
+>>>>>>> d7f2f6fd5206689102d4af210c76b236118b6139
   #main_Container {
     height: 100%;
     width: auto;

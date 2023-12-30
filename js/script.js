@@ -24,9 +24,12 @@ const switchButtonSound = new Audio("./assets/MA_Betacut_SwitchButton_11.wav");
 const powerButtonSound = new Audio("./assets/MA_Betacut_SwitchButton_10.wav");
 const closeButtonSound = new Audio("./assets/MA_Betacut_SwitchButton_7.wav");
 const targetButtonSound = new Audio("./assets/Old Industria Clicks-002.wav");
+<<<<<<< HEAD
 const videoBackgroundContainer = document.getElementById('videoBackground');
 const videoBackgroundPortraitContainer = document.getElementById('videoBackgroundPortrait');
 let isMobile = false;
+=======
+>>>>>>> d7f2f6fd5206689102d4af210c76b236118b6139
 
 // Set the volume of each audio element to 0.3 (30% volume)
 pressToStartSound.volume = moodButtonSound.volume = switchButtonSound.volume = powerButtonSound.volume = closeButtonSound.volume = targetButtonSound.volume = 0.3;
@@ -36,6 +39,7 @@ let isWelcome = true;
 // Start
 // Event triggered by html5Preloader when assets have been loaded
 rantCPULoader.on('finish', async ()=> {
+<<<<<<< HEAD
     main_Container.classList.remove('hide');
     videoBackgroundContainer.classList.remove('hide');
     initVideo();
@@ -57,4 +61,11 @@ rantCPULoader.on('finish', async ()=> {
     // }
     
     
+=======
+    initVideo();
+    chatbox_Container.style.transform = 'scaleY(1)';
+    await typeText(chatbox,'Press any key to start.');    
+    document.addEventListener("keypress", pressToStart);
+    
+>>>>>>> d7f2f6fd5206689102d4af210c76b236118b6139
 });

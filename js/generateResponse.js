@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 let isEmail;
 const generateResponse = async (input)=>{
     
@@ -44,6 +45,19 @@ const generateResponse = async (input)=>{
         emailSequence = false;
         return;
     }
+=======
+const generateResponse = async (input)=>{
+    if (input.length == 0) {        
+        return;
+    }
+
+    input = input.toLowerCase().replace(/'/g, ''); // Remove apostrophes
+    userInput.value = ""; // Clear the text field
+    
+    // user types
+    chatbox.innerHTML += "<p class='user'><strong>> You:</strong> " + input + "</p>";
+    chatbox.scrollTop = chatbox.scrollHeight; // Scroll to the bottom
+>>>>>>> d7f2f6fd5206689102d4af210c76b236118b6139
 
     if(isIntro){
         isIntro = false;
