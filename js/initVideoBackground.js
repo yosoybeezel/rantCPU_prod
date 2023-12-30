@@ -25,6 +25,7 @@ async function initVideo() {
 
         setTimeout(async () => {
             await typeText(chatbox,'Press any key or tap here to start.');
+            
             document.addEventListener("keypress", pressToStart);
         }, 400);
         
@@ -93,134 +94,140 @@ async function initVideo() {
                 videoBackground.pause();
                 videoBackground.setCurrentTime(0);
                 terminal_Container.classList.remove('hide');
-                setTimeout(()=>{
-                    
-                    if(isIntro){
+                                    
+                if(isIntro){
+                    setInterval(() => {
                         isIntro = false;
-                        introChat();
-                    }
-                },250)
+                        introChat();    
+                    }, 250);
+                    
+                }                
                 
             break;
             case 'moodSad':
                 videoBackground.pause();
                 videoBackground.setCurrentTime(0);
                 terminal_Container.classList.remove('hide');
-                setTimeout(()=>{
+                
                     
-                    if(isIntro){
+                if(isIntro){
+                    setTimeout(() => {
                         isIntro = false;
                         introChat();
-                    }
-                },250)
+                    }, 250);
+                    
+                }
+                
             break;
             case 'moodHostile':
                 videoBackground.pause();
                 videoBackground.setCurrentTime(0);
                 terminal_Container.classList.remove('hide');
-                setTimeout(()=>{
-                    
-                    if(isIntro){
+                
+                if(isIntro){
+                    setTimeout(() => {
                         isIntro = false;
                         introChat();
-                    }
-                },250)
+                    }, 250);
+                    
+                }
             break;
             case 'moodHorny':
                 videoBackground.pause();
                 videoBackground.setCurrentTime(0);
                 terminal_Container.classList.remove('hide');
-                setTimeout(()=>{
+                
                     
-                    if(isIntro){
+                if(isIntro){
+                    setTimeout(() => {
                         terminalLight.classList.remove('hide');
                         curiousButton.classList.remove('hide');
                         isIntro = false;
-                        introChat();
-                    }
-                },250)
+                        introChat();    
+                    }, 250);
+                    
+                }
+                
             break;
             case 'gestureOne':
                 videoBackground.pause();
                 videoBackground.setCurrentTime(0);
                 terminal_Container.classList.remove('hide');
-                setTimeout(()=>{
+                
                     
-                    if(isIntro){
+                if(isIntro){
+                    setTimeout(() => {
                         isIntro = false;
                         introChat();
-                        return;
-                    }
-                    userInput.focus();
-                },250)
+                        return;    
+                    }, 250);
+                    
+                }
+                userInput.focus();
+                
             break;
             case 'gestureTwo':
                 videoBackground.pause();
                 videoBackground.setCurrentTime(0);
                 terminal_Container.classList.remove('hide');
-                setTimeout(()=>{
-                    
-                    if(isIntro){
+                if(isIntro){
+                    setTimeout(() => {
                         isIntro = false;
                         introChat();
-                        return;
-                    }
-                    userInput.focus();
-                },250)
+                        return;    
+                    }, 250);
+                    
+                }
+                userInput.focus();
             break;
             case 'gestureThree':
                 videoBackground.pause();
                 videoBackground.setCurrentTime(0);
                 terminal_Container.classList.remove('hide');
-                setTimeout(()=>{
-                    
-                    if(isIntro){
+                if(isIntro){
+                    setTimeout(() => {
                         isIntro = false;
                         introChat();
-                        return;
-                    }
-                    userInput.focus();
-                },250)
+                        return;    
+                    }, 250);
+                    
+                }
+                userInput.focus();
             break;
             case 'gestureFour':
                 videoBackground.pause();
                 videoBackground.setCurrentTime(0);
                 terminal_Container.classList.remove('hide');
-                setTimeout(()=>{
-                    
-                    if(isIntro){
+                if(isIntro){
+                    setTimeout(() => {
                         isIntro = false;
                         introChat();
-                        return;
-                    }
-                    userInput.focus();
-                },250)
+                        return;    
+                    }, 250);
+                    
+                }
+                userInput.focus();
             break;
 
             case 'emailSucces':
                 videoBackground.pause();
                 videoBackground.setCurrentTime(0);
                 terminal_Container.classList.remove('hide');
-
                 setTimeout(async () => {
 
-                    setTimeout(async () => {
-
-                        if(isIntro){
+                    if(isIntro){
+                    
+                        await rantCPUResponse('gotEmail','email');
                         
-                            await rantCPUResponse('gotEmail','email');
+                        setTimeout(() => {
+                            isIntro = false;
+                            blockElements(true);
                             
-                            setTimeout(() => {
-                                isIntro = false;
-                                blockElements(true);
-                                
-                                introChat();
-                            }, 1200);
-                            emailSequence = false;
-                            
-                        }
-
-                    }, 600);
+                            introChat();
+                        }, 1200);
+                        emailSequence = false;
+                        
+                    }
 
                 }, 600);
 

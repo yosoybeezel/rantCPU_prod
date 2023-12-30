@@ -19,24 +19,18 @@ const introChat = async (input) => {
         case 1:
             await typeText(chatbox, rantCPUobj.initDialog_01);
             setTimeout(() => {
-
-                setTimeout(() => {
-                    terminal_Container.classList.add('hide');
-                    videoBackground.setCurrentTime(96.0);
-                    videoBackground.play();
-                }, 1000);
-            }, 1500);
+                terminal_Container.classList.add('hide');
+                videoBackground.setCurrentTime(96.0);
+                videoBackground.play();
+            }, 1000);
             break;
         case 2:
             await typeText(chatbox, rantCPUobj.initDialog_02);
             setTimeout(() => {
-
-                setTimeout(() => {
-                    terminal_Container.classList.add('hide');
-                    videoBackground.setCurrentTime(15.7);
-                    videoBackground.play();
-                }, 1000);
-            }, 1500);
+                terminal_Container.classList.add('hide');
+                videoBackground.setCurrentTime(15.7);
+                videoBackground.play();
+            }, 1000);
             break;
         case 3:
             await typeText(chatbox, rantCPUobj.initDialog_03);
