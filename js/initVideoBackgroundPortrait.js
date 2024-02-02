@@ -14,12 +14,7 @@ async function initVideoMobile() {
     videoBackgroundPortrait.on('loaded', async () => {
         videoBackgroundPortrait.setVolume(1);
         videoBackgroundPortrait.pause();
-        userInput.classList.remove('hide');       
 
-        setTimeout(async () => {
-            await typeText(chatbox,'Press any key or tap here to start.');
-            document.addEventListener("keypress", pressToStart);
-        }, 400);
         
     });
     

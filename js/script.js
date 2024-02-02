@@ -16,33 +16,50 @@ let rantCPULoader = html5Preloader(
     './assets/Old Industria Clicks-002.wav',
     './assets/Old Industria Clicks-003.wav',
     './assets/580122__annyew__confirm-button-2.wav'
-    );
+);
 
-    // Audio elements for buttons
-const moodButtonSound = new Audio("./assets/MA_Betacut_SwitchButton_12.wav");
-const switchButtonSound = new Audio("./assets/MA_Betacut_SwitchButton_11.wav");
-const powerButtonSound = new Audio("./assets/MA_Betacut_SwitchButton_10.wav");
+// Audio elements for buttons
 const closeButtonSound = new Audio("./assets/MA_Betacut_SwitchButton_7.wav");
+const powerButtonSound = new Audio("./assets/MA_Betacut_SwitchButton_10.wav");
+const switchButtonSound = new Audio("./assets/MA_Betacut_SwitchButton_11.wav");
+const moodButtonSound = new Audio("./assets/MA_Betacut_SwitchButton_12.wav");
 const targetButtonSound = new Audio("./assets/Old Industria Clicks-002.wav");
+const targetLightSound = new Audio("./assets/Old Industria Clicks-003.wav");
+
+const SM_instagram = document.getElementById('SM_instagram');
+const SM_tiktok = document.getElementById('SM_tiktok');
+const SM_twitter = document.getElementById('SM_twitter');
+const userInput = document.getElementById('userInput');
+
+let submitTargetCount = 0;
+let confirmSubmit = false;
+
 const videoBackgroundContainer = document.getElementById('videoBackground');
 const videoBackgroundPortraitContainer = document.getElementById('videoBackgroundPortrait');
-let isMobile = false;
 
 // Set the volume of each audio element to 0.3 (30% volume)
 pressToStartSound.volume = moodButtonSound.volume = switchButtonSound.volume = powerButtonSound.volume = closeButtonSound.volume = targetButtonSound.volume = 0.3;
 
-let isWelcome = true;
+let isMobile = false;
 
+
+function initRantCPU(){
+    
+}
 // Start
 // Event triggered by html5Preloader when assets have been loaded
-rantCPULoader.on('finish', async ()=> {
+rantCPULoader.on('finish', async () => {
     main_Container.classList.remove('hide');
     videoBackgroundContainer.classList.remove('hide');
     initVideo();
+    await checkSession();
+    
+
+
     // isMobile = await detectDevice();
-    
+
     // lockPageToPortrait();
-    
+
     // if(isMobile){
     //     console.log('isMobile')
     //     videoBackgroundPortraitContainer.classList.remove('hide');
@@ -55,6 +72,6 @@ rantCPULoader.on('finish', async ()=> {
     //     videoBackgroundContainer.classList.remove('hide');
     //     initVideo();
     // }
-    
-    
+
+
 });
