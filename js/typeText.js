@@ -6,14 +6,7 @@ function sleep(ms) {
 
 async function typeText(element, text) {
 
-    if(isWelcome){
-        chatbox.innerHTML += "<p id='btnStart' class='assistant' onClick='pressToStart()'><strong>> RantCPU: </strong></p>";
-        isWelcome = false;
-        
-    } else{
-        chatbox.innerHTML += "<p class='assistant'><strong>> RantCPU: </strong></p>";
-        
-    }    
+    chatbox.innerHTML += "<p class='assistant'><strong>> RantCPU: </strong></p>";
 
     const lastChild = element.lastChild;
 
@@ -27,5 +20,5 @@ async function typeText(element, text) {
         element.scrollTop = element.scrollHeight; // Scroll to the bottom
         resolve(); // Resolve the promise once typing is complete
     });
-
+    
 }

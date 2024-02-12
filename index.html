@@ -13,25 +13,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
 
-<!-- SEO Meta Tags -->
-<meta name="description" content="It's THE END OF THE WORLD AS WE KNOW IT… AND A NEW A.I. Chatbot named RantCPU, Feels Fine.">
-<meta name="author" content="RantCPU">
-<meta name="keywords" content="rantcpu, chatbot, nfts">
+  <!-- SEO Meta Tags -->
+  <meta name="description"
+    content="It's THE END OF THE WORLD AS WE KNOW IT… AND A NEW A.I. Chatbot named RantCPU, Feels Fine.">
+  <meta name="author" content="RantCPU">
+  <meta name="keywords" content="rantcpu, chatbot, nfts">
 
-<link rel="canonical" href="https://rantcpu.com">
+  <link rel="canonical" href="https://rantcpu.com">
 
-<!-- OG Meta Tags to improve the way the post looks when you share the page on Facebook, Twitter, LinkedIn -->
-<meta property="og:site_name" content="rantcpu.com a new A.I. Chatbot" /> <!-- website name -->
-<meta property="og:site" content="https://rantcpu.com/" /> <!-- website link -->
-<meta property="og:title" content="It's THE END OF THE WORLD AS WE KNOW IT…" /> <!-- title shown in the actual shared post -->
-<meta property="og:description" content="It's THE END OF THE WORLD AS WE KNOW IT… AND A NEW A.I. Chatbot named RantCPU, Feels Fine." /> <!-- description shown in the actual shared post -->
-<meta property="og:image" content="assets/rantCPU_com.jpg" /> <!-- image link, make sure it's jpg -->
-<meta property="og:url" content="https://rantcpu.com/" /> <!-- where do you want your post to link to -->
+  <!-- OG Meta Tags to improve the way the post looks when you share the page on Facebook, Twitter, LinkedIn -->
+  <meta property="og:site_name" content="rantcpu.com a new A.I. Chatbot" /> <!-- website name -->
+  <meta property="og:site" content="https://rantcpu.com/" /> <!-- website link -->
+  <meta property="og:title" content="It's THE END OF THE WORLD AS WE KNOW IT…" />
+  <!-- title shown in the actual shared post -->
+  <meta property="og:description"
+    content="It's THE END OF THE WORLD AS WE KNOW IT… AND A NEW A.I. Chatbot named RantCPU, Feels Fine." />
+  <!-- description shown in the actual shared post -->
+  <meta property="og:image" content="assets/rantCPU_com.jpg" /> <!-- image link, make sure it's jpg -->
+  <meta property="og:url" content="https://rantcpu.com/" /> <!-- where do you want your post to link to -->
 
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="It's THE END OF THE WORLD AS WE KNOW IT…">
-<meta name="twitter:description" content="It's THE END OF THE WORLD AS WE KNOW IT… AND A NEW A.I. Chatbot named RantCPU, Feels Fine.">
-<meta name="twitter:image" content="assets/rantCPU_com.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="It's THE END OF THE WORLD AS WE KNOW IT…">
+  <meta name="twitter:description"
+    content="It's THE END OF THE WORLD AS WE KNOW IT… AND A NEW A.I. Chatbot named RantCPU, Feels Fine.">
+  <meta name="twitter:image" content="assets/rantCPU_com.jpg">
 
 
   <title>RantCPU</title>
@@ -47,36 +52,73 @@
 </head>
 
 <body>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G02567D2BY"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-G02567D2BY');
-  </script>
+  <div id="startBtnContainer" class="hide">
+    <span id="btnStart" onClick='pressToStart()'> > Press any key to START</span>
+  </div>
   <div id="main_Container" class="main_Container hide">
-    <div id="terminal_Container">
-      <div id="terminalLight" class="terminalLight red hide"></div>
+    <div id="rantBytesContainer" class="">
+      <div id="rantBytesPlayer"></div>
+      <div id="rantBytesPlayerBackground"></div>
+    </div>
+
+    <input type="button" class="pimpleBtn hide" id="pimpleBtn" title="POP MY PIMPLE!" onclick="popMyPimple()" />
+
+    <div id="terminal_Container" class="hide">
+      <div id="terminalLight" class="terminalLight green"></div>
       <div id="toggleSwitch" class="toggleSwitch hide"></div>
       <div id="powerButton" class="powerButton hide"></div>
-      
-      <div id="chatButton" data-mood="Chat" class="mood chatButton hide"></div>
-      <div id="rantButton" data-mood="Rant" class="mood rantButton hide"></div>
-      <div id="puzzleButton" data-mood="Puzzle" class="mood puzzleButton hide"></div>
-      <div id="curiousButton" data-mood="Curious" class="mood curiousButton hide"></div>
+
+      <div id="chatButton" data-mood="Chat" class="mood chatButton green hide"></div>
+      <div id="rantButton" data-mood="Rant" class="mood rantButton red hide"></div>
+      <div id="puzzleButton" data-mood="Puzzle" class="mood puzzleButton orange hide"></div>
+      <div id="curiousButton" data-mood="Curious" class="mood curiousButton yellow hide"></div>
 
       <div id="terminal_Container_Inputs" class="terminal_Container_Inputs">
         <a type="button" id="SM_tiktok" class="SM_tiktok" title="TikTok" target="_blank" href="https://www.tiktok.com/@rantcpu"></a>
         <a type="button" id="SM_instagram" class="SM_instagram" title="Youtube" target="_blank" href="https://www.youtube.com/@RantCPU/"></a>
         <a type="button" id="SM_twitter" class="SM_twitter" title="Twitter / X" target="_blank" href="https://twitter.com/RantCPU"></a>
+        
+        <input type="button" id="bt_service" class="bt_service" title="SERVICE" onclick="openDefragg()" />
+        <input type="button" id="bt_power" class="bt_power" title="POWER" onclick="tryToShutOff()" />
+        
+        <input type="button" class="moodBtn" id="btnChat" data-btn="chatButton" title="Chat" onclick="handleClick(this)" />
+        <input type="button" class="moodBtn" id="btnRant" data-btn="rantButton" title="Rant" onclick="handleClick(this)" />
+        <input type="button" class="moodBtn" id="btnPuzzle" data-btn="puzzleButton" title="Puzzle" onclick="handleClick(this)" />
+        <input type="button" class="moodBtn" id="btnCurious" data-btn="curiousButton" title="Curious" onclick="handleClick(this)" />
+        
+        <input type="button" id="bt_submit_Target" class="bt_submit_Target" title="Submit Target?"
+          onclick="askSubmitTarget()" />
       </div>
 
       <div id="chatbox_Container">
+        <div id="simonScore" class="hide">
+          <div>
+            <span>HI SCORE</span>
+            <span id="hiScore">0</span>
+          </div>
+          <div>
+            <span>SCORE</span>
+            <span id="score">0</span>
+          </div>
+        </div>
         <div id="chatbox"></div>
-        <input id="userInput" type="text" class="hide"
-          onkeydown="if (event.key === 'Enter') generateResponse(this.value)" autofocus disabled/>
+        <input id="userInput" type="text" class=""
+          onkeydown="if (event.key === 'Enter') generateResponse(this.value)" autofocus  />
+      </div>
+
+      <div id="defrag_Container" class="hide"></div>
+
+      <div id="defrag_Container_Inputs" class="defrag_Container_Inputs hide">
+        <div id="liteBriteContainer" class="hide"></div>
+
+        <div id="buttonsBriteLite" class="hide">
+          <a id="clearBriteLite" type="button" onclick="resetGrid()">Clear</a>
+        </div>
+
+        <input type="button" id="bt_Close_Defrag" class="bt_Close_Defrag " title="Close panel"
+          onclick="closeDefragg()" />
+        <input type="button" id="btDefragPanel" class="" title="Defrag panel" onclick="defraggPanel()" />
+
       </div>
     </div>
     <div id="videoBackgroundPortrait" class="hide"></div>
@@ -85,16 +127,27 @@
   <!-- js -->
 
   <script src="https://player.vimeo.com/api/player.js"></script>
+  <script src="js/cookies.js"></script>
   <script src="js/html5Preloader.js"></script>
   <script src="js/string-similarity.min.js"></script>
   <script src="js/typeText.js"></script>
   <script src="js/initVideoBackground.js"></script>
   <script src="js/initVideoBackgroundPortrait.js"></script>
+  <script src="js/rantBytes.js"></script>
 
   <script src="js/rantCPUobj.js"></script>
-
+  <script src="js/greet.js"></script>
+  <script src="js/introSequence.js"></script>
+  <script src="js/submitTarget.js"></script>
+  <script src="js/isSubmitTarget.js"></script>
+  <script src="js/handleClick.js"></script>
+  <script src="js/capitalize.js"></script>
+  <script src="js/liteBrite.js"></script>
+  <script src="js/isSubmitTarget.js"></script>
+  <script src="js/tryToShutOff.js"></script>
   <script src="js/compareStrings.js"></script>
   <script src="js/isMobile.js"></script>
+  <script src="js/simonSays.js"></script>
   <script src="js/deviceOrientation.js"></script>
   <script src="js/checkIfEmail.js"></script>
   <script src="js/captureEmail.js"></script>
