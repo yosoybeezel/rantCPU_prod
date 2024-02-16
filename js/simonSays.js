@@ -21,10 +21,10 @@ async function startGame() {
     blockElements(true);
     chatbox.classList.add('simonOn');
     
-    bt_power.classList.add('hide');
-    bt_submit_Target.classList.add('hide');
-    bt_service.classList.add('hide');
-    userInput.classList.add('hide');
+    // bt_power.classList.add('hide');
+    // bt_submit_Target.classList.add('hide');
+    // bt_service.classList.add('hide');
+    // userInput.classList.add('hide');
 
     let userHiScore = localStorage.getItem("simonSaysMaxScore");
     simonScore.classList.remove('hide');
@@ -35,10 +35,13 @@ async function startGame() {
         button.classList.add('hide');
     });
 
+    puzzleButton.classList.remove('hide');
+
     chatbox.innerHTML = '';
     let simonSaysIntroCount = Number(localStorage.getItem("simonSaysIntroCount"));
     await typeText(chatbox, rantCPUobj.simonSaysIntro[simonSaysIntroCount]);
-    await typeText(chatbox, rantCPUobj.simonSaysBeckon[0])
+    // await typeText(chatbox, rantCPUobj.simonSaysBeckon[0])
+    await typeText(chatbox, rantCPUobj.simonSaysConfirm[0])
     simonSaysIntroCount += 1;
 
     if (simonSaysIntroCount == rantCPUobj.simonSaysIntro.length) {
@@ -51,8 +54,13 @@ async function startGame() {
     userSequence = [];
     round = 0;
     gameOn = true;
-    blockElements(true);
-    nextRound();
+    
+    userInput.disabled = false;
+    userInput.classList.remove('disabled');
+    userInput.focus();
+
+    // blockElements(true);
+    // nextRound();
     
 }
 function nextRound() {
@@ -78,7 +86,7 @@ function showColors(sequence) {
             clearInterval(intervalId);
             blockElements(false);
         }
-    }, 1000);
+    }, 800);
     
 }
 
@@ -108,13 +116,12 @@ async function checkSequence() {
     
     for (let i = 0; i < userSequence.length; i++) {
         if (userSequence[i] !== sequence[i]) {
+            blockElements(true);
             gameOn = false;
             gameOverAudio.play();
             let simonSaysGameOverCount = Number(localStorage.getItem("simonSaysGameOverCount"));
             let userHiScore = Number(localStorage.getItem("simonSaysMaxScore"));
-            
-            // const result = `Game Over! You reached round ${round}.`
-            
+                        
             if(round > userHiScore){
                 hiScore.innerHTML = round;
                 localStorage.setItem("simonSaysMaxScore", round);
@@ -122,7 +129,7 @@ async function checkSequence() {
             
             simonSaysGameOverCount += 1;
 
-            if (simonSaysGameOverCount == rantCPUobj.simonSaysGameOver.length) {
+            if (simonSaysGameOverCount >= rantCPUobj.simonSaysGameOver.length) {
 
                 simonSaysGameOverCount = 0;
             }
@@ -130,13 +137,33 @@ async function checkSequence() {
             localStorage.setItem("simonSaysGameOverCount", simonSaysGameOverCount);
             
             gameOver();
+            return;
         }
     }
     if (userSequence.length === sequence.length) {
         round++;
         setTimeout(() => {
             score.innerHTML = round;
+            scorePoint.play();
             nextRound();
-        }, 1000);
+        }, 500);
     }
+}
+
+async function endGame(){
+    
+    gameOn = false;
+    gameOverAudio.play();
+    simonScore.classList.add('hide');
+    chatbox.classList.remove('simonOn');
+    score.innerHTML = '0';
+    chatbox.innerHTML = '';
+    await typeText(chatbox, rantCPUobj.simonSaysCanceled[0]);
+
+    setTimeout(() => {
+        chatMode();
+    }, 500);
+    
+    
+
 }

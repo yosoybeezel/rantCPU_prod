@@ -1,7 +1,7 @@
 const defrag_Container_Inputs = document.getElementById('defrag_Container_Inputs');
 
 function blockElements(bool) {
-    console.log(bool)
+    
     // Select all input elements
     const inputs = document.querySelectorAll('input');
     
@@ -21,3 +21,8 @@ function blockElements(bool) {
     }      
     
 };
+
+function blockElementsNotUserInput(bool){
+
+
+}

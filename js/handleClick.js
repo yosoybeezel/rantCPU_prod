@@ -2,13 +2,7 @@ function handleClick(button) {
     
     const dataBtnValue = button.getAttribute('data-btn');
     const showButton = document.getElementById(dataBtnValue);
-    powerButtonSound.play();
-    
-    if(dataBtnValue == 'puzzleButton' && !gameOn){
-        startGame();
-        return;
-    }
-
+        
     if(gameOn){
         switch (dataBtnValue) {
             case 'chatButton':
@@ -37,17 +31,18 @@ function handleClick(button) {
 
         return;
     } else{
+        pressModeButton.play();
         
         switch (dataBtnValue) {
             case 'chatButton':
-                chatMode();       
+                chatMode();
                 break;
             case 'rantButton':
                 blockElements(true)
                 rantMode();
                 break;
             case 'puzzleButton':
-                
+                startGame();
                 break;
             case 'curiousButton':
                 askSubmitTarget();
@@ -60,8 +55,9 @@ function handleClick(button) {
        
 }
 
-function chatMode(){
+async function chatMode(){
     
+    blockElements(true);
     const buttons = document.getElementsByClassName('mood');
     
     Array.from(buttons).forEach(button => {
@@ -69,6 +65,10 @@ function chatMode(){
     });
 
     chatButton.classList.remove('hide');
+    chatbox.innerHTML = '';
+
+    await typeText(chatbox, rantCPUobj.inciteChat[0]);
+
     blockElements(false);
 
 }

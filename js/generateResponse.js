@@ -5,13 +5,22 @@ const generateResponse = async (input) => {
     if (input === '') {
         return;
     }
+    
+    blockElements(true);
 
     input = input.toLowerCase().replace(/'/g, ''); // Remove apostrophes
     userInput.value = ""; // Clear the text field
-    blockElements(true);
+    
     // // user types
     chatbox.innerHTML += "<p class='user'><strong>> You:</strong> " + input + "</p>";
     chatbox.scrollTop = chatbox.scrollHeight; // Scroll to the bottom
+    
+    const isEmail = await checkIfEmail(input);
+
+    if (isEmail) {
+      captureEmail(input);
+      return;
+    }
 
     switch (input) {
         case 'first gesture':
@@ -51,13 +60,40 @@ const generateResponse = async (input) => {
             return;
             break;
     }
-
     
-    if (isSubmitTarget) {
+    if(gameOn){
+        const typeOfResponse = await getTypeOfResponse(input);
+        
+        switch(typeOfResponse){
+            case 'positive':
+                // console.log('positive');
+                puzzleButton.classList.add('hide');
+                chatbox.innerHTML = '';
+                await typeText(chatbox,rantCPUobj.simonSaysBeckon[0]);
+                bt_power.classList.add('hide');
+                bt_submit_Target.classList.add('hide');
+                bt_service.classList.add('hide');
+                userInput.classList.add('hide');
+                nextRound();
+                break;
+            case 'negative':
+                // console.log('negative');
+                await endGame();
+                // chatMode();
+                break;
+            case 'another':
+                // console.log('another');
+                await endGame();
+                // chatMode();
+                break;
+        }
+        
+        return;
+    }
 
+    if (isSubmitTarget) {
         submitTargetTrue(input);
         return;
-
     }
     
     if (confirmSubmit) {
@@ -81,7 +117,7 @@ const generateResponse = async (input) => {
 
     let bestMatch = { key: null, response: null, score: -1 };
 
-    const responses = rantCPUobj.happy.responses;
+    const responses = rantCPUobj.chat.responses;
 
 
     for (let key in responses) {
@@ -110,9 +146,10 @@ const generateResponse = async (input) => {
 
         dontKnowReply = dontKnow[Math.floor(Math.random() * dontKnow.length)]
 
-        const sorryResponse = dontKnowReply + "\"" + randomString + "\"";
+        // const sorryResponse = dontKnowReply + "\"" + randomString + "\"";
+        
 
-        await typeText(chatbox, sorryResponse);
+        await typeText(chatbox, dontKnowReply);
 
 
     }

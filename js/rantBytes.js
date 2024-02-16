@@ -31,7 +31,7 @@ async function rantBytes() {
     rantBytesVideo = new Vimeo.Player('rantBytesPlayer', optionsRantbytes);
 
     rantBytesVideo.on('loaded', function(){
-        console.log('rantbyte loaded');
+        // console.log('rantbyte loaded');
         rantBytesContainer.classList.add('visible');
         rantBytesContainer.classList.remove('hide');
         rantBytesVideo.setVolume(1);

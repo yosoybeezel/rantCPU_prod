@@ -30,9 +30,9 @@ async function checkSession() {
     session = getCookie("session");
 
     if (!session) {
-        console.log('first time')
+        
         session = true;
-        console.log('first time')
+        
         setCookie("session", true, 365);
         localStorage.setItem("welcomeMessageCount",0);
         localStorage.setItem("askSubmitTargetCount",0);
@@ -40,9 +40,13 @@ async function checkSession() {
         localStorage.setItem("simonSaysIntroCount", 0);
         localStorage.setItem("simonSaysMaxScore", 0);
         localStorage.setItem("dontSubmitMessageCount", 0);
+        localStorage.setItem("emailSubmitedCount",0)
 
     } else {    
-        console.log('not first time');
+        
+        if(!localStorage.getItem("emailSubmitedCount")){
+            localStorage.setItem("emailSubmitedCount",0)
+        }
         if(!localStorage.getItem("dontSubmitMessageCount")){
             localStorage.setItem("dontSubmitMessageCount",0);
         } 

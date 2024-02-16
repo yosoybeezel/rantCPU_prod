@@ -193,6 +193,7 @@ html {
       background: repeating-linear-gradient(0deg, rgba(0, 255, 0, 0.07) -3px, transparent 2px);
       border-radius: 10% / 13%;
       transition: transform ease-in-out 0.20s;
+      transform: scaleY(0);
 
       & #simonScore{
         text-align: right;
@@ -239,7 +240,7 @@ html {
         /* Standard scrollbar color property */
         
         &.simonOn{
-          height: calc(96% - 55px);
+          height: calc(96% - 70px);
         }
       }
 

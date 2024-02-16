@@ -23,7 +23,7 @@ async function initVideo() {
 
     videoBackground.on('loaded', () => {
         document.addEventListener("keypress", pressToStart);
-        console.log('video loaded'); 
+        // console.log('video loaded'); 
         startBtnContainer.classList.remove('hide');
         main_Container.classList.remove('hide');
         videoBackgroundContainer.classList.remove('hide');       
@@ -48,7 +48,7 @@ async function initVideo() {
         await addCuePoint(videoBackground, 15.3, 'terminalClose');
         await addCuePoint(videoBackground, 21.7, 'targetSuccessful');
         await addCuePoint(videoBackground, 31.0, 'tryToClose');
-        await addCuePoint(videoBackground, 35.5, 'moodHappy');
+        await addCuePoint(videoBackground, 35.7, 'moodHappy');
         await addCuePoint(videoBackground, 39.8, 'moodSad');
         await addCuePoint(videoBackground, 44.0, 'moodHostile');
         await addCuePoint(videoBackground, 48.3, 'moodHorny');
@@ -65,13 +65,15 @@ async function initVideo() {
         await addCuePoint(videoBackground, 94.9, 'goodbye');
         await addCuePoint(videoBackground, 97.4, 'worriedSmile');
         await addCuePoint(videoBackground, 107, 'pimple');
-        await addCuePoint(videoBackground, 122, 'rantMode');
+        await addCuePoint(videoBackground, 122.2, 'rantMode');
         await addCuePoint(videoBackground, 134.0, 'gameOver');
         await addCuePoint(videoBackground, 140.2, 'notesOne');
         await addCuePoint(videoBackground, 146.2, 'notesTwo');
         await addCuePoint(videoBackground, 152.2, 'notesThree');
         await addCuePoint(videoBackground, 156.1, 'greenGlow');
-        await addCuePoint(videoBackground, 160.8, 'goldenGlow');
+        await addCuePoint(videoBackground, 160.6, 'goldenGlow');
+        await addCuePoint(videoBackground, 169.4, 'matrix');
+        await addCuePoint(videoBackground, 180.0, 'nukeJoke');
     } catch (error) {
         
     }
@@ -117,8 +119,28 @@ async function initVideo() {
             case 'targetSuccessful':
                 videoBackground.pause();
                 videoBackground.setCurrentTime(0);
-
                 terminal_Container.classList.remove('hide');
+
+                chatbox_Container.style.transform = 'scaleY(1)';
+                
+                setTimeout(async() => {
+                    await typeText(chatbox, foundTargetResponse);
+                    await typeText(chatbox, rantCPUobj.targetSuccessful[0]);
+                    
+                    terminalLight.classList.add('red');
+        
+                    confirmSubmit = false;
+                    isSubmitTarget = false;
+    
+                    setTimeout(() => {
+                        chatMode();    
+                    }, 1000);    
+                }, 500);
+
+                
+                
+
+                
 
                 break;
 
@@ -160,9 +182,14 @@ async function initVideo() {
                 
                 if(isIntro){
                     isIntro = false;
-                    greet();
-                    chatButton.classList.remove('hide');
-                    toggleSwitch.classList.remove('hide');
+                    setTimeout(() => {
+                        chatbox_Container.style.transform = 'scaleY(1)';
+                        
+                        greet();
+                        // idleFunction();
+                        chatButton.classList.remove('hide');
+                        toggleSwitch.classList.remove('hide');
+                    }, 300);
                 }      
 
                 break;
@@ -227,13 +254,19 @@ async function initVideo() {
             case 'emailSucces':
                 videoBackground.pause();
                 videoBackground.setCurrentTime(0);
-
+                let emailSubmitedCount = Number(localStorage.getItem("emailSubmitedCount"));
 
                 setTimeout(async () => {
-                    terminal_Container.classList.remove('hide');
-                    await rantCPUResponse('gotEmail', 'email');
-
-                    emailSequence = false;
+                    terminal_Container.classList.remove('hide');                    
+                    await typeText(chatbox, rantCPUobj.emailSubmited[emailSubmitedCount]);
+                    emailSubmitedCount += 1;
+                    if (emailSubmitedCount == rantCPUobj.emailSubmited.length) {
+                        emailSubmitedCount = 0;
+                    }
+        
+                    localStorage.setItem("emailSubmitedCount", emailSubmitedCount);
+        
+                    blockElements(false)
                 }, 500);
 
 
@@ -311,6 +344,7 @@ async function initVideo() {
                 blockElements(false)
                 break;
             case 'gameOver':
+
                 let simonSaysGameOverCount = Number(localStorage.getItem("simonSaysGameOverCount"));
                 const simonSaysGameOver = rantCPUobj.simonSaysGameOver[simonSaysGameOverCount];
                 const result = `Game Over! You reached round ${round}.`;
@@ -320,26 +354,30 @@ async function initVideo() {
                 
                 
                 terminal_Container.classList.remove('hide');
-                chatButton.classList.remove('hide');
-                
-                await typeText(chatbox, result);
-                
+                puzzleButton.classList.remove('hide');
+                chatbox.innerHTML = '';
+                await typeText(chatbox, result);                
 
                 setTimeout(async() => {
                     simonScore.classList.add('hide');
                     chatbox.classList.remove('simonOn');
                     
+                    score.innerHTML = '0';
+                    chatbox.innerHTML = '';
+                    await typeText(chatbox,simonSaysGameOver);
                     bt_power.classList.remove('hide');
                     bt_submit_Target.classList.remove('hide');
                     bt_service.classList.remove('hide');
                     userInput.classList.remove('hide');
+                    
+                    
 
-                    score.innerHTML = '0';
-                    chatbox.innerHTML = '';
-                    await typeText(chatbox,simonSaysGameOver);
-                    blockElements(false);
+                    setTimeout(() => {
+                        puzzleButton.classList.add('hide');
+                        chatMode();
+                    }, 2000);
+
                 }, 2000);
-
                 
                 break;
             case 'notesOne':
@@ -385,13 +423,38 @@ async function initVideo() {
             case 'goldenGlow':
                 videoBackground.pause();
                 videoBackground.setCurrentTime(0);
-
+                
                 terminal_Container.classList.remove('hide');
-                toggleSwitch.classList.remove('hide');
-                closeButtonSound.play();
-                blockElements(false); 
+                setTimeout(() => {
+                    chatbox_Container.style.transform = 'scaleY(1)';
+                    toggleSwitch.classList.remove('hide');
+                    closeButtonSound.play();
+                    blockElements(false); 
+                }, 350);
                 
                 break;
+
+            case 'matrix':
+                videoBackground.pause();
+                videoBackground.setCurrentTime(0);
+
+                setTimeout(() => {
+                    terminal_Container.classList.remove('hide');
+                    blockElements(false);    
+                }, 250);
+                
+                break;
+            case 'nukeJoke':
+                videoBackground.pause();
+                videoBackground.setCurrentTime(0);
+
+                setTimeout(() => {
+                    terminal_Container.classList.remove('hide');
+                    blockElements(false);    
+                }, 250);
+
+                break;
+
         }
 
     });
@@ -400,7 +463,7 @@ async function initVideo() {
         videoBackground.pause();
         videoBackground.setCurrentTime(0);
         terminal_Container.classList.remove('hide');
-
+        
     })
 
 }
@@ -446,31 +509,12 @@ async function curiousAnimation() {
 function openDefragg() {
 
     isDefragg = true;
-
-    switchButtonSound.play();
-    toggleSwitch.classList.add('hide');
-    goldenGlow();
-    // setTimeout(() => {
-        
-    //     toggleSwitch.classList.remove('hide');
-    //     closeButtonSound.play();
-    // }, 300);
-
-    // setTimeout(() => {
-    //     terminal_Container.classList.add('hide');
-    //     videoBackground.play();
-    // }, 250);
-
-    // setTimeout(() => {
-    //     defrag_Container_Inputs.classList.remove('hide');
-    //     btDefragPanel.classList.remove('disabled')
-    //     bt_Close_Defrag.classList.remove('disabled');
-    // }, 1700);
-
-    // setTimeout(() => {
-    //     defrag_Container.classList.remove('hide');
-    // }, 10000);
-
+    chatbox_Container.style.transform = 'scaleY(0)';
+    setTimeout(() => {
+        switchButtonSound.play();
+        toggleSwitch.classList.add('hide');
+        goldenGlow();
+    }, 350);
 };
 
 function closeDefragg() {
@@ -635,7 +679,7 @@ async function popMyPimple(){
 
 async function rantMode(){
     terminal_Container.classList.add('hide');
-    videoBackground.setCurrentTime(110);
+    videoBackground.setCurrentTime(110.0);
     
     videoBackground.play();
  
@@ -687,3 +731,18 @@ async function goldenGlow(){
  
 }
 
+async function matrix(){
+    terminal_Container.classList.add('hide');
+    videoBackground.setCurrentTime(161.5);
+    
+    videoBackground.play();
+ 
+}
+
+async function nukeJoke(){
+    terminal_Container.classList.add('hide');
+    videoBackground.setCurrentTime(170.5);
+    
+    videoBackground.play();
+ 
+}

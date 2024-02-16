@@ -1,4 +1,5 @@
 async function greet(){ 
+    
     blockElements(true);
     let welcomeMessageCount = Number(localStorage.getItem("welcomeMessageCount"));
 

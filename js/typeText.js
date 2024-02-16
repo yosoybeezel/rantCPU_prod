@@ -14,7 +14,7 @@ async function typeText(element, text) {
         for (let i = 0; i < text.length; i++) {
             lastChild.innerHTML += text.charAt(i);
             element.scrollTop = element.scrollHeight; // Scroll to the bottom
-            await sleep(35); // Adjust typing speed here (in milliseconds)
+            await sleep(30); // Adjust typing speed here (in milliseconds)
         }
 
         element.scrollTop = element.scrollHeight; // Scroll to the bottom

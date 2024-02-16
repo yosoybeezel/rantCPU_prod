@@ -1,6 +1,7 @@
 const bt_submit_Target = document.getElementById('bt_submit_Target');
 
 let isSubmitTarget = false;
+let foundTargetResponse = '';
 
 async function glitchIsDone(resolve) {
     // Simulate some asynchronous work here
@@ -25,9 +26,9 @@ async function submitTargetGlitch() {
     });
 }
 
-// bt_submit_Target.addEventListener("click", (event) => {
-//     targetButtonSound.play();
-// });
+bt_submit_Target.addEventListener("click", (event) => {
+    targetButtonSound.play();
+});
 
 async function askSubmitTarget() {
 
@@ -47,23 +48,17 @@ async function askSubmitTarget() {
 
 
     curiousButton.classList.remove('hide');
-    
-    const keysResponses = Object.keys(rantCPUobj.happy.responses);
-    const exampleQ = keysResponses[Math.floor(Math.random() * keysResponses.length)];
-    
+        
     let targetLimit = getCookie("targetLimit");
 
     if (targetLimit) {
 
         chatbox.innerHTML = "";
 
-        await typeText(chatbox, rantCPUobj.submitTText + '\"' + exampleQ + '\"');
+        await typeText(chatbox, rantCPUobj.submitTText[0]);
 
         setTimeout(async () => {
-            
-            userInput.focus();
-
-            return;
+            chatMode();
         }, 2000);
 
         return;
@@ -83,14 +78,18 @@ async function askSubmitTarget() {
     if (askSubmitTargetCount == rantCPUobj.askSubmitTarget.length) {
 
         localStorage.setItem("askSubmitTargetCount", 0);
-        blockElements(false);
-        return;
+
+
+    } else {
+        localStorage.setItem("askSubmitTargetCount", askSubmitTargetCount);
     }
     
+    // blockElements(false);
     userInput.disabled = false;
+    userInput.classList.remove('disabled');
     userInput.focus();
 
-    localStorage.setItem("askSubmitTargetCount", askSubmitTargetCount);
+    
 }
 
 async function lookForTarget(input) {
@@ -113,51 +112,38 @@ async function lookForTarget(input) {
 
         setCookie("targetLimit", true, 1);
 
-        let bmk = await capitalize(bestMatch.key);
-        
-        const bestMatchResponse = "Yes, of course I know " + bmk ;
+        let bmk = await capitalize(bestMatch.key);        
+        foundTargetResponse = "Yes, of course I know " + bmk ;
+    
+        chatbox_Container.style.transform = 'scaleY(0)';
 
-        setTimeout(async () => {
-            // await submitTargetGlitch();
+        
+        
+        setTimeout(() => {
             terminal_Container.classList.add('hide');
             videoBackground.setCurrentTime(15.7);
-            videoBackground.play();
-            
-            setTimeout(async() => {
-                await typeText(chatbox, bestMatchResponse);
-                terminalLight.classList.add('red');
-    
-                confirmSubmit = false;
-                isSubmitTarget = false;
-
-                blockElements(false);
-                userInput.focus();
-    
-            }, 6000);
-
-            
-        }, 500)
+            videoBackground.play();    
+        }, 600);
 
     } else {
 
         input = await capitalize(input);
+        
+        const sorryText = "Sorry, I don't know \"" + input + "\". Click the TARGET button to submit another target.";
+        await typeText(chatbox, sorryText);
+
         const buttons = document.getElementsByClassName('mood');
     
         Array.from(buttons).forEach(button => {
             button.classList.add('hide');
         });
-
         
-
-        const sorryText = "Sorry, I don't know \"" + input + "\". Click the TARGET button to submit another target.";
-        await typeText(chatbox, sorryText);
-
         terminalLight.classList.remove('red');
         terminalLight.classList.add('green');
         bt_submit_Target.classList.remove('hide');
         chatButton.classList.remove('hide');
         blockElements(false);
-        userInput.focus();
+        
         confirmSubmit = false;
         isSubmitTarget = false;
     }

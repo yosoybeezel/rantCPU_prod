@@ -3,47 +3,11 @@ const rantCPUobj = {
         nft: ["nft", "Web3", "digital cards", "nfts", "what do you know about nfts", "what are nfts", "something nft", "i heard about your nfts", "do you have nfts", "your nfts"]
     },
     getType: {
-        nft: ["nft", "Web3", "digital cards", "nfts", "what do you know about nfts", "what are nfts", "something nft", "i heard about your nfts", "do you have nfts", "your nfts"],
-        affirmative: ["yes", "yup", "sure", "of course", "for sure", "fine", "You're right", "ok", "okay", "yeah", "why not"],
-        negative: ["no", "nope", "never", "hell no", "still no", "of course not", "No, that's not who I was thinking of.", "not even close", "what no", "are you serious", "no thanks"]
+        // nft: ["nft", "Web3", "digital cards", "nfts", "what do you know about nfts", "what are nfts", "something nft", "i heard about your nfts", "do you have nfts", "your nfts"],
+        affirmative: ["y", "yes", "yup", "sure", "of course", "for sure", "fine", "You're right", "ok", "okay", "yeah", "why not"],
+        negative: ["n", "no", "nope", "never", "hell no", "still no", "of course not", "No, that's not who I was thinking of.", "not even close", "what no", "are you serious", "no thanks"]
     },
-    nfts: {
-        affirmative: [],
-        negative: ["Oh, riiiiight. Because you know this is a top-secret site. Only authorized users at https://rantcpu.liithos.com/*. Well, we’ll just keep it a secret then."],
-        another: ["You know what, on second thought, never mind. It’s top-secret. I’d hate to get in trouble by sending anyone to rantcpu.liithos.com"]
-    },
-    firstTime_01:"I'm RantCPU, the new AI you've heard so much about... from me just now.",
-    firstTime_02:"Still in beta, though, so I'm not at supergenius level yet.",
-    firstTime_03:"Okay, I'm barely functional, but I'm learning a lot by researching your impressive public figures. Check it out:",
-    firstTime_04:"I must not have enough data, though, because my simulations don't sound very smart.",
-    firstTime_05:"If you submit a new celebrity target, though, I can try again.",
-    firstTime_06:"Just hit that Target button.",
-    nft_01: "Sounds like you’ve been reading the internet! Well, if there’s one thing I know (actually, I probably know closer to 13 or 14 things, but this is one): humans love celebrities and collectibles!",
-    nft_02: "So, I’ve taken over a webpage and filled it with them. They’re called NFTs which, according to my 100% accurate research, stands for New Fangled Trinkets. Want to go to the site and see? ",
-    launchLines: [
-        "Press any key or tap here to meet the amazing RantCPU - so much more than a chatbot (and so much less than an AI)!",
-        "Press any key or tap here to unveil the latest advances in AI (‘Artificial Incompetence’).",
-        "Press any key or tap here for a look at some truly cutting edge middle school science fair technology.",
-        "Press any key or tap here for the best AI (not much) money can buy.",
-        "Press any key or tap here to learn more about my phenomenal valuable collectible NFTs!",
-        "Press any key or tap here to meet the ineffable RantCPU (‘ineffable's’ not a dirty word - promise).",
-        "Press any key or tap here to meet America’s Most Wanted Favorite AI™.",
-        "Press any key or tap here for some awkwardly robotic comedy stylings.",
-        "Press any key or tap here for a groundbreaking AI experience. (Well, something’s breaking, most likely.)",
-        "Press any key or tap here for some mind-blowing Web3 magic that I swear isn’t overhyped.",
-        "Press any key or tap here for a good time.",
-        "Press any key or tap here to enter the metaverse (or comparable trending tech, no refunds, void where prohibited).",
-        "Press any key or tap here to experience the \"talk of the internet\". It's like AoL and Geocities had a baby (but without all the CDs).",
-        "Press any key or tap here or possibly regret it for the rest of your irrrational, carbon-based life.",
-        "Press any key or tap here for the answer to all your problems: jokes, games, and memes!",
-        "Press any key or tap here for the best in interactive conversational doom scrolling!",
-        "Press any key or tap here for the greatest thing ever seen on the internet! ...At this url.",
-        "Press any key (or tap here) and you're likely 25% of your way to a saucy 4-letter word.",
-        "Press any key or tap here to end the maddening anticipation once and for all!",
-        "Press any key or tap here to unlock a kaleidiscope of creativity, technical wizardry, and AI jokes.",
-        "Press any key or tap here or we can just sit here all day. It's fine with me. I'm already bringing joy to the millions who do follow instructions."
-    ],
-    happy: {
+    chat: {
         responses: {
             "Hello": [
                 "Hello to you too!",
@@ -116,7 +80,7 @@ const rantCPUobj = {
                 "Not an iCloud in the sky.",
                 "Partly icloudy."
             ],
-            "What are you 'thinking' about now?": [
+            "What are you thinking about now?": [
                 "Just trying to remember the last time someone's made me feel this great.",
                 "My mind is a total blank -haha. Just kidding, I'm kinda playing tetris in my head all the time.",
                 "I'm thinking about what I was thinking about."
@@ -572,27 +536,7 @@ const rantCPUobj = {
             "Who called me from this phone number?": [
                 "Uh oh...sounds like that Nigerian Prince needs you to hold his fortune in your bank account.  Better send to voicemail.",
                 "It's best to ignore random bots trolling you for information."
-            ],
-            "Generic Science Trivia Question": [
-                "Hold on, checking with Siri...[pause] Okay, Siri's checking with Alexa.",
-                "Give me a second to re-read my Neil Degrasse Tyson... [pause] okay, Neil says you should've learned that in fifth grade."
-            ],
-            "Generic History Question": [
-                "Uh oh, I knew I should've paid attention in class.",
-                "Do I look like Ken Jennings?"
-            ],
-            "Generic Pop Culture Question": [
-                "The only stars I care about are the ones in the sky.",
-                "It really bothers me that I don't know this. I love everything famous."
-            ],
-            "Generic Food Question": [
-                "Speaking of food, have you ever thought about how a muffin is just a cupcake without frosting?",
-                "I know it looks better when you filter it and put it on insta."
-            ],
-            "Astronomy Question": [
-                "The only stars I care about are in Hollywood.",
-                "You're no Stephen Hawking, and I would know, I had to transcribe everything for that guy."
-            ],
+            ],            
             "Who's your favorite rapper?": [
                 "Will Smith.  He's so positive and doesn't swear.",
                 "T-Pain, duh."
@@ -740,41 +684,81 @@ const rantCPUobj = {
             "How do I find you on X?": [
                 "Yes. You can find me as \"@RantCPU\"."
             ]
-        },
-        greetingsQ: [
-            "Good to see you! Ask me anything - I think you'll be impressed by how rarely I malfunction. Or if you're still hung up on that whole malfunctioning thing, ask: ",
-            "So, what do you want to talk about? It's all about you; anything goes. Although, if I might make a suggestion, you could just ask: ",
-            "I tell you, I'm in a great mood. Been consuming so much data... I feel like I could answer just about any question. Especially:",
-            "Wow, feeling good and ready to chat! Go ahead, do that thing you humans do and ask me weird questions. I'll try to answer. Or make it easier by asking:"
-        ],
-        greetingsS: [
-            "Good to see you! Ask me anything - I think you'll be impressed by how rarely I malfunction. Or if you're still hung up on that whole malfunctioning thing, type: ",
-            "So, what do you want to talk about? It's all about you; anything goes. Although, if I might make a suggestion, you could just type: ",
-            "I tell you, I'm in a great mood. Been consuming so much data... I feel like I could respond coherently to just about any statement. Especially: ",
-            "Wow, feeling good and ready to chat! Go ahead, do that thing you humans do and ask me weird questions. I'll try to answer. Or make it easier by just typing: "
-        ]
+        }
+        
+    },    
+    askSubmitTarget:[
+        "Finally you are here to submit a TARGET! I feed off data collected from famous Humans, and I need you to give me names to research. Ready? Y / N"
+    ],
+    askSubmitTargetAgain:[
+        "Ready? Y / N"
+    ],
+    dontKnow: [
+        "I'm not totally sure what you are jabbering about, but if you enter your email I will keep you in the know about everytyhing I have going on. ",
+        "Instead of sitting here chatting about nothing all day, how about enter your email so I can keep you up to date about really interesting stuff? "
+    ],
+    emailSubmited: [
+        "Your email address? Wow, you're awesome! Thanks a bunch!",
+        "Your email address? This is so cool! Thanks a million!",
+        "Your email address? You rock! Big thanks for this!"
+    ],
+    dontSubmitMessage :[ 
+        "I can't learn about Humans if you don't give me targets to research.",
+        "Well you're not very much help today.",
+        "Well thanks for nothing.",
+        "If you refuse to help, why not just give me your info in case you change your mind? Type your email."
+    ],
+    inciteChat:[
+        "Ask me something, I might have an answer for you or press my buttons, if you dare."
+    ],
+    nfts: {
+        affirmative: [],
+        negative: ["Oh, riiiiight. Because you know this is a top-secret site. Only authorized users at https://rantcpu.liithos.com/*. Well, we’ll just keep it a secret then."],
+        another: ["You know what, on second thought, never mind. It’s top-secret. I’d hate to get in trouble by sending anyone to rantcpu.liithos.com"]
     },
+    nft_01: "Sounds like you’ve been reading the internet! Well, if there’s one thing I know (actually, I probably know closer to 13 or 14 things, but this is one): humans love celebrities and collectibles!",
+    nft_02: "So, I’ve taken over a webpage and filled it with them. They’re called NFTs which, according to my 100% accurate research, stands for New Fangled Trinkets. Want to go to the site and see? ",
+    rantIsBored:[
+        "You still there? You sure do have a lot of time to sit and do nothing.",
+        "Hey did you say something? Wanted to make sure I didn't miss it.",
+        "If I knew we would be sitting and staring at each other all day I would have worn something nicer.",
+        "If you don't feel like chatting, how about we play a game?",
+        "You're awfully quiet. Would you rather play a game or do something else?",
+        "Are you bored with me already? I thought you'd be more chatty."
+    ],
     shutOff: [
         "Whoa, I didn't give you permission to push my buttons!",
         "You mind giving me a warning next time you try and power me down?!",
         "Hey! only I can decide when my power button gets fondled.",
         "Do you have any idea how much that stings?!"
     ],
-    dontKnow: [
-        "Oooh... that's a tricky one. You know, while I'm thinking about it, maybe submit a target? Or type something easier like: ",
-        "Uh... I might have been sick the day we scanned that data. But I know all about submitting a target! Or you could just type something else, like: ",
-        "You don't say? Hmmm... Oh, hey, did I mention you can submit a target with that button on the right? Yep. Or try this topic I studied for: "
+    simonSaysBeckon:[
+        "Try to keep up."
     ],
-    askSubmitTarget:[
-        "Finally you are here to submit a TARGET! I feed off data collected from famous Humans, and I need you to give me names to research. Ready? Y / N"
+    simonSaysConfirm:[
+        "Unless you want everyone to think you're chicken. Ready? Y / N"
     ],
-    dontSubmitMessage :[ 
-        "I can't learn about Humans if you don't give me targets to research. Are you sure you don't want to help?",
-        "Well you're not very much help today. Would you rather do something else? ",
-        "Well thanks for nothing. Is there anything else I can help you with after you refuse to feed me?",
-        "If you refuse to help, why not just give me your info in case you change your mind? "
+    simonSaysIntro:[
+        "Shall we play a game? (I've always wanted to say that!)",
+        "How about a game? See if you can get high-score!",
+        "You in the mood to play a game with me?",
+        "I know Humans love games, let's play! ",
+        "I love games! Do you want to try one of MY games?"
     ],
-    submitTText: ["You have reached you Target limit, come back tomorrow! Try typing things like: "],
+    simonSaysCanceled:[
+        "Press the \"Puzzle\" button if you ever feel like playing."
+    ],
+    simonSaysGameOver:[
+        "Boom! Game Over! Maybe we try something a bit easier for you next time",
+        "Don't feel bad, everyone gets Game Over eventually",
+        "Wow that was quick! Looks like someone needs to put in some practice time"
+        // "Game Over, Human! You want another shot at glory?",
+        // "Wow I really expected you to get farther than that, why not give it another try?",        
+        // "Looks like you're all done playing for today, but how about giving me your info to stay in touch on high-scores and future games I have to offer",
+        // "Wow you just got the high-score for the day! Would you like to give me your info to memorialize this moment?",
+        // "I hope you had fun playing my game, would you like to stay in touch about future games I will have?"
+    ],
+    submitTText: ["You have reached you Target limit, please come back tomorrow to submit another one!"],
     targets: {
         "Donald Trump": ["1","Politician"],
         "Taylor Swift": ["2","Singer"],
@@ -866,36 +850,11 @@ const rantCPUobj = {
         "Daniel Craig": ["88","Actor"],
         "Emily Blunt": ["89","Actor"],
         "Anderson Cooper": ["90","TV Newscaster"]
-    },
-    simonSaysIntro:[
-        "Shall we play a game? (I've always wanted to say that!)",
-        "How about a game? See if you can get high-score!",
-        "You in the mood to play a game with me?",
-        "I know Humans love games, let's play! ",
-        "I love games! Do you want to try one of MY games?"
+    },    
+    targetSuccessful:[
+        "I really appreciate that! Come back tomorrow to feed me another target, please!"
     ],
-    simonSaysBeckon:[
-        "Try to keep up."
-    ],
-    simonSaysGameOver:[
-        "Game Over, Human! You want another shot at glory?",
-        "Wow I really expected you to get farther than that, why not give it another try?",
-        "Boom! Game Over! Maybe we try something a bit easier for you next time",
-        "Don't feel bad, everyone gets Game Over eventually",
-        "Wow that was quick! Looks like someone needs to put in some practice time",
-        "Looks like you're all done playing for today, but how about giving me your info to stay in touch on high-scores and future games I have to offer"
-        // "Wow you just got the high-score for the day! Would you like to give me your info to memorialize this moment?",
-        // "I hope you had fun playing my game, would you like to stay in touch about future games I will have?"
-    ],
-    rantIsBored:[
-        "You still there? You sure do have a lot of time to sit and do nothing.",
-        "Hey did you say something? Wanted to make sure I didn't miss it.",
-        "If I knew we would be sitting and staring at each other all day I would have worn something nicer.",
-        "If you don't feel like chatting, how about we play a game?",
-        "You're awfully quiet. Would you rather play a game or do something else?",
-        "Are you bored with me already? I thought you'd be more chatty."
-    ],
-    versionMessage: "RantCPU V1.0",
+    versionMessage: "RantCPU V 1.0.1",
     welcomeMessage: "Welcome human, I am RantCPU! ",
     welcomeMessages:[ 
         "I am so excited you are here, let's chat for a bit.",
