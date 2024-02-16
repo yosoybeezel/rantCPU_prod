@@ -32,7 +32,7 @@ async function initVideo() {
         checkSession();     
         
     });
-    
+
     async function addCuePoint(video, time, customKey) {
         return new Promise((resolve, reject) => {
             video.addCuePoint(time, { customKey })
@@ -75,7 +75,7 @@ async function initVideo() {
         await addCuePoint(videoBackground, 169.4, 'matrix');
         await addCuePoint(videoBackground, 180.0, 'nukeJoke');
     } catch (error) {
-        
+
     }
 
     videoBackground.on('play', () => {        
@@ -119,6 +119,7 @@ async function initVideo() {
             case 'targetSuccessful':
                 videoBackground.pause();
                 videoBackground.setCurrentTime(0);
+
                 terminal_Container.classList.remove('hide');
 
                 chatbox_Container.style.transform = 'scaleY(1)';

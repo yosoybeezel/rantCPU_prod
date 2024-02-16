@@ -51,7 +51,6 @@ async function rantBytes() {
         blockElements(false);
         setTimeout(async()=>{
             rantBytesContainer.classList.remove('visible');
-
             rantBytesVideo.destroy();
         },300);
 

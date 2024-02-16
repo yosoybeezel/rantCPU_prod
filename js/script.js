@@ -28,6 +28,9 @@ const moodButtonSound = new Audio("./assets/MA_Betacut_SwitchButton_12.wav");
 const switchButtonSound = new Audio("./assets/MA_Betacut_SwitchButton_11.wav");
 const powerButtonSound = new Audio("./assets/MA_Betacut_SwitchButton_10.wav");
 const closeButtonSound = new Audio("./assets/MA_Betacut_SwitchButton_7.wav");
+const powerButtonSound = new Audio("./assets/MA_Betacut_SwitchButton_10.wav");
+const switchButtonSound = new Audio("./assets/MA_Betacut_SwitchButton_11.wav");
+const moodButtonSound = new Audio("./assets/MA_Betacut_SwitchButton_12.wav");
 const targetButtonSound = new Audio("./assets/Old Industria Clicks-002.wav");
 const targetLightSound = new Audio("./assets/Old Industria Clicks-003.wav");
 const pressToStartSound = new Audio("./assets/580122__annyew__confirm-button-2.wav");
@@ -45,13 +48,12 @@ let isPageVisible = true;
 
 const videoBackgroundContainer = document.getElementById('videoBackground');
 const videoBackgroundPortraitContainer = document.getElementById('videoBackgroundPortrait');
-let isMobile = false;
 
 // Set the volume of each audio element to 0.3 (30% volume)
 scorePoint.volume = 0.5;
 // pressToStartSound.volume = moodButtonSound.volume = switchButtonSound.volume = powerButtonSound.volume = closeButtonSound.volume = targetButtonSound.volume = targetLightSound = 0.3;
 
-let isWelcome = true;
+let isMobile = false;
 
 
 document.addEventListener("visibilitychange", handleVisibilityChange);

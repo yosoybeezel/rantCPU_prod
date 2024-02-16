@@ -14,6 +14,34 @@ const generateResponse = async (input) => {
     // // user types
     chatbox.innerHTML += "<p class='user'><strong>> You:</strong> " + input + "</p>";
     chatbox.scrollTop = chatbox.scrollHeight; // Scroll to the bottom
+
+    switch (input) {
+        case 'first gesture':
+            await gestureOne();
+            return;
+            break;
+        case 'second gesture':
+            await gestureTwo();
+            return;
+            break;
+        case 'third gesture':
+            await gestureThree();
+            return;
+            break;
+        case 'fourth gesture':
+            await gestureFour();
+            return;
+            break;
+        case 'rantbyte':
+            await rantBytes();
+            return;
+            break;
+        case 'pimple':
+            await popPimple();
+            return;
+            break;
+    }
+
     
     const isEmail = await checkIfEmail(input);
 

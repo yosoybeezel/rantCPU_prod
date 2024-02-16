@@ -3,7 +3,6 @@
 let introChatCount = 0;
 let nftChatCount = 0;
 let isNFTRoute = false;
-let isIntro = false;
 let emailSequence = false;
 let nftNum = '';
 let typeResponse;
@@ -174,7 +173,6 @@ async function rantCPUResponse(input, options) {
             }, 2000);
         }
 
-        nftNum = '';
         return;
     }
 

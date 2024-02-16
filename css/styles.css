@@ -91,6 +91,12 @@ html {
         position: absolute;
       }
 
+      & input[type="button"],
+      & a {
+        cursor: pointer;
+        position: absolute;
+      }
+
       & .SM_instagram,
       & .SM_tiktok,
       & .SM_twitter {
@@ -107,6 +113,7 @@ html {
         left: 85.68%;
         top: 3.5%;
         width: 3.65%;
+        height: 5%;
         height: 5%;
       }
 
@@ -606,7 +613,11 @@ html {
         & #simonScore,
         & #chatbox,
         & #userInput {
-          font-size: 0.4rem !important;
+          font-size: 0.5em !important;          
+        }
+
+        & #chatbox{
+          height: calc(96% - 30px);
         }
 
         & #userInput {
