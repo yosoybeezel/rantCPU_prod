@@ -40,24 +40,28 @@ async function checkSession() {
         localStorage.setItem("simonSaysIntroCount", 0);
         localStorage.setItem("simonSaysMaxScore", 0);
         localStorage.setItem("dontSubmitMessageCount", 0);
-        localStorage.setItem("emailSubmitedCount",0)
+        localStorage.setItem("emailSubmitedCount",0);
+        localStorage.setItem("serviceSwitchCount",0);
 
     } else {    
         
+        if(!localStorage.getItem("serviceSwitchCount")){
+            localStorage.setItem("serviceSwitchCount", 0)
+        }
         if(!localStorage.getItem("emailSubmitedCount")){
-            localStorage.setItem("emailSubmitedCount",0)
+            localStorage.setItem("emailSubmitedCount", 0)
         }
         if(!localStorage.getItem("dontSubmitMessageCount")){
-            localStorage.setItem("dontSubmitMessageCount",0);
+            localStorage.setItem("dontSubmitMessageCount", 0);
         } 
         if(!localStorage.getItem("welcomeMessageCount")){
-            localStorage.setItem("welcomeMessageCount",0);
+            localStorage.setItem("welcomeMessageCount", 0);
         } 
         if(!localStorage.getItem("askSubmitTargetCount")){
-            localStorage.setItem("askSubmitTargetCount",0);
+            localStorage.setItem("askSubmitTargetCount", 0);
         } 
         if(!localStorage.getItem("simonSaysGameOverCount")){
-            localStorage.setItem("simonSaysGameOverCount",0);
+            localStorage.setItem("simonSaysGameOverCount", 0);
         }
         if(!localStorage.getItem("simonSaysIntroCount")){
             localStorage.setItem("simonSaysIntroCount", 0);

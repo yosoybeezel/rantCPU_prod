@@ -24,9 +24,7 @@ let rantCPULoader = html5Preloader(
 document.addEventListener('contextmenu', event => event.preventDefault());
 
     // Audio elements for buttons
-const moodButtonSound = new Audio("./assets/MA_Betacut_SwitchButton_12.wav");
-const switchButtonSound = new Audio("./assets/MA_Betacut_SwitchButton_11.wav");
-const powerButtonSound = new Audio("./assets/MA_Betacut_SwitchButton_10.wav");
+
 const closeButtonSound = new Audio("./assets/MA_Betacut_SwitchButton_7.wav");
 const powerButtonSound = new Audio("./assets/MA_Betacut_SwitchButton_10.wav");
 const switchButtonSound = new Audio("./assets/MA_Betacut_SwitchButton_11.wav");

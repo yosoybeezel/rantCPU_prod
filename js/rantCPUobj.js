@@ -726,6 +726,13 @@ const rantCPUobj = {
         "You're awfully quiet. Would you rather play a game or do something else?",
         "Are you bored with me already? I thought you'd be more chatty."
     ],
+    serviceSwitch:[        
+        "I don't think you are ready to see what's under my panel just yet.",
+        "Hey, you think you can just toggle my switch without permission?!",
+        "At least buy an AI Chatbot a drink or something first before you try and open me up!",
+        "You may want to check back later about what I have hiding under there!",
+        "You want to see what's under there? Make sure you give me your contact info so I can let you know when I'm ready to open up."
+    ],
     shutOff: [
         "Whoa, I didn't give you permission to push my buttons!",
         "You mind giving me a warning next time you try and power me down?!",

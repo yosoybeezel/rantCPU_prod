@@ -424,13 +424,27 @@ async function initVideo() {
             case 'goldenGlow':
                 videoBackground.pause();
                 videoBackground.setCurrentTime(0);
+                let serviceSwitchCount = Number(localStorage.getItem("serviceSwitchCount"));
                 
                 terminal_Container.classList.remove('hide');
-                setTimeout(() => {
+                
+                setTimeout(async() => {
                     chatbox_Container.style.transform = 'scaleY(1)';
                     toggleSwitch.classList.remove('hide');
                     closeButtonSound.play();
-                    blockElements(false); 
+
+                    await typeText(chatbox, rantCPUobj.serviceSwitch[serviceSwitchCount]);
+                    blockElements(false);
+
+                    serviceSwitchCount += 1;
+                    
+                    if (serviceSwitchCount == rantCPUobj.serviceSwitch.length) {
+                        serviceSwitchCount = 0;
+                    }
+        
+                    localStorage.setItem("serviceSwitchCount", serviceSwitchCount);
+
+                    
                 }, 350);
                 
                 break;
@@ -508,7 +522,7 @@ async function curiousAnimation() {
 }
 
 function openDefragg() {
-
+    blockElements(true);
     isDefragg = true;
     chatbox_Container.style.transform = 'scaleY(0)';
     setTimeout(() => {
