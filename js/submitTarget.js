@@ -3,29 +3,6 @@ const bt_submit_Target = document.getElementById('bt_submit_Target');
 let isSubmitTarget = false;
 let foundTargetResponse = '';
 
-async function glitchIsDone(resolve) {
-    // Simulate some asynchronous work here
-    await new Promise((innerResolve) => setTimeout(innerResolve, 7000));
-
-    // Now, the asynchronous work is done, so call resolve to resolve the promise
-    resolve();
-}
-
-async function submitTargetGlitch() {
-    return new Promise((resolve) => {
-        isGlitch = true;
-
-
-        setTimeout(() => {
-            terminal_Container.classList.add('hide');
-            videoBackground.setCurrentTime(15.7);
-            videoBackground.play();
-
-            glitchIsDone(resolve);
-        }, 300);
-    });
-}
-
 bt_submit_Target.addEventListener("click", (event) => {
     targetButtonSound.play();
 });
@@ -33,20 +10,14 @@ bt_submit_Target.addEventListener("click", (event) => {
 async function askSubmitTarget() {
 
     userInput.value = ""; // Clear the text field
-    
     blockElements(true);
-    
 
     terminalLight.classList.remove('green');
     terminalLight.classList.add('red');
-
-    
     
     Array.from(buttons).forEach(button => {
         button.classList.add('hide');
     });
-
-
     curiousButton.classList.remove('hide');
         
     let targetLimit = getCookie("targetLimit");
@@ -54,18 +25,14 @@ async function askSubmitTarget() {
     if (targetLimit) {
 
         chatbox.innerHTML = "";
-
         await typeText(chatbox, rantCPUobj.submitTText[0]);
-
         setTimeout(async () => {
             neutralMode()
         }, 2000);
-
         return;
     }
 
     isSubmitTarget = true;
-
 
     chatbox.innerHTML = "";
 
@@ -137,10 +104,12 @@ async function lookForTarget(input) {
         terminalLight.classList.add('green');
         bt_submit_Target.classList.remove('hide');
         chatButton.classList.remove('hide');
-        blockElements(false);
+        setTimeout(() => {
+            neutralMode();
+            confirmSubmit = false;
+            isSubmitTarget = false;    
+        }, 1500);
         
-        confirmSubmit = false;
-        isSubmitTarget = false;
     }
 
 }

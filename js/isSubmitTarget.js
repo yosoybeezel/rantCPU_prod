@@ -4,7 +4,16 @@ async function submitTargetTrue(input) {
         confirmSubmit = true;
         chatbox.innerHTML = "";
 
-        await typeText(chatbox, "Write a target's name.");
+        let requestTargetNameCount = Number(localStorage.getItem("requestTargetNameCount"));
+        
+
+        await typeText(chatbox, rantCPUobj.requestTargetName[requestTargetNameCount]);
+
+        requestTargetNameCount +=1;
+        
+        if(requestTargetNameCount >= rantCPUobj.requestTargetName.length){
+            localStorage.setItem("requestTargetNameCount", 0);
+        }
         isSubmitTarget = false;
         submitTargetCount = 0;
         unblockUserInput();
@@ -60,7 +69,7 @@ async function submitTargetTrue(input) {
             bt_submit_Target.classList.remove('hide');
             
             setTimeout(() => {
-                neutralMode()
+                neutralMode();
             }, 2000);
 
             return;

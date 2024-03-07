@@ -9,7 +9,7 @@ const wordText = document.querySelector(".word"),
 
 let isWordScrambleOn = false;
 let isWordScramble = false;
-let correctWord, timer, category, userHiScore;
+let correctWord, timer, category, wsHiScore;
 let currentQuestion = 0;
 let curCategory = 0;
 
@@ -35,9 +35,9 @@ const checkWord = async (input) => {
         
         score.innerHTML = curScore +=1
         
-        userHiScore = Number(localStorage.getItem("wordScrambleHiScore"));
+        wsHiScore = Number(localStorage.getItem("wordScrambleHiScore"));
 
-        if(curScore >= userHiScore){
+        if(curScore >= wsHiScore){
             hiScore.innerHTML = curScore;
             localStorage.setItem("wordScrambleHiScore", curScore);
         }
@@ -116,10 +116,9 @@ const initTimer = maxTime => {
 
 function endGameWordScramble(){
     simonScore.classList.add('hide');
-    userHiScore = Number(localStorage.getItem("wordScrambleHiScore"));
+    
     isWordScramble = false;
     score.innerHTML = "0";
-    hiScore.innerHTML = userHiScore;
     time.classList.add('hide');
     wordScrambleContainer.classList.add('hide');
     chatbox.classList.remove('wordScrambeOn');
@@ -199,8 +198,10 @@ const initWordScramble = async() => {
 }
 
 async function wordScramble() {
-    userHiScore = Number(localStorage.getItem("wordScrambleScore"));
-    
+    wsHiScore = Number(localStorage.getItem("wordScrambleScore"));
+    wsHiScore = Number(localStorage.getItem("wordScrambleHiScore"));
+    hiScore.innerHTML = wsHiScore;
+
     chatbox.classList.remove('simonOn');
     blockElements(true);
     chatbox.classList.add('wordScrambeOn');
@@ -214,7 +215,6 @@ async function wordScramble() {
     }    
 
     chatbox.innerHTML = wordText.innerHTML = hintText.innerText = "";
-    hiScore.innerHTML = userHiScore;
     let simonSaysIntroCount = Number(localStorage.getItem("simonSaysIntroCount"));
 
     const confirmQuestion = rantCPUobj.wordScrambleQuestion[0] + " Category is, Movies & TV." + " Y / N";

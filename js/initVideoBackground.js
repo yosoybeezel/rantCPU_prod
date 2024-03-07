@@ -127,7 +127,7 @@ async function initVideo() {
 
                     setTimeout(() => {
                         neutralMode();
-                    }, 1000);
+                    }, 3000);
                 }, 500);
                 break;
 

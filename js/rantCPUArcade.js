@@ -16,6 +16,8 @@ async function initArcade() {
 
     await typeText(chatbox, "RantCPU's Word Scramble");
 
+    await typeText(chatbox, "Exit");
+
     
     const arcadeElements = document.querySelectorAll('.arcadeElement');
 
@@ -28,6 +30,9 @@ async function initArcade() {
                     break;
                 case 1:
                     wordScramble();
+                    break;
+                case 2:
+                    neutralMode();
                     break;
 
                 default:

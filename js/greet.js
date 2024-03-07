@@ -1,7 +1,7 @@
 const buttons = document.getElementsByClassName('mood');
 let interrupted = false;
 async function greet() {
-
+    toggleSwitch.classList.remove('hide');
     skipIntroBtn.disabled = false;
     skipIntroBtn.classList.remove('disabled');
 
@@ -14,6 +14,8 @@ async function greet() {
     if (interrupted) return;
 
     setTimeout(async () => {
+        if (interrupted) return;
+        
         chatButton.classList.remove('hide');
         chatButtonAudio.play();
         setTimeout(() => {

@@ -46,9 +46,13 @@ async function checkSession() {
         localStorage.setItem("wordScrambleScore", 0);
         localStorage.setItem("wordScrambleHiScore", 0);
         localStorage.setItem("currentWordScramble", 0);
-        localStorage.setItem("checkNotesCount", 0)
-        localStorage.setItem("rantModeCount", 0)
+        localStorage.setItem("checkNotesCount", 0);
+        localStorage.setItem("rantModeCount", 0);
+        localStorage.setItem("requestTargetNameCount",0);
     } else {    
+        if(!localStorage.getItem("requestTargetNameCount",0)){
+            localStorage.setItem("requestTargetNameCount",0);
+        }
         if(!localStorage.getItem("wordScrambleHiScore")){
             localStorage.setItem("wordScrambleHiScore", 0)
         }

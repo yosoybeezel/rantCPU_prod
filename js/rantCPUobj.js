@@ -691,7 +691,11 @@ const rantCPUobj = {
 
     },
     askSubmitTarget: [
-        "Finally you are here to submit a TARGET! I feed off data collected from famous Humans, and I need you to give me names to research. Ready? Y / N"
+        "Finally you are here to submit a TARGET! I feed off data collected from famous Humans, and I need you to give me names to research. Ready? Y / N"        
+    ],
+    requestTargetName:[
+        "Great! I feed off data collected from famous Humans, give me a name to research!",
+        "Celebrities, politicians, and other iconic Humans make great targets to research! Who should I target next?"
     ],
     askSubmitTargetAgain: [
         "Ready? Y / N"
@@ -701,8 +705,6 @@ const rantCPUobj = {
         "I'm not totally sure what you are jabbering about. Press my green :) button to get some of my positive affirmations.",
         "Anyway, how about you press my red :( button, to hear me RANT!",
         "Instead of sitting here chatting about nothing all day, don't press my POWER button for ANY reason."
-        // "I'm not totally sure what you are jabbering about, but if you enter your email I will keep you in the know about everytyhing I have going on. ",
-        // "Instead of sitting here chatting about nothing all day, how about enter your email so I can keep you up to date about really interesting stuff? "
     ],
     emailSubmited: [
         "Your email address? Wow, you're awesome! Thanks a bunch!",
@@ -710,10 +712,10 @@ const rantCPUobj = {
         "Your email address? You rock! Big thanks for this!"
     ],
     dontSubmitMessage: [
-        "I can't learn about Humans if you don't give me targets to research.",
-        "Well you're not very much help today.",
+        "I can't learn about Humans if you don't give me targets to research. C'mon, help a chatbot out!",
+        "Well you're not very much help today. Would you like to play a game instead? Press my :/ ORANGE button.",
         "Well thanks for nothing.",
-        // "If you refuse to help, why not just give me your info in case you change your mind? Type your email."
+        "Well thanks for nothing. If there's nothing else I can do for you after your refuse to feed me, why not play a game? Press my :/ ORANGE button."
     ],
     inciteChat: [
         "Hit a button, if you dare. I promise only mild judgment.",
@@ -725,8 +727,7 @@ const rantCPUobj = {
     ],
     neutralModeMessages: [
         "Press my buttons, what have you got to lose?",
-        "Try me, go ahead.",
-
+        "Try me, go ahead."
     ],
     nfts: {
         affirmative: [],
@@ -900,7 +901,7 @@ const rantCPUobj = {
     targetSuccessful: [
         "I really appreciate that! Come back tomorrow to feed me another target, please!"
     ],
-    versionMessage: "RantCPU V 1.0.1",
+    versionMessage: "RantCPU V 1.0.15",
     welcomeMessage: "Welcome human, I am RantCPU! ",
     welcomeMessages: [
         "Hit a button, if you dare. I promise only mild judgment.",
