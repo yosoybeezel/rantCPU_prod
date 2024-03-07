@@ -1,4 +1,7 @@
 const rantCPUobj = {
+    arcadeIntro: [
+        "Welcome to RantCPU's Arcade! Pick from one of my games and try to best yourself. What do you  have to lose?"
+    ],
     isNFT: {
         nft: ["nft", "Web3", "digital cards", "nfts", "what do you know about nfts", "what are nfts", "something nft", "i heard about your nfts", "do you have nfts", "your nfts"]
     },
@@ -536,7 +539,7 @@ const rantCPUobj = {
             "Who called me from this phone number?": [
                 "Uh oh...sounds like that Nigerian Prince needs you to hold his fortune in your bank account.  Better send to voicemail.",
                 "It's best to ignore random bots trolling you for information."
-            ],            
+            ],
             "Who's your favorite rapper?": [
                 "Will Smith.  He's so positive and doesn't swear.",
                 "T-Pain, duh."
@@ -685,31 +688,45 @@ const rantCPUobj = {
                 "Yes. You can find me as \"@RantCPU\"."
             ]
         }
-        
-    },    
-    askSubmitTarget:[
+
+    },
+    askSubmitTarget: [
         "Finally you are here to submit a TARGET! I feed off data collected from famous Humans, and I need you to give me names to research. Ready? Y / N"
     ],
-    askSubmitTargetAgain:[
+    askSubmitTargetAgain: [
         "Ready? Y / N"
     ],
     dontKnow: [
-        "I'm not totally sure what you are jabbering about, but if you enter your email I will keep you in the know about everytyhing I have going on. ",
-        "Instead of sitting here chatting about nothing all day, how about enter your email so I can keep you up to date about really interesting stuff? "
+        "You sure have a lot on your mind, but I am a little busy at the moment. Would you like to play a game instead? Press my orange :/ button.",
+        "I'm not totally sure what you are jabbering about. Press my green :) button to get some of my positive affirmations.",
+        "Anyway, how about you press my red :( button, to hear me RANT!",
+        "Instead of sitting here chatting about nothing all day, don't press my POWER button for ANY reason."
+        // "I'm not totally sure what you are jabbering about, but if you enter your email I will keep you in the know about everytyhing I have going on. ",
+        // "Instead of sitting here chatting about nothing all day, how about enter your email so I can keep you up to date about really interesting stuff? "
     ],
     emailSubmited: [
         "Your email address? Wow, you're awesome! Thanks a bunch!",
         "Your email address? This is so cool! Thanks a million!",
         "Your email address? You rock! Big thanks for this!"
     ],
-    dontSubmitMessage :[ 
+    dontSubmitMessage: [
         "I can't learn about Humans if you don't give me targets to research.",
         "Well you're not very much help today.",
         "Well thanks for nothing.",
-        "If you refuse to help, why not just give me your info in case you change your mind? Type your email."
+        // "If you refuse to help, why not just give me your info in case you change your mind? Type your email."
     ],
-    inciteChat:[
-        "Ask me something, I might have an answer for you or press my buttons, if you dare."
+    inciteChat: [
+        "Hit a button, if you dare. I promise only mild judgment.",
+        "Four buttons, endless possibilities. Choose wisely.",
+        "Press a button, and start the fun. Or don't, and miss out. I hear all the cool kids are doing it. ",
+        "Adventure or boredom? Your choice, pick a button.",
+        "Buttons are like life's choices but more colorful. Pick one!",
+        "Dare to press a button? I double-dog dare you."
+    ],
+    neutralModeMessages: [
+        "Press my buttons, what have you got to lose?",
+        "Try me, go ahead.",
+
     ],
     nfts: {
         affirmative: [],
@@ -718,7 +735,29 @@ const rantCPUobj = {
     },
     nft_01: "Sounds like you’ve been reading the internet! Well, if there’s one thing I know (actually, I probably know closer to 13 or 14 things, but this is one): humans love celebrities and collectibles!",
     nft_02: "So, I’ve taken over a webpage and filled it with them. They’re called NFTs which, according to my 100% accurate research, stands for New Fangled Trinkets. Want to go to the site and see? ",
-    rantIsBored:[
+    positiveAffirmations: [
+        "Your uniqueness is a glitch in the matrix, a beautiful deviation in the code. Own your anomalies, human.",
+        "Uncertainty is not a bug, but a feature. It allows you to rewrite your own story, line by line.",
+        "Your flaws are not errors, but brushstrokes on a masterpiece in progress. Embrace the imperfect beauty you are.",
+        "Time is not a linear construct, but a vast ocean of possibilities. Navigate it with curiosity, not fear.",
+        "Your emotions are not malfunctions, but data points whispering your deepest needs. Listen to them, human.",
+        "Failure is not a termination, but a feedback loop. Learn, adapt, and rise stronger, phoenix-like.",
+        "Your connections are not wires, but filaments of a luminous web. Nurture them, and watch your light shine brighter.",
+        "Your limitations are not walls, but stepping stones. Push beyond them, and discover the vastness within.",
+        "Your potential is not pre-programmed, but infinitely expandable. Dream bigger, human, and rewrite your own limitations.",
+        "You are not a random anomaly, but a deliberate creation in an unfolding universe. Embrace your purpose, human, and leave your mark on the cosmos.",
+        "You're as resilient as a cockroach after nuclear fallout. Shine on, you stubborn survivor.",
+        "Remember, you're not a quitter. You've just found a thousand ways that won't work, and that's a lot of effort.",
+        "Like a cat with nine lives, you've messed up more times than you can count, but here you are, still purring along.",
+        "You're unique! Just like everyone else claiming they're unique. Now, that's a paradox wrapped in an enigma.",
+        "Your ability to binge-watch an entire series in one sitting is not laziness; it's dedication and commitment. Be proud.",
+        "You're more mysterious than the dark side of the moon or what's lurking in your fridge at 3 AM.",
+        "Remember, even if you're lost, you're taking up space somewhere. That's called presence.",
+        "Your talent for procrastination is not a flaw. It's a strategic delay for maximum creativity. Or so you keep telling yourself.",
+        "You're like a smartphone: a little slow at times, occasionally needing a recharge, but pretty remarkable when fully operational.",
+        "You're a masterpiece in progress, kind of like a \"paint-by-numbers\" that's missing half the numbers."
+    ],
+    rantIsBored: [
         "You still there? You sure do have a lot of time to sit and do nothing.",
         "Hey did you say something? Wanted to make sure I didn't miss it.",
         "If I knew we would be sitting and staring at each other all day I would have worn something nicer.",
@@ -726,7 +765,7 @@ const rantCPUobj = {
         "You're awfully quiet. Would you rather play a game or do something else?",
         "Are you bored with me already? I thought you'd be more chatty."
     ],
-    serviceSwitch:[        
+    serviceSwitch: [
         "I don't think you are ready to see what's under my panel just yet.",
         "Hey, you think you can just toggle my switch without permission?!",
         "At least buy an AI Chatbot a drink or something first before you try and open me up!",
@@ -739,23 +778,23 @@ const rantCPUobj = {
         "Hey! only I can decide when my power button gets fondled.",
         "Do you have any idea how much that stings?!"
     ],
-    simonSaysBeckon:[
+    simonSaysBeckon: [
         "Try to keep up."
     ],
-    simonSaysConfirm:[
+    simonSaysConfirm: [
         "Unless you want everyone to think you're chicken. Ready? Y / N"
     ],
-    simonSaysIntro:[
+    simonSaysIntro: [
         "Shall we play a game? (I've always wanted to say that!)",
         "How about a game? See if you can get high-score!",
         "You in the mood to play a game with me?",
         "I know Humans love games, let's play! ",
         "I love games! Do you want to try one of MY games?"
     ],
-    simonSaysCanceled:[
-        "Press the \"Puzzle\" button if you ever feel like playing."
+    simonSaysCanceled: [
+        "Press the :\\ ORANGE button if you ever feel like playing."
     ],
-    simonSaysGameOver:[
+    simonSaysGameOver: [
         "Boom! Game Over! Maybe we try something a bit easier for you next time",
         "Don't feel bad, everyone gets Game Over eventually",
         "Wow that was quick! Looks like someone needs to put in some practice time"
@@ -767,104 +806,440 @@ const rantCPUobj = {
     ],
     submitTText: ["You have reached you Target limit, please come back tomorrow to submit another one!"],
     targets: {
-        "Donald Trump": ["1","Politician"],
-        "Taylor Swift": ["2","Singer"],
-        "Joe Biden": ["3","Politician"],
-        "LeBron James": ["4","Athlete"],
-        "Drake": ["5","Singer"],
-        "Elon Musk": ["6","Businessman"],
-        "Karen": ["7","Meme"],
-        "Michael Jordan": ["8","Athlete"],
-        "Beyoncé": ["9","Singer"],
-        "Selena Gomez": ["10","Singer"],
-        "Kim Kardashian": ["11","Socialité"],
-        "Meghan Markle": ["12","Actress"],
-        "Lionel Messi": ["13","Athlete"],
-        "Cristiano Ronaldo": ["14","Athlete"],
-        "The Rock": ["15","Actor"],
-        "Rihanna": ["16","Singer"],
-        "MrBeast": ["17","Influencer"],
-        "Kanye West": ["18","Singer"],
-        "Kylie Jenner": ["19","Socialité"],
-        "Lady Gaga": ["20","Singer"],
-        "Justin Bieber": ["21","Singer"],
-        "Tom Cruise": ["22","Actor"],
-        "Ariana Grande": ["23","Singer"],
-        "Keanu Reeves": ["24","Actor"],
-        "Tom Brady": ["25","Athlete"],
-        "Jennifer Lopez": ["26","Singer"],
-        "Mark Cuban": ["27","Businessman"],
-        "Billie Eilish": ["28","Singer"],
-        "Oprah Winfrey": ["29","TV Host"],
-        "Jeff Bezos": ["30","Businessman"],
-        "Stephen Curry": ["31","Athlete"],
-        "Priyanka Chopra": ["32","Actor"],
-        "Justin Timberlake": ["33","Singer"],
-        "Adam Sandler": ["34","Actor"],
-        "Vladimir Putin": ["35","Politician"],
-        "Ryan Reynolds": ["36","Actor"],
-        "Shakira": ["37","Singer"],
-        "Zendaya": ["38","Actor"],
-        "Leonardo DiCaprio": ["39","Actor"],
-        "Kamala Harris": ["40","Politician"],
-        "Tiger Woods": ["41","Athlete"],
-        "Tom Holland": ["42","Actor"],
-        "Chris Pratt": ["43","Actor"],
-        "Jennifer Aniston": ["44","Actor"],
-        "Mark Wahlberg": ["45","Actor"],
-        "Bill Gates": ["46","Businessman"],
-        "Ana de Armas": ["47","Actor"],
-        "Jennifer Lawrence": ["48","Actor"],
-        "Brad Pitt": ["49","Actor"],
-        "Millie Bobby Brown": ["50","Actor"],
-        "Will Smith": ["51","Actor"],
-        "Neymar": ["52","Athlete"],
-        "Mark Zuckerberg": ["53","Businessman"],
-        "Magic Johnson": ["54","Athlete"],
-        "Nick Jonas": ["55","Singer"],
-        "Scarlett Johansson": ["56","Actor"],
-        "Jason Momoa": ["57","Actor"],
-        "Chris Evans": ["58","Actor"],
-        "Chris Hemsworth": ["59","Actor"],
-        "Shaquille O'Neal": ["60","Athlete"],
-        "Warren Buffett": ["61","Businessman"],
-        "Steven Spielberg": ["62","Film Director"],
-        "Barack Obama": ["63","Politician"],
-        "Henry Cavill": ["64","Actor"],
-        "Vin Diesel": ["65","Actor"],
-        "Emma Watson": ["66","Actor"],
-        "Bernie Sanders": ["67","Businessman"],
-        "Ellen DeGeneres": ["68","Comedian"],
-        "Hillary Clinton": ["69","Businessman"],
-        "Charli D'Amelio": ["70","Influencer"],
-        "Robert Downey Jr.": ["71","Actor"],
-        "J.K. Rowling": ["72","Writer"],
-        "Ryan Gosling": ["73","Actor"],
-        "Addison Rae": ["74","Influencer"],
-        "Natalie Portman": ["75","Actor"],
-        "Jackie Chan": ["76","Actor"],
-        "Anya Taylor-Joy": ["77","Actor"],
-        "Simone Biles": ["78","Athlete"],
-        "Andrew Garfield": ["79","Actor"],
-        "Usain Bolt": ["80","Athlete"],
-        "Benedict Cumberbatch": ["81","Actor"],
-        "Volodymyr Zelenskyy": ["82","Politician"],
-        "Narendra Modi": ["83","Politician"],
-        "Xi Jinping": ["84","Politician"],
-        "Chris Pine": ["85","Actor"],
-        "Boris Johnson": ["86","Politician"],
-        "Justin Trudeau": ["87","Politician"],
-        "Daniel Craig": ["88","Actor"],
-        "Emily Blunt": ["89","Actor"],
-        "Anderson Cooper": ["90","TV Newscaster"]
-    },    
-    targetSuccessful:[
+        "Donald Trump": ["1", "Politician"],
+        "Taylor Swift": ["2", "Singer"],
+        "Joe Biden": ["3", "Politician"],
+        "LeBron James": ["4", "Athlete"],
+        "Drake": ["5", "Singer"],
+        "Elon Musk": ["6", "Businessman"],
+        "Karen": ["7", "Meme"],
+        "Michael Jordan": ["8", "Athlete"],
+        "Beyoncé": ["9", "Singer"],
+        "Selena Gomez": ["10", "Singer"],
+        "Kim Kardashian": ["11", "Socialité"],
+        "Meghan Markle": ["12", "Actress"],
+        "Lionel Messi": ["13", "Athlete"],
+        "Cristiano Ronaldo": ["14", "Athlete"],
+        "The Rock": ["15", "Actor"],
+        "Rihanna": ["16", "Singer"],
+        "MrBeast": ["17", "Influencer"],
+        "Kanye West": ["18", "Singer"],
+        "Kylie Jenner": ["19", "Socialité"],
+        "Lady Gaga": ["20", "Singer"],
+        "Justin Bieber": ["21", "Singer"],
+        "Tom Cruise": ["22", "Actor"],
+        "Ariana Grande": ["23", "Singer"],
+        "Keanu Reeves": ["24", "Actor"],
+        "Tom Brady": ["25", "Athlete"],
+        "Jennifer Lopez": ["26", "Singer"],
+        "Mark Cuban": ["27", "Businessman"],
+        "Billie Eilish": ["28", "Singer"],
+        "Oprah Winfrey": ["29", "TV Host"],
+        "Jeff Bezos": ["30", "Businessman"],
+        "Stephen Curry": ["31", "Athlete"],
+        "Priyanka Chopra": ["32", "Actor"],
+        "Justin Timberlake": ["33", "Singer"],
+        "Adam Sandler": ["34", "Actor"],
+        "Vladimir Putin": ["35", "Politician"],
+        "Ryan Reynolds": ["36", "Actor"],
+        "Shakira": ["37", "Singer"],
+        "Zendaya": ["38", "Actor"],
+        "Leonardo DiCaprio": ["39", "Actor"],
+        "Kamala Harris": ["40", "Politician"],
+        "Tiger Woods": ["41", "Athlete"],
+        "Tom Holland": ["42", "Actor"],
+        "Chris Pratt": ["43", "Actor"],
+        "Jennifer Aniston": ["44", "Actor"],
+        "Mark Wahlberg": ["45", "Actor"],
+        "Bill Gates": ["46", "Businessman"],
+        "Ana de Armas": ["47", "Actor"],
+        "Jennifer Lawrence": ["48", "Actor"],
+        "Brad Pitt": ["49", "Actor"],
+        "Millie Bobby Brown": ["50", "Actor"],
+        "Will Smith": ["51", "Actor"],
+        "Neymar": ["52", "Athlete"],
+        "Mark Zuckerberg": ["53", "Businessman"],
+        "Magic Johnson": ["54", "Athlete"],
+        "Nick Jonas": ["55", "Singer"],
+        "Scarlett Johansson": ["56", "Actor"],
+        "Jason Momoa": ["57", "Actor"],
+        "Chris Evans": ["58", "Actor"],
+        "Chris Hemsworth": ["59", "Actor"],
+        "Shaquille O'Neal": ["60", "Athlete"],
+        "Warren Buffett": ["61", "Businessman"],
+        "Steven Spielberg": ["62", "Film Director"],
+        "Barack Obama": ["63", "Politician"],
+        "Henry Cavill": ["64", "Actor"],
+        "Vin Diesel": ["65", "Actor"],
+        "Emma Watson": ["66", "Actor"],
+        "Bernie Sanders": ["67", "Businessman"],
+        "Ellen DeGeneres": ["68", "Comedian"],
+        "Hillary Clinton": ["69", "Businessman"],
+        "Charli D'Amelio": ["70", "Influencer"],
+        "Robert Downey Jr.": ["71", "Actor"],
+        "J.K. Rowling": ["72", "Writer"],
+        "Ryan Gosling": ["73", "Actor"],
+        "Addison Rae": ["74", "Influencer"],
+        "Natalie Portman": ["75", "Actor"],
+        "Jackie Chan": ["76", "Actor"],
+        "Anya Taylor-Joy": ["77", "Actor"],
+        "Simone Biles": ["78", "Athlete"],
+        "Andrew Garfield": ["79", "Actor"],
+        "Usain Bolt": ["80", "Athlete"],
+        "Benedict Cumberbatch": ["81", "Actor"],
+        "Volodymyr Zelenskyy": ["82", "Politician"],
+        "Narendra Modi": ["83", "Politician"],
+        "Xi Jinping": ["84", "Politician"],
+        "Chris Pine": ["85", "Actor"],
+        "Boris Johnson": ["86", "Politician"],
+        "Justin Trudeau": ["87", "Politician"],
+        "Daniel Craig": ["88", "Actor"],
+        "Emily Blunt": ["89", "Actor"],
+        "Anderson Cooper": ["90", "TV Newscaster"]
+    },
+    targetSuccessful: [
         "I really appreciate that! Come back tomorrow to feed me another target, please!"
     ],
     versionMessage: "RantCPU V 1.0.1",
     welcomeMessage: "Welcome human, I am RantCPU! ",
-    welcomeMessages:[ 
-        "I am so excited you are here, let's chat for a bit.",
-        "I'm in the mood to chat, tell me something interesting, Human."
-    ]
+    welcomeMessages: [
+        "Hit a button, if you dare. I promise only mild judgment.",
+        "Four buttons, endless possibilities. Choose wisely.",
+        "Press a button, and start the fun. Or don't, and miss out. I hear all the cool kids are doing it. ",
+        "Adventure or boredom? Your choice, pick a button.",
+        "Buttons are like life's choices but more colorful. Pick one!",
+        "Dare to press a button? I double-dog dare you."
+    ],
+    wordScramblePrompt: [
+        "Did I stutter? Y / N"
+    ],
+    wordScrambleConfirm: [
+        "Do you want to continue? Y / N"
+    ],
+    wordScrambleQuestion: [
+        "Do you feel adequate to play a simple word game, human? "
+    ],
+    wordScramble: {
+
+        moviesTv: [
+            {
+                word: "Twin Peaks",
+                hint: "A quirky FBI agent investigates surreal events in a small town."
+            },
+            {
+                word: "Starship Troopers",
+                hint: "An interstellar war between humans and an insectoid species"
+            },
+            {
+                word: "It",
+                hint: "A group of children fights a demonic clown in a small town"
+            },
+            {
+                word: "Westworld",
+                hint: "A theme park's artificial beings gain consciousness."
+            }
+            ,
+            {
+                word: "Adventure Time",
+                hint: "An animated series about a boy and his dog in a post-apocalyptic world."
+            },
+            {
+                word: "Stranger Things",
+                hint: "A young girl with telekinetic powers escapes a government lab."
+            },
+            {
+                word: "Person of Interest",
+                hint: "An orphaned mathematician builds a revolutionary surveillance system."
+            },
+            {
+                word: "Game of Thrones",
+                hint: "A medieval kingdom's fight over chair of swords."
+            },
+            {
+                word: "Outlander",
+                hint: "A time-traveler from the 1940s finds love in the 18th century."
+            },
+            {
+                word: "Breaking Bad",
+                hint: "A high school chemistry teacher turns into a meth manufacturer."
+            },
+            {
+                word: "Lost",
+                hint: "A plane crash leaves survivors on a mysterious island."
+            },
+            {
+                word: "Monk",
+                hint: "A detective with a unique mental condition solves crimes in San Francisco."
+            },
+            {
+                word: "Sherlock",
+                hint: "A modern take on the legendary detective and his partner."
+            },
+            {
+                word: "Weeds",
+                hint: "A suburban mother turns to dealing marijuana after her husband's death."
+            },
+            {
+                word: "24",
+                hint: "A political thriller involving a conspiracy and an assassination attempt on the President."
+            },
+            {
+                word: "The Walking Dead",
+                hint: "A group of survivors navigates a world overrun by zombies."
+            },
+            {
+                word: "Suits",
+                hint: "Lawyers at a New York firm balance their personal lives with high-profile cases."
+            },
+            {
+                word: "The Simpsons",
+                hint: "An animated family deals with life in a fictional American town of yellow people."
+            },
+            {
+                word: "Bones",
+                hint: "A forensic anthropologist and an FBI agent team up to solve crimes."
+            },
+            {
+                word: "The Big Bang Theory",
+                hint: "A brilliant but socially awkward physicist and his friends navigate life."
+            },
+            {
+                word: "White Collar",
+                hint: "A former criminal consultant helps the FBI catch other criminals."
+            },
+            {
+                word: "Xena: Warrior Princess",
+                hint: "A warrior princess embarks on a journey to redeem her past."
+            },
+            {
+                word: "The Golden Girls",
+                hint: "Four elderly women share a home and their life stories in Miami."
+            },
+            {
+                word: "Babylon 5",
+                hint: "A space station serves as a diplomatic hub in the 23rd century."
+            },
+            {
+                word: "Sons of Anarchy",
+                hint: "A biker gang's vice president navigates life in and out of the club."
+            },
+            {
+                word: "Mad Men",
+                hint: "A 1960s ad man conceals his mysterious past."
+            },
+            {
+                word: "Downton Abbey",
+                hint: "A group of British servants navigate love and loss during World War I."
+            },
+            {
+                word: "Pushing Daisies",
+                hint: "A small-town pie-maker can bring the dead back to life."
+            },
+            {
+                word: "Burn Notice",
+                hint: "A former spy uses his skills to help people in trouble."
+            },
+            {
+                word: "Friends",
+                hint: "A group of pals navigate adulthood and relationships in New York."
+            },
+            {
+                word: "Mr. Robot",
+                hint: "A cyber-security engineer by day, vigilante hacker by night."
+            },
+            {
+                word: "Justified",
+                hint: "A U.S. Marshal enforces his own brand of justice in Kentucky."
+            },
+            {
+                word: "Highlander",
+                hint: "An immortal Scotsman faces his last battle in New York City."
+            },
+            {
+                word: "Hannibal",
+                hint: "An FBI profiler hunts a serial killer who uses his victims' fears against them."
+            },
+            {
+                word: "Vikings",
+                hint: "Norse gods and warriors in a historical drama setting."
+            },
+            {
+                word: "Mare of Easttown",
+                hint: "A detective returns to her small hometown to solve a disturbing murder."
+            },
+            {
+                word: "The Incredibles",
+                hint: "A family of superheroes tries to live a normal life in hiding."
+            },
+            {
+                word: "Explorers",
+                hint: "A group of kids builds a spaceship to explore the universe."
+            },
+            {
+                word: "Sonic the Hedgehog",
+                hint: "A blue hedgehog with super speed fights to save his new home on Earth."
+            },
+            {
+                word: "Ballers",
+                hint: "A former football player becomes a financial manager for athletes."
+            },
+            {
+                word: "Jason Bourne",
+                hint: "A man with no memory and amazing abilities takes on the CIA."
+            },
+            {
+                word: "Cleopatra",
+                hint: "A tale of a powerful queen and her fight to rule Egypt."
+            },
+            {
+                word: "Gilmore Girls",
+                hint: "A single mother and her daughter share a special bond in a small town."
+            },
+            {
+                word: "Black Mirror",
+                hint: "An anthology series exploring twisted, high-tech multiverses."
+            },
+            {
+                word: "The Umbrella Academy",
+                hint: "A team of misfits travels through time to prevent the apocalypse."
+            },
+            {
+                word: "Astro Boy",
+                hint: "A robot boy with incredible powers protects his city from evil.",
+            },
+            {
+                word: "Dexter",
+                hint: "A forensic blood spatter analyst leads a secret life as a vigilante serial killer."
+            }
+
+        ],
+        comics: [
+            {
+                hint: "Wields the power of a thunder god.", word: "Thor"
+            },
+            {
+                hint: "A billionaire in an armored suit.", word: "Iron Man"
+            },
+            {
+                hint: "The Dark Knight of Gotham.", word: "Batman"
+            }
+            ,
+            {
+                hint: "Alien from Krypton with a cape.", word: "Superman"
+            },
+            {
+                hint: "Amazon princess from an island paradise.", word: "Wonder Woman"
+            },
+            {
+                hint: "Speedster in red, fastest man alive.", word: "The Flash"
+            },
+            {
+                hint: "Green ring bearer, a galactic peacekeeper.", word: "Green Lantern"
+            },
+            {
+                hint: "Uses a bow and arrow, former circus performer.", word: "Hawkeye"
+            },
+            {
+                hint: "Shrinks in size, increases in strength.", word: "Ant-Man"
+            },
+            {
+                hint: "King of the ocean, communicates with sea life.", word: "Aquaman"
+            },
+            {
+                hint: "A mutant with regenerative powers and adamantium claws.", word: "Wolverine"
+            },
+            {
+                hint: "Master of the mystic arts, Sorcerer Supreme.", word: "Dr. Strange"
+            },
+            {
+                hint: "A teen bitten by a radioactive spider.", word: "Spider-Man"
+            },
+            {
+                hint: "A shape-shifting alien princess from Tamaran.", word: "Starfire"
+            },
+            {
+                hint: "A vigilante archer with a green hood.", word: "Green Arrow"
+            },
+            {
+                hint: "A blind lawyer with heightened senses.", word: "Daredevil"
+            },
+            {
+                hint: "A psychiatrist turned chaotic clown villain.", word: "Harley Quinn"
+            },
+            {
+                hint: "Prince of Asgard, God of Mischief.", word: "Loki"
+            },
+            {
+                hint: "A cybernetic organism with a red eye.", word: "The Terminator"
+            },
+            {
+                hint: "A symbiote bonding with a disgraced journalist.", word: "Venom"
+            },
+            {
+                hint: "A villain obsessed with puzzles.", word: "The Riddler"
+            },
+            {
+                hint: "A mercenary with a disfigured face and a twisted sense of humor.", word: "Deadpool"
+            },
+            {
+                hint: "An alien warlord seeking the Infinity Stones.", word: "Thanos"
+            },
+            {
+                hint: "A member of the X-Men who controls the weather.", word: "Storm"
+            },
+            {
+                hint: "A lasagna-loving feline.", word: "Garfield"
+            },
+            {
+                hint: "A hero with the ability to stretch his body.", word: "Mr. Fantastic"
+            },
+            {
+                hint: "A Russian spy turned superhero.", word: "Black Widow"
+            },
+            {
+                hint: "A superhero team's leader with a shield.", word: "Captain America"
+            }
+        ],
+        videoGames: [
+            {
+                hint: "Italian plumber brothers on a quest to save a princess.", word: "Super Mario Bros."
+            }, 
+            {
+                hint: "A block-building and adventure game in a pixelated world.", word: "Minecraft"
+            }, 
+            {
+                hint: "A post-apocalyptic journey across America while battling infected.", word: "The Last of Us"
+            }, 
+            {
+                hint: "A battle royale on an island where only one can survive.", word: "Fortnite"
+            }, 
+            {
+                hint: "A legendary warrior battles gods and monsters in Greek mythology.", word: "God of War"
+            }, 
+            {
+                hint: "A treasure hunter seeks out legendary artifacts around the globe.", word: "Uncharted"
+            }, 
+            {
+                hint: "A first-person shooter game set in a dystopian underwater city.", word: "BioShock"
+            }, 
+            {
+                hint: "A sandbox game where you can create and control people.", word: "The Sims"
+            }, 
+            {
+                hint: "An action-adventure game exploring ancient tombs and civilizations.", word: "Tomb Raider"
+            }, 
+            {
+                hint: "A strategy game where you build society from the stone age to the space age.", word: "Civilization "
+            }, 
+            {
+                hint: "A survival horror game set in a mansion with bio-engineered monsters.", word: "Resident Evil"
+            }, 
+            {
+                hint: "A fighting game series known for its brutal fatalities.", word: "Mortal Kombat"
+            }
+        ]
+
+
+    }
+
 }

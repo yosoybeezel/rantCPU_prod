@@ -20,16 +20,11 @@ const curiousButtonAudio = new Audio('./assets/Beep4.mp3');
 async function startGame() {
     blockElements(true);
     chatbox.classList.add('simonOn');
+    chatbox.classList.remove('wordScrambeOn');
     
-    // bt_power.classList.add('hide');
-    // bt_submit_Target.classList.add('hide');
-    // bt_service.classList.add('hide');
-    // userInput.classList.add('hide');
-
     let userHiScore = localStorage.getItem("simonSaysMaxScore");
     simonScore.classList.remove('hide');
     hiScore.innerHTML = userHiScore;
-    const buttons = document.getElementsByClassName('mood');
     
     Array.from(buttons).forEach(button => {
         button.classList.add('hide');
@@ -55,9 +50,7 @@ async function startGame() {
     round = 0;
     gameOn = true;
     
-    userInput.disabled = false;
-    userInput.classList.remove('disabled');
-    userInput.focus();
+    unblockUserInput();
 
     // blockElements(true);
     // nextRound();
@@ -150,7 +143,7 @@ async function checkSequence() {
     }
 }
 
-async function endGame(){
+async function endRantCPUSays(){
     
     gameOn = false;
     gameOverAudio.play();
@@ -161,8 +154,8 @@ async function endGame(){
     await typeText(chatbox, rantCPUobj.simonSaysCanceled[0]);
 
     setTimeout(() => {
-        chatMode();
-    }, 500);
+        neutralMode()
+    }, 2000);
     
     
 

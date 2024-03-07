@@ -2,6 +2,7 @@ function handleClick(button) {
     
     const dataBtnValue = button.getAttribute('data-btn');
     const showButton = document.getElementById(dataBtnValue);
+    const skipRMBtn = document.getElementById('skipRMBtn');
         
     if(gameOn){
         switch (dataBtnValue) {
@@ -38,11 +39,37 @@ function handleClick(button) {
                 chatMode();
                 break;
             case 'rantButton':
-                blockElements(true)
-                rantMode();
+                skipRMBtn.classList.remove('hide');
+                let rantModeCount = Number(localStorage.getItem("rantModeCount"));
+                blockElements(true);
+                
+                skipRMBtn.disabled = false;
+                skipRMBtn.classList.remove('disabled');
+                skipRMBtn.focus();
+
+                switch(rantModeCount){
+                    case 0:                        
+                        localStorage.setItem("rantModeCount", 1);
+                        rantMode();
+                        break;
+                    case 1:
+                        localStorage.setItem("rantModeCount", 2);
+                        rantMode2();
+                        break;
+                    case 2:
+                        localStorage.setItem("rantModeCount", 3);
+                        rantMode3();
+                        break;
+                    case 3:
+                        localStorage.setItem("rantModeCount", 0);
+                        rantMode4();
+                        break;
+                }
+                
                 break;
             case 'puzzleButton':
-                startGame();
+                // startGame();
+                initArcade();
                 break;
             case 'curiousButton':
                 askSubmitTarget();
@@ -58,7 +85,6 @@ function handleClick(button) {
 async function chatMode(){
     
     blockElements(true);
-    const buttons = document.getElementsByClassName('mood');
     
     Array.from(buttons).forEach(button => {
         button.classList.add('hide');
@@ -67,8 +93,21 @@ async function chatMode(){
     chatButton.classList.remove('hide');
     chatbox.innerHTML = '';
 
-    await typeText(chatbox, rantCPUobj.inciteChat[0]);
+    let positiveAffirmationsCount = Number(localStorage.getItem("positiveAffirmationsCount"));
+			
+    await typeText(chatbox, rantCPUobj.positiveAffirmations[positiveAffirmationsCount]);
 
-    blockElements(false);
+    positiveAffirmationsCount += 1;
+
+    if (positiveAffirmationsCount >= rantCPUobj.positiveAffirmations.length) {
+
+        positiveAffirmationsCount = 0;
+    }
+
+    localStorage.setItem("positiveAffirmationsCount", positiveAffirmationsCount);
+
+    setTimeout(() => {
+        neutralMode();
+    }, 2000);
 
 }

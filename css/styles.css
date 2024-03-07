@@ -1,3 +1,6 @@
+:root {
+	--terminalText: #96bb57;
+}
 * {
   box-sizing: border-box;
 }
@@ -41,10 +44,10 @@ html {
     height: 50px;
     width: auto;
     line-height: 50px;
-    font-size: 1.2rem;
+    font-size: 0.8em;
     border: none;
     background-color: transparent;
-    color: #90C440;
+    color: var(--terminalText);
     transition: color 0.4s ease-in-out;
     cursor: pointer;
   }
@@ -189,6 +192,17 @@ html {
         top: 57.8%;
         left: 8.5%;
       }
+
+      & #btnNotes{
+        width: 14%;
+        height: 25%;
+        position: absolute;
+        left: 82%;
+        top: 32%;
+        transform: rotate(-13deg);
+        cursor: pointer;
+        background-color: transparent;
+      }
     }
 
     & #chatbox_Container {
@@ -197,44 +211,140 @@ html {
       height: 64.56%;
       top: 17.5%;
       left: 30.30%;
-      background: repeating-linear-gradient(0deg, rgba(0, 255, 0, 0.07) -3px, transparent 2px);
+      background: repeating-linear-gradient(0deg, rgba(0, 255, 0, 0.07) -1px, transparent 1px);       
       border-radius: 10% / 13%;
       transition: transform ease-in-out 0.20s;
       transform: scaleY(0);
 
-      & #simonScore{
-        text-align: right;
-        font-family: "Press Start 2P", Courier, monospace;
-        height: 1rem;
-        line-height: 1rem;
-        width: 88%;
-        margin: 1rem auto 0;
-        font-size: 0.8rem;
+      & #wordScrambleContainer{
+        position: absolute;
+        width: 90%;
+        height: auto;
+        margin: 0 5% auto;
 
-        & div:nth-child(1){
-          float: left;
-
-          & div:first-child{
-            font-weight: bold;
-          }
+        & h1{
+          text-align: center;
+          font-size: 1.1em;
+          font-weight: bold;
+          margin: 3% auto;
+          color: var(--terminalText);
         }
-        & div:nth-child(2){
+
+        & .word{
+          font-size: 1.2em;
+          font-weight: bold;
+          text-align: center;
+          letter-spacing: 1em;
+          word-wrap: break-word;
+        }
+
+        & .details{}
+
+        & .buttons{}
+
+      }
+
+      & #headsUpDisplay{
+        position: absolute;
+        top: 3%;
+        right: 4%;
+        width: 92%;
+        height: 6%;
+        
+        & #healthBar{
           float: right;
+          width: auto;
+          height: 100%;
+          cursor: pointer;
+
+          & div{
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            aspect-ratio: 1 / 1;
+            height: 100%;
+            width: auto;
+            float: right;
+            margin-left: 5px;
+          }
+
+          & .heartFull{
+            background-image:url(../assets/heart_full_green.png);
+          }
+          & .heartEmpty{
+            background-image:url(../assets/heart_empty_green.png);
+          }
+          & .heartHalf{
+            background-image:url(../assets/heart_half_green.png);
+          }
           
-          & div:first-child{
-            font-weight: bold;
+        }
+
+        & #rewardsBar{
+          float: left;
+          width: auto;
+          height: 100%;
+          cursor: pointer;
+
+          & div{
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            aspect-ratio: 1 / 1;
+            height: 100%;
+            width: auto;
+            float: left;
+            margin-right: 5px;
+          }
+
+          & .star{
+            background-image:url(../assets/star.png);
+          }
+          & .cup{
+            background-image:url(../assets/cup.png);
+          }
+          & .message{
+            background-image:url(../assets/message.png);
+          }
+          & .game{
+            background-image:url(../assets/game.png);
           }
         }
       }
 
+      & #simonScore{
+        text-align: right;
+        font-family: "Press Start 2P", Courier, monospace;
+        height: 30px;
+        line-height: 0.4em;
+        width: 90%;
+        margin: 4% auto 0;
+        font-size: 0.5em;
+
+        & div{
+          float: left;
+          width: 33.3%;
+          min-height: 15px;
+          text-align: center;
+
+          & div{
+            width: 100%;
+          }
+        }
+
+        & div:nth-child(3){
+          float: right;
+        }
+      }
+
       & #chatbox {
-        width: calc(96% - 6px);
-        height: calc(96% - 40px);
+        height: calc(96% - 30px);
+        width: calc(96% - 6px);        
         margin: 2% 2% 0;
         overflow-y: auto;
         overflow-x: hidden;
-        color: #FFF;
-        font-size: 1em;
+        color: #fff;
+        font-size: 0.7em;
         line-height: 1.2em;
         animation-duration: 0.05s;
         animation-name: textflicker;
@@ -247,7 +357,12 @@ html {
         /* Standard scrollbar color property */
         
         &.simonOn{
-          height: calc(96% - 70px);
+          height: calc(96% - 67px);
+        }
+
+        &.wordScrambeOn{          
+          height: calc(62% - 100px);
+          margin: 35% 2% 0;
         }
       }
 
@@ -259,18 +374,40 @@ html {
         margin-bottom: 0.5em;
         position: relative;
 
-        /* &:last-of-type::after {
-          content: "";
-          width: 5px;
-          height: 1rem;
-          background: #ec7fff;
-          display: inline-block;
-          animation: cursor-blink 1.5s steps(2) infinite;
-          position: absolute;
-          bottom: 5px;
-        } */
-      }
+        &.arcadeElement{
+          margin-top: 10%;
+          margin-left: 20px;
+          text-indent: 10px;
+          padding-top: 2px;
+          cursor: pointer;
+          min-height: 1.5em;      
+          width: auto;          
 
+          &::before{
+            content: '';
+            position: absolute;
+            left: -20px;
+            width: 0; 
+            height: 0; 
+            padding-left: 10px;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 10px solid #fff;
+          }
+          
+          &:hover{
+            background-color: var(--terminalText);
+            color: #fff;
+            font-weight: bold;
+          }
+          
+          &:hover::before {
+            border-left-color: var(--terminalText);
+          }
+
+        }
+        
+      }
 
       & #chatbox::-webkit-scrollbar-track {
         -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
@@ -291,14 +428,14 @@ html {
       }
 
       & #userInput {
-        width: 90%;
-        height: 30px;
+        width: 90%;        
         margin: 0 5% 0;
         border: 1px solid rgba(0, 200, 0, 0.3);
         border-radius: 2px;
         overflow: auto;
         color: #ffffff;
-        font-size: 1em;
+        font-size: 0.5em;
+        height: 24px;
         font-weight: bold;
         text-indent: 0.5em;
         background-color: rgba(0, 0, 0, 0.25);
@@ -312,6 +449,22 @@ html {
       & #userInput:focus {
         outline: none !important;
         box-shadow: 0 0 3px rgba(20, 230, 0, 0.5);
+      }
+
+      & .skipIntroBtn {
+        height: auto;
+        width: 22%;
+        right: 6%;
+        bottom: 20%;
+        z-index: 3;
+        background: transparent;
+        text-align: center;
+        cursor: pointer;
+        position: absolute;
+        color: #ffff;
+        border: 1px solid #fff;
+        padding: 1% 2%;        
+        font-size: 0.8em;        
       }
 
     }
@@ -498,7 +651,7 @@ html {
         border-radius: 10%;
 
         & #chatbox {
-          font-size: 1.1rem;
+          font-size: 1.1em;
         }
       }
     }
@@ -555,6 +708,21 @@ html {
     z-index: 3;
     background-color: transparent;
   }
+
+  & #skipRMBtn {
+    height: auto;
+    width: 15%;
+    right: 2%;
+    bottom: 5%;
+    background: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    cursor: pointer;
+    position: absolute;
+    color: #ffff;
+    border: 1px solid var(--terminalText);
+    padding: 1% 2%;
+    font-size: 0.8em;
+  }
 }
 
 .hide {
@@ -585,47 +753,65 @@ html {
   }
 }
 
-@media (max-width: 768px) {
-  /* CSS rules for mobile styles go here */
-}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {}
 
-/* Media Queries */
-@media only screen and (max-width: 768px) {
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {}
 
-  #startBtnContainer{
-    text-align: center;
-    & #btnStart {
-      font-size: 0.8rem !important;
-    }
-
-      /* &::before{
-        content: "> Tap here to START";
-      } */
-  }
-
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
   #main_Container {
 
     #terminal_Container {
 
       & #chatbox_Container {
-
-        background: repeating-linear-gradient(0deg, rgba(0, 255, 0, 0.07) -1px, transparent 1px) !important;
-        & #simonScore,
-        & #chatbox,
+        background: repeating-linear-gradient(0deg, rgba(0, 255, 0, 0.07) -3px, transparent 2px);     
+        
+        & #simonScore{
+          font-size: 0.7em;
+        }
         & #userInput {
-          font-size: 0.5em !important;          
+          height: 34px; 
+          font-size: 1em;
         }
 
         & #chatbox{
-          height: calc(96% - 30px);
+          height: calc(96% - 40px);
+          font-size: 1em;
+          
+          &.simonOn{
+            height: calc(96% - 90px);
+          }
         }
 
-        & #userInput {
-          height: 24px !important;
-        }
       }
     }
 
+  }
+
+  #startBtnContainer{
+    text-align: center;
+    & #btnStart {
+      font-size: 1.2em !important;
+    }
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  #main_Container {
+    & #terminal_Container{
+      & #chatbox_Container{
+        & .skipIntroBtn {
+          bottom: 13%;
+        }  
+      }
+    }
+  
   }
 }
 
@@ -633,5 +819,14 @@ html {
   #main_Container {
     height: 100%;
     width: auto;
-  }
+    & #terminal_Container{
+      & #chatbox_Container{
+        & .skipIntroBtn {
+          bottom: 10%;
+        }  
+      }
+    }
+  
+  }    
+
 }

@@ -22,7 +22,9 @@ function blockElements(bool) {
     
 };
 
-function blockElementsNotUserInput(bool){
-
-
+function unblockUserInput(){
+    userInput.disabled = false;
+    userInput.classList.remove('disabled');
+    userInput.focus();
+    
 }

@@ -40,7 +40,7 @@ async function askSubmitTarget() {
     terminalLight.classList.remove('green');
     terminalLight.classList.add('red');
 
-    const buttons = document.getElementsByClassName('mood');
+    
     
     Array.from(buttons).forEach(button => {
         button.classList.add('hide');
@@ -58,7 +58,7 @@ async function askSubmitTarget() {
         await typeText(chatbox, rantCPUobj.submitTText[0]);
 
         setTimeout(async () => {
-            chatMode();
+            neutralMode()
         }, 2000);
 
         return;
@@ -84,11 +84,7 @@ async function askSubmitTarget() {
         localStorage.setItem("askSubmitTargetCount", askSubmitTargetCount);
     }
     
-    // blockElements(false);
-    userInput.disabled = false;
-    userInput.classList.remove('disabled');
-    userInput.focus();
-
+    unblockUserInput();
     
 }
 
@@ -132,7 +128,6 @@ async function lookForTarget(input) {
         const sorryText = "Sorry, I don't know \"" + input + "\". Click the TARGET button to submit another target.";
         await typeText(chatbox, sorryText);
 
-        const buttons = document.getElementsByClassName('mood');
     
         Array.from(buttons).forEach(button => {
             button.classList.add('hide');

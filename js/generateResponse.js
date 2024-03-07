@@ -1,5 +1,5 @@
 let isEmail;
-
+let wrongCount = 0;
 const generateResponse = async (input) => {
 
     if (input === '') {
@@ -10,11 +10,43 @@ const generateResponse = async (input) => {
 
     input = input.toLowerCase().replace(/'/g, ''); // Remove apostrophes
     userInput.value = ""; // Clear the text field
-    
-    // // user types
+
+    // user types
     chatbox.innerHTML += "<p class='user'><strong>> You:</strong> " + input + "</p>";
     chatbox.scrollTop = chatbox.scrollHeight; // Scroll to the bottom
-   
+    
+    if(isWordScramble){
+        
+        if(input == 'y'){
+            initWordScramble();
+        } else if(input == 'n') {
+            endGameWordScramble();
+            neutralMode();
+        } else {
+            
+            chatbox.innerHTML = "";
+            
+            if(wrongCount == 2){
+                wrongCount = 0;
+                endGameWordScramble();
+                neutralMode();
+                return;
+            }
+
+            await typeText(chatbox,rantCPUobj.wordScramblePrompt[0]);
+
+            unblockUserInput();
+            wrongCount +=1;
+        }
+        return;
+    }
+
+    if(isWordScrambleOn){
+        checkWord(input);
+        
+        return;
+    }
+    
     const isEmail = await checkIfEmail(input);
 
     if (isEmail) {
@@ -26,39 +58,48 @@ const generateResponse = async (input) => {
         case 'first gesture':
             await gestureOne();
             return;
-            break;
         case 'second gesture':
             await gestureTwo();
             return;
-            break;
         case 'third gesture':
             await gestureThree();
             return;
-            break;
         case 'fourth gesture':
             await gestureFour();
             return;
-            break;
         case 'rantbyte':
             await rantBytes();
             return;
-            break;
         case 'pimple':
             await popPimple();
             return;
-            break;
         case 'notes one':
             await notesOne();
             return;
-            break;
         case 'notes two':
             await notesTwo();
             return;
-            break;
         case 'notes three':
             await notesThree();
             return;
-            break;
+        case 'matrix':
+            await matrix();
+            return;
+        case 'nuke joke':
+            await nukeJoke();
+            return;
+        case 'rantcpu says':
+            startGame();
+            return;
+        case 'rantcpu says game':
+            startGame();
+            return;
+        case 'positive affirmations':
+            chatMode();
+            return;
+        case 'wordscramble':
+            wordScramble();    
+            return;
     }
     
     if(gameOn){
@@ -78,13 +119,13 @@ const generateResponse = async (input) => {
                 break;
             case 'negative':
                 // console.log('negative');
-                await endGame();
-                // chatMode();
+                await endRantCPUSays();
+                
                 break;
             case 'another':
                 // console.log('another');
-                await endGame();
-                // chatMode();
+                await endRantCPUSays();
+                
                 break;
         }
         

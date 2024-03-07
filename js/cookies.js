@@ -34,17 +34,39 @@ async function checkSession() {
         session = true;
         
         setCookie("session", true, 365);
-        localStorage.setItem("welcomeMessageCount",0);
-        localStorage.setItem("askSubmitTargetCount",0);
-        localStorage.setItem("simonSaysGameOverCount",0);
+        localStorage.setItem("welcomeMessageCount", 0);
+        localStorage.setItem("askSubmitTargetCount", 0);
+        localStorage.setItem("simonSaysGameOverCount", 0);
         localStorage.setItem("simonSaysIntroCount", 0);
         localStorage.setItem("simonSaysMaxScore", 0);
         localStorage.setItem("dontSubmitMessageCount", 0);
-        localStorage.setItem("emailSubmitedCount",0);
-        localStorage.setItem("serviceSwitchCount",0);
-
+        localStorage.setItem("emailSubmitedCount", 0);
+        localStorage.setItem("serviceSwitchCount", 0);
+        localStorage.setItem("positiveAffirmationsCount", 0);
+        localStorage.setItem("wordScrambleScore", 0);
+        localStorage.setItem("wordScrambleHiScore", 0);
+        localStorage.setItem("currentWordScramble", 0);
+        localStorage.setItem("checkNotesCount", 0)
+        localStorage.setItem("rantModeCount", 0)
     } else {    
-        
+        if(!localStorage.getItem("wordScrambleHiScore")){
+            localStorage.setItem("wordScrambleHiScore", 0)
+        }
+        if(!localStorage.getItem("rantModeCount")){
+            localStorage.setItem("rantModeCount", 0)
+        }
+        if(!localStorage.getItem("checkNotesCount")){
+            localStorage.setItem("checkNotesCount", 0)
+        }
+        if(!localStorage.getItem("currentWordScramble")){
+            localStorage.setItem("currentWordScramble", 0)
+        }
+        if(!localStorage.getItem("wordScrambleScore")){
+            localStorage.setItem("wordScrambleScore", 0)
+        }
+        if(!localStorage.getItem("positiveAffirmationsCount")){
+            localStorage.setItem("positiveAffirmationsCount", 0)
+        }
         if(!localStorage.getItem("serviceSwitchCount")){
             localStorage.setItem("serviceSwitchCount", 0)
         }

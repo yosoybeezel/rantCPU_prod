@@ -7,105 +7,6 @@ let emailSequence = false;
 let nftNum = '';
 let typeResponse;
 
-// const introChat = async (input) => {
-//     introChatCount += 1;
-//     isIntro = true;
-
-//     switch (introChatCount) {
-
-//         case 1:
-//             await typeText(chatbox, rantCPUobj.initDialog_01);
-//             setTimeout(() => {
-//                 terminal_Container.classList.add('hide');
-//                 videoBackground.setCurrentTime(96.5);
-//                 videoBackground.play();
-//             }, 1000);
-//             break;
-
-//         case 2:
-//             await typeText(chatbox, rantCPUobj.initDialog_02);
-//             setTimeout(() => {
-//                 terminal_Container.classList.add('hide');
-//                 videoBackground.setCurrentTime(15.7);
-//                 videoBackground.play();
-//             }, 1000);
-//             break;
-
-//         case 3:
-            
-//             await typeText(chatbox, rantCPUobj.initDialog_03);
-//             await rantBytes();
-            
-//             nftNum = 1;
-//             break;
-
-//         case 4:
-//             await typeText(chatbox, rantCPUobj.initDialog_04);
-//             setTimeout(() => {
-//                 setTimeout(() => {
-//                     terminal_Container.classList.add('hide');
-//                     videoBackground.setCurrentTime(80.8);
-//                     videoBackground.play();
-//                 }, 1000);
-
-//             }, 1500);
-//             break;
-
-//         case 5:
-//             emailSequence = true
-//             await typeText(chatbox, rantCPUobj.initDialog_05);
-//             blockElements(false);
-//             nftNum = 2;
-//             break;
-
-//         case 6:
-//             SM_instagram.style.opacity = "1";
-//             SM_twitter.style.opacity = "1";
-//             SM_tiktok.style.opacity = "1";    
-//             await typeText(chatbox, rantCPUobj.initDialog_06);
-//             setTimeout(() => {
-
-//                 setTimeout(() => {
-//                     SM_instagram.style.opacity = "0";
-//                     SM_twitter.style.opacity = "0";
-//                     SM_tiktok.style.opacity = "0";
-//                     terminal_Container.classList.add('hide');
-//                     videoBackground.setCurrentTime(84.0);
-//                     videoBackground.play();
-//                 }, 1000);
-//             }, 1500);
-//             break
-
-//         case 7:
-//             await typeText(chatbox, rantCPUobj.initDialog_07);
-//             setTimeout(() => {
-
-//                 setTimeout(() => {
-//                     terminal_Container.classList.add('hide');
-//                     videoBackground.setCurrentTime(89.9);
-//                     videoBackground.play();
-//                 }, 1000);
-
-//             }, 1500);
-//             break;
-
-//         case 8:
-//             await typeText(chatbox, rantCPUobj.initDialog_08);
-//             setTimeout(() => {
-//                 introChatCount = 0;
-
-//                 setTimeout(async () => {
-//                     chatbox.innerHTML = '';
-//                     terminal_Container.classList.add('hide');
-//                     videoBackground.setCurrentTime(93.0);
-//                     videoBackground.play();
-//                 }, 1000);
-//             }, 1500);
-//             break;
-//     }
-
-// }
-
 async function rantCPUResponse(input, options) {
 
     const introOptions = rantCPUobj.getType;
@@ -133,7 +34,8 @@ async function rantCPUResponse(input, options) {
                     nftChatCount = 0;
                     
                     setTimeout(() => {
-                        chatMode();    
+                        
+                        neutralMode()
                     }, 2000);
                     
 
@@ -151,7 +53,7 @@ async function rantCPUResponse(input, options) {
                     nftChatCount = 0;
                     
                     setTimeout(() => {
-                        chatMode();    
+                        neutralMode()
                     }, 2000);
 
                     break;
@@ -169,7 +71,7 @@ async function rantCPUResponse(input, options) {
             isNFTRoute = false;
             nftChatCount = 0;
             setTimeout(() => {
-                chatMode();
+                neutralMode();
             }, 2000);
         }
 

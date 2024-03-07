@@ -6,7 +6,17 @@ function sleep(ms) {
 
 async function typeText(element, text) {
 
-    chatbox.innerHTML += "<p class='assistant'><strong>> RantCPU: </strong></p>";
+    if(isIntro && isInitArcade){
+        chatbox.innerHTML += "<p class='assistant arcadeElement'></p>";
+        
+    }
+    else if(isIntro){
+        chatbox.innerHTML += "<p class='assistant'></p>";
+    } else 
+    {
+        chatbox.innerHTML += "<p class='assistant'><strong>> RantCPU: </strong></p>";
+    }
+    
 
     const lastChild = element.lastChild;
 

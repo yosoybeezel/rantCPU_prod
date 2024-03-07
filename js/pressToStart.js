@@ -1,6 +1,5 @@
 const btnStart = document.getElementById('btnStart');
-
-let loadRantbyte = false;
+let isIntro = false;
 
 async function pressToStart(event) {
     // Remove the event listener after it's triggered
@@ -10,7 +9,8 @@ async function pressToStart(event) {
     
     pressToStartSound.play();
     startBtnContainer.classList.add('hide');
-    videoBackground.setCurrentTime(32.6);
-    videoBackground.play();
+        
+    
+    chatAnimation();
 
 }

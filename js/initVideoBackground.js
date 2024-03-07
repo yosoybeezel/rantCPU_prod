@@ -1,17 +1,19 @@
 const chatbox_Container = document.getElementById('chatbox_Container');
 const terminalLight = document.getElementById('terminalLight');
 const curiousButton = document.getElementById('curiousButton');
-const chatButton  = document.getElementById('chatButton');
+const chatButton = document.getElementById('chatButton');
 const toggleSwitch = document.getElementById('toggleSwitch');
 const terminal_Container_Inputs = document.getElementById('terminal_Container_Inputs');
 const startBtnContainer = document.getElementById('startBtnContainer');
+
+let isWink = false;
 
 let isDefragOpen = false;
 
 async function initVideo() {
 
     const options = {
-        id:898653551,
+        id: 898653551,
         responsive: true,
         muted: false,
         loop: false,
@@ -23,14 +25,13 @@ async function initVideo() {
 
     videoBackground.on('loaded', () => {
         document.addEventListener("keypress", pressToStart);
-        // console.log('video loaded'); 
         startBtnContainer.classList.remove('hide');
         main_Container.classList.remove('hide');
-        videoBackgroundContainer.classList.remove('hide');       
-        videoBackground.setVolume(1);
+        videoBackgroundContainer.classList.remove('hide');
+        videoBackground.setVolume(0.7);
         videoBackground.pause();
-        checkSession();     
-        
+        checkSession();
+
     });
 
     async function addCuePoint(video, time, customKey) {
@@ -64,7 +65,8 @@ async function initVideo() {
         await addCuePoint(videoBackground, 91.6, 'crushed');
         await addCuePoint(videoBackground, 94.9, 'goodbye');
         await addCuePoint(videoBackground, 97.4, 'worriedSmile');
-        await addCuePoint(videoBackground, 107, 'pimple');
+        await addCuePoint(videoBackground, 106.3, 'pimple');
+        await addCuePoint(videoBackground, 109.5, 'pimplePop');
         await addCuePoint(videoBackground, 122.2, 'rantMode');
         await addCuePoint(videoBackground, 134.0, 'gameOver');
         await addCuePoint(videoBackground, 140.2, 'notesOne');
@@ -72,15 +74,16 @@ async function initVideo() {
         await addCuePoint(videoBackground, 152.2, 'notesThree');
         await addCuePoint(videoBackground, 156.1, 'greenGlow');
         await addCuePoint(videoBackground, 160.6, 'goldenGlow');
-        await addCuePoint(videoBackground, 169.4, 'matrix');
-        await addCuePoint(videoBackground, 180.0, 'nukeJoke');
+        await addCuePoint(videoBackground, 169.2, 'matrix');
+        await addCuePoint(videoBackground, 179.8, 'nukeJoke');
+        await addCuePoint(videoBackground, 193.9, 'rantMode2');
+        await addCuePoint(videoBackground, 213.2, 'rantMode3');        
+        await addCuePoint(videoBackground, 232.9, 'rantMode4');
     } catch (error) {
 
     }
 
-    videoBackground.on('play', () => {        
-        
-        // terminal_Container.classList.add('hide');
+    videoBackground.on('play', () => {
     });
 
     videoBackground.on('cuepoint', async function (obj) {
@@ -89,72 +92,51 @@ async function initVideo() {
 
         switch (customKey) {
             case 'terminalOpen':
-
                 videoBackground.setCurrentTime(5.1);
-
                 break;
+
             case 'defragOpen':
                 liteBriteContainer.classList.remove('hide');
                 buttonsBriteLite.classList.remove('hide');
                 createLites(17, 64);
-
                 videoBackground.pause();
                 break;
-            case 'defragClose':
 
+            case 'defragClose':
                 videoBackground.setCurrentTime(5.1);
                 bt_Close_Defrag.classList.remove('disabled');
                 isDefragOpen = false;
                 break;
-
-            case 'terminalClose':
-                videoBackground.pause();
                 
-                videoBackground.setCurrentTime(0);
-                videoBackground.pause();
-                terminal_Container.classList.remove('hide');
+            case 'terminalClose':
+                await resetVideo();
                 isDefragg = false;
                 break;
 
             case 'targetSuccessful':
-                videoBackground.pause();
-                videoBackground.setCurrentTime(0);
-
-                terminal_Container.classList.remove('hide');
-
+                await resetVideo();
                 chatbox_Container.style.transform = 'scaleY(1)';
-                
-                setTimeout(async() => {
+                setTimeout(async () => {
                     await typeText(chatbox, foundTargetResponse);
                     await typeText(chatbox, rantCPUobj.targetSuccessful[0]);
-                    
+
                     terminalLight.classList.add('red');
-        
+
                     confirmSubmit = false;
                     isSubmitTarget = false;
-    
+
                     setTimeout(() => {
-                        chatMode();    
-                    }, 1000);    
+                        neutralMode();
+                    }, 1000);
                 }, 500);
-
-                
-                
-
-                
-
                 break;
 
-
             case 'tryToClose':
-                videoBackground.pause();
-                videoBackground.setCurrentTime(0);
-                                
-                terminal_Container.classList.remove('hide');               
+                await resetVideo();
 
                 setTimeout(async () => {
                     chatbox_Container.style.transform = 'scaleY(1)';
-                    
+
                     setTimeout(async () => {
                         let shutOffMessage = rantCPUobj.shutOff;
                         shutOffMessage = shutOffMessage[Math.floor(Math.random() * shutOffMessage.length)];
@@ -166,269 +148,187 @@ async function initVideo() {
                 break;
 
             case 'moodHappy':
-                
-                videoBackground.pause();
-                videoBackground.setCurrentTime(0);
 
-                terminal_Container.classList.remove('hide');                
-                
+                await resetVideo()
+
                 let targetLimit = getCookie("targetLimit");
 
-                if(targetLimit){
+                if (targetLimit) {
                     terminalLight.classList.add('red');
-                    
+
                 } else {
                     terminalLight.classList.add('green');
                 }
-                
-                if(isIntro){
-                    isIntro = false;
-                    setTimeout(() => {
-                        chatbox_Container.style.transform = 'scaleY(1)';
-                        
-                        greet();
-                        // idleFunction();
-                        chatButton.classList.remove('hide');
-                        toggleSwitch.classList.remove('hide');
-                    }, 300);
-                }      
 
+                if (isIntro) {
+                    greet();
+                }
+
+                if (isWink){
+                    isWink = false;
+                    neutralMode();
+                }
                 break;
 
             case 'moodSad':
-                videoBackground.pause();
-                videoBackground.setCurrentTime(0);
-
-                terminal_Container.classList.remove('hide');
-
+                await resetVideo();
                 break;
 
             case 'moodHostile':
-                videoBackground.pause();
-                videoBackground.setCurrentTime(0);
-
-                terminal_Container.classList.remove('hide');
-
+                await resetVideo();
                 break;
 
             case 'moodHorny':
-                videoBackground.pause();
-                videoBackground.setCurrentTime(0);
-
-                terminal_Container.classList.remove('hide');
-
+                await resetVideo();
                 break;
 
             case 'gestureOne':
-                videoBackground.pause();
-                videoBackground.setCurrentTime(0);
-
-                terminal_Container.classList.remove('hide');
-                blockElements(false)
-
+                await resetVideo();
+                blockElements(false);
                 break;
 
             case 'gestureTwo':
-                videoBackground.pause();
-                videoBackground.setCurrentTime(0);
-
-                terminal_Container.classList.remove('hide');
-                blockElements(false)
+                await resetVideo();
+                blockElements(false);
                 break;
 
             case 'gestureThree':
-                videoBackground.pause();
-                videoBackground.setCurrentTime(0);
-
-                terminal_Container.classList.remove('hide');
-                blockElements(false)
+                await resetVideo();
+                blockElements(false);
                 break;
 
             case 'gestureFour':
-                videoBackground.pause();
-                videoBackground.setCurrentTime(0);
-
-                terminal_Container.classList.remove('hide');
+                await resetVideo();
                 blockElements(false)
                 break;
 
             case 'emailSucces':
-                videoBackground.pause();
-                videoBackground.setCurrentTime(0);
+                await resetVideo();
                 let emailSubmitedCount = Number(localStorage.getItem("emailSubmitedCount"));
 
                 setTimeout(async () => {
-                    terminal_Container.classList.remove('hide');                    
+
                     await typeText(chatbox, rantCPUobj.emailSubmited[emailSubmitedCount]);
                     emailSubmitedCount += 1;
                     if (emailSubmitedCount == rantCPUobj.emailSubmited.length) {
                         emailSubmitedCount = 0;
                     }
-        
+
                     localStorage.setItem("emailSubmitedCount", emailSubmitedCount);
-        
+
                     blockElements(false)
                 }, 500);
-
-
                 break;
 
             case 'suckingData':
-                videoBackground.pause();
-                videoBackground.setCurrentTime(0);
-
-                terminal_Container.classList.remove('hide');
-
+                await resetVideo();
                 break;
 
             case 'worriedSmile':
-                videoBackground.pause();
-                videoBackground.setCurrentTime(0);
-
-                terminal_Container.classList.remove('hide');
-
+                await resetVideo();
                 break;
 
             case 'thinking':
-                videoBackground.pause();
-                videoBackground.setCurrentTime(0);
-
-                terminal_Container.classList.remove('hide');
-
+                await resetVideo();
                 break;
-
+                
             case 'smiles':
-                videoBackground.pause();
-                videoBackground.setCurrentTime(0);
-
-                terminal_Container.classList.remove('hide');
-
+                await resetVideo();
                 break;
 
             case 'hearts':
-                videoBackground.pause();
-                videoBackground.setCurrentTime(0);
-
-
+                await resetVideo();
                 setTimeout(() => {
-                    terminal_Container.classList.remove('hide');
                     nftSequence();
                 }, 500);
-
                 return;
                 break;
 
             case 'crushed':
-                videoBackground.pause();
-                videoBackground.setCurrentTime(0);
-
-                terminal_Container.classList.remove('hide');
-
+                await resetVideo();
                 break;
 
             case 'goodbye':
-                videoBackground.pause();
-                videoBackground.setCurrentTime(0);
-
-                terminal_Container.classList.remove('hide');
-
+                await resetVideo();
                 break;
-            case 'pimple':                
-                pimpleBtn.classList.remove('hide');
-                videoBackground.setCurrentTime(98.6 );
+
+            case 'pimple':
+                videoBackground.setCurrentTime(102.3);
                 break;
+
+            case 'pimplePop':
+                await resetVideo();
+                blockElements(false);
+                break;
+
             case 'rantMode':
-                videoBackground.pause();
-                videoBackground.setCurrentTime(0);
-
-                terminal_Container.classList.remove('hide');
-                blockElements(false)
+                skipRMBtn.classList.add('hide');
+                await resetVideo();
+                blockElements(false);
                 break;
+
             case 'gameOver':
 
                 let simonSaysGameOverCount = Number(localStorage.getItem("simonSaysGameOverCount"));
                 const simonSaysGameOver = rantCPUobj.simonSaysGameOver[simonSaysGameOverCount];
                 const result = `Game Over! You reached round ${round}.`;
-                
-                videoBackground.pause();
-                videoBackground.setCurrentTime(0);
-                
-                
-                terminal_Container.classList.remove('hide');
+
+                await resetVideo();
+
                 puzzleButton.classList.remove('hide');
                 chatbox.innerHTML = '';
-                await typeText(chatbox, result);                
+                await typeText(chatbox, result);
 
-                setTimeout(async() => {
+                setTimeout(async () => {
                     simonScore.classList.add('hide');
                     chatbox.classList.remove('simonOn');
-                    
+
                     score.innerHTML = '0';
                     chatbox.innerHTML = '';
-                    await typeText(chatbox,simonSaysGameOver);
+                    await typeText(chatbox, simonSaysGameOver);
                     bt_power.classList.remove('hide');
                     bt_submit_Target.classList.remove('hide');
                     bt_service.classList.remove('hide');
                     userInput.classList.remove('hide');
-                    
-                    
+
+
 
                     setTimeout(() => {
                         puzzleButton.classList.add('hide');
-                        chatMode();
+                        neutralMode()
                     }, 2000);
 
                 }, 2000);
-                
+
                 break;
+                
             case 'notesOne':
-                videoBackground.pause();
-                videoBackground.setCurrentTime(0);
-                
-                setTimeout(() => {
-                    terminal_Container.classList.remove('hide');
-                    blockElements(false);    
-                }, 250);
-                
+                await resetVideo();
+                blockElements(false);
                 break;
+
             case 'notesTwo':
-                videoBackground.pause();
-                videoBackground.setCurrentTime(0);
-
-                setTimeout(() => {
-                    terminal_Container.classList.remove('hide');
-                    blockElements(false);    
-                }, 250);
-
+                await resetVideo();
+                blockElements(false);
                 break;
+
             case 'notesThree':
-                videoBackground.pause();
-                videoBackground.setCurrentTime(0);
-
-                setTimeout(() => {
-                    terminal_Container.classList.remove('hide');
-                    blockElements(false);    
-                }, 250);
-
+                await resetVideo();
+                blockElements(false);
                 break;
-            case 'greenGlow':
-                videoBackground.pause();
-                videoBackground.setCurrentTime(0);
 
-                terminal_Container.classList.remove('hide');
+            case 'greenGlow':
+                await resetVideo();
                 toggleSwitch.classList.remove('hide');
                 closeButtonSound.play();
-                blockElements(false);   
-                
+                blockElements(false);
                 break;
+
             case 'goldenGlow':
-                videoBackground.pause();
-                videoBackground.setCurrentTime(0);
+                await resetVideo();
                 let serviceSwitchCount = Number(localStorage.getItem("serviceSwitchCount"));
-                
-                terminal_Container.classList.remove('hide');
-                
-                setTimeout(async() => {
+
+                setTimeout(async () => {
                     chatbox_Container.style.transform = 'scaleY(1)';
                     toggleSwitch.classList.remove('hide');
                     closeButtonSound.play();
@@ -437,54 +337,61 @@ async function initVideo() {
                     blockElements(false);
 
                     serviceSwitchCount += 1;
-                    
+
                     if (serviceSwitchCount == rantCPUobj.serviceSwitch.length) {
                         serviceSwitchCount = 0;
                     }
-        
+
                     localStorage.setItem("serviceSwitchCount", serviceSwitchCount);
 
-                    
+
                 }, 350);
-                
+
                 break;
 
-            case 'matrix':
-                videoBackground.pause();
-                videoBackground.setCurrentTime(0);
-
-                setTimeout(() => {
-                    terminal_Container.classList.remove('hide');
-                    blockElements(false);    
-                }, 250);
-                
+            case 'matrix':                
+                await resetVideo();
+                chatbox_Container.style.transform = 'scaleY(1)';
+                blockElements(false);
                 break;
-            case 'nukeJoke':
-                videoBackground.pause();
-                videoBackground.setCurrentTime(0);
 
-                setTimeout(() => {
-                    terminal_Container.classList.remove('hide');
-                    blockElements(false);    
-                }, 250);
-
+            case 'nukeJoke':                
+                skipRMBtn.classList.add('hide');
+                await resetVideo();
+                chatbox_Container.style.transform = 'scaleY(1)';
+                blockElements(false);
+                break;
+            case 'rantMode2':
+                skipRMBtn.classList.add('hide');
+                await resetVideo();
+                chatbox_Container.style.transform = 'scaleY(1)';
+                blockElements(false);
+                break;
+            case 'rantMode3':
+                skipRMBtn.classList.add('hide');
+                await resetVideo();
+                chatbox_Container.style.transform = 'scaleY(1)';
+                blockElements(false);
+                break;
+            case 'rantMode4':
+                skipRMBtn.classList.add('hide');
+                await resetVideo();
+                chatbox_Container.style.transform = 'scaleY(1)';
+                blockElements(false);
                 break;
 
         }
 
     });
 
-    videoBackground.on('ended', async () => { 
-        videoBackground.pause();
-        videoBackground.setCurrentTime(0);
-        terminal_Container.classList.remove('hide');
-        
+    videoBackground.on('ended', async () => {
+        resetVideo();
     })
 
 }
 
 function chatAnimation() {
-
+    blockElements(true);
     setTimeout(async () => {
         terminal_Container.classList.add('hide');
         videoBackground.setCurrentTime(32.6);
@@ -504,7 +411,6 @@ async function puzzleAnimation() {
 }
 
 async function rantAnimation() {
-
     setTimeout(async () => {
         terminal_Container.classList.add('hide');
         videoBackground.setCurrentTime(36.4);
@@ -513,7 +419,6 @@ async function rantAnimation() {
 }
 
 async function curiousAnimation() {
-
     setTimeout(async () => {
         terminal_Container.classList.add('hide');
         videoBackground.setCurrentTime(45.3);
@@ -543,221 +448,246 @@ function closeDefragg() {
     videoBackground.play();
 };
 
-async function defraggPanel(){
-    
-    if(isDefragOpen == false){ 
-        videoBackground.setCurrentTime(10);    
+async function defraggPanel() {
+
+    if (isDefragOpen == false) {
+        videoBackground.setCurrentTime(10);
         bt_Close_Defrag.classList.add('disabled');
-        isDefragOpen = true;        
-    } else{
+        isDefragOpen = true;
+    } else {
         liteBriteContainer.classList.add('hide');
         buttonsBriteLite.classList.add('hide');
     }
-    
-    videoBackground.play();    
+
+    videoBackground.play();
 }
 
+async function gestureOne() {
 
+    setTimeout(() => {
 
-async function gestureOne(){
-    
-    
-    setTimeout(()=>{
-    
         const promise = videoBackground.play();
         if (promise !== undefined) {
             promise.then(_ => {
-                
+
                 terminal_Container.classList.add('hide');
                 videoBackground.setCurrentTime(53.8);
             }).catch(error => {
-                
+
                 videoBackground.setCurrentTime(0);
                 videoBackground.pause();
                 terminal_Container.classList.remove('hide');
-                
+
                 userInput.focus();
-              
+
             });
-          }
-    },350)
+        }
+    }, 350)
 }
 
-async function gestureTwo(){
-    
-    
-    setTimeout(()=>{
-        
+async function gestureTwo() {
+
+    setTimeout(() => {
+
         const promise = videoBackground.play();
-        
+
         if (promise !== undefined) {
             promise.then(_ => {
-                
+
                 terminal_Container.classList.add('hide');
                 videoBackground.setCurrentTime(59.3);
-              
+
             }).catch(error => {
-                
+
                 videoBackground.setCurrentTime(0);
                 videoBackground.pause();
                 terminal_Container.classList.remove('hide');
-                
+
                 userInput.focus();
-                
-              
+
+
             });
-          }
-    },350)
+        }
+    }, 350)
 }
-async function gestureThree(){
-    
-    
-    setTimeout(()=>{
-        
+
+async function gestureThree() {
+
+    setTimeout(() => {
+
         const promise = videoBackground.play();
         if (promise !== undefined) {
             promise.then(_ => {
-                
+
                 terminal_Container.classList.add('hide');
                 videoBackground.setCurrentTime(64.3);
 
             }).catch(error => {
-                
+
                 videoBackground.setCurrentTime(0);
                 videoBackground.pause();
                 terminal_Container.classList.remove('hide');
-                
-                userInput.focus();                
-              
+
+                userInput.focus();
+
             });
-          }
-    },350)
+        }
+    }, 350)
 }
-async function gestureFour(){
-    
-    setTimeout(()=>{
-        
+
+async function gestureFour() {
+
+    setTimeout(() => {
+
         const promise = videoBackground.play();
-        
+
         if (promise !== undefined) {
             promise.then(_ => {
-                
+
                 terminal_Container.classList.add('hide');
                 videoBackground.setCurrentTime(71.8);
 
             }).catch(error => {
-              
-              videoBackground.setCurrentTime(0);
-              videoBackground.pause();
-              terminal_Container.classList.remove('hide');
-              userInput.focus();
+
+                videoBackground.setCurrentTime(0);
+                videoBackground.pause();
+                terminal_Container.classList.remove('hide');
+                userInput.focus();
             });
-          }
-    },350)
+        }
+    }, 350)
 }
 
-async function happyAnimation(){
-    
-    setTimeout(()=>{
-        
+async function happyAnimation() {
+
+    setTimeout(() => {
+
         const promise = videoBackground.play();
-        
+
         if (promise !== undefined) {
             promise.then(_ => {
-                
+
                 terminal_Container.classList.add('hide');
                 videoBackground.setCurrentTime(32.6);
 
             }).catch(error => {
-              
-              videoBackground.setCurrentTime(0);
-              videoBackground.pause();
-              terminal_Container.classList.remove('hide');
-              userInput.focus();
+
+                videoBackground.setCurrentTime(0);
+                videoBackground.pause();
+                terminal_Container.classList.remove('hide');
+                userInput.focus();
             });
-          }
-    },350)
+        }
+    }, 350)
 }
 
-async function popPimple(){
-    
+async function popPimple() {
+    pimpleBtn.classList.remove('hide');
+    pimpleBtn.classList.remove('disabled');
+    pimpleBtn.disabled = false;
     terminal_Container.classList.add('hide');
     videoBackground.setCurrentTime(98.2);
-    
     videoBackground.play();
-
 }
-async function popMyPimple(){   
-    
+
+async function popMyPimple() {
+    blockElements(true);
     videoBackground.setCurrentTime(107.4);
 }
 
-async function rantMode(){
+async function rantMode() {    
     terminal_Container.classList.add('hide');
     videoBackground.setCurrentTime(110.0);
-    
     videoBackground.play();
- 
 }
 
-function gameOver(){
+async function rantMode2() {
+    terminal_Container.classList.add('hide');
+    videoBackground.setCurrentTime(180.8);
+    videoBackground.play();
+}
+
+async function rantMode3() {
+    terminal_Container.classList.add('hide');
+    videoBackground.setCurrentTime(194.3);
+    videoBackground.play();
+}
+async function rantMode4() {
+    terminal_Container.classList.add('hide');
+    videoBackground.setCurrentTime(213.9);
+    videoBackground.play();
+}
+
+function gameOver() {
     terminal_Container.classList.add('hide');
     videoBackground.setCurrentTime(122.6);
-    
     videoBackground.play();
- 
 }
 
-async function notesOne(){
+async function notesOne() {
     terminal_Container.classList.add('hide');
     videoBackground.setCurrentTime(134.5);
-    
     videoBackground.play();
- 
 }
-async function notesTwo(){
+
+async function notesTwo() {
     terminal_Container.classList.add('hide');
     videoBackground.setCurrentTime(140.5);
-    
     videoBackground.play();
- 
 }
-async function notesThree(){
+
+async function notesThree() {
     terminal_Container.classList.add('hide');
     videoBackground.setCurrentTime(146.6);
-    
     videoBackground.play();
- 
 }
 
-async function greenGlow(){
-    terminal_Container.classList.add('hide');
-    videoBackground.setCurrentTime(152.8);
-    
-    videoBackground.play();
- 
+async function greenGlow() {
+    chatbox_Container.style.transform = 'scaleY(0)';
+    setTimeout(() => {
+        terminal_Container.classList.add('hide');
+        videoBackground.setCurrentTime(152.8);
+        videoBackground.play();
+    }, 300);
 }
 
-async function goldenGlow(){
-    terminal_Container.classList.add('hide');
-    videoBackground.setCurrentTime(157.3);
-    
-    videoBackground.play();
- 
+async function goldenGlow() {
+    chatbox_Container.style.transform = 'scaleY(0)';
+    setTimeout(() => {
+        terminal_Container.classList.add('hide');
+        videoBackground.setCurrentTime(157.3);
+        videoBackground.play();
+    }, 300);
 }
 
-async function matrix(){
-    terminal_Container.classList.add('hide');
-    videoBackground.setCurrentTime(161.5);
-    
-    videoBackground.play();
- 
+async function matrix() {
+    chatbox_Container.style.transform = 'scaleY(0)';
+    setTimeout(() => {
+        terminal_Container.classList.add('hide');
+        videoBackground.setCurrentTime(161.5);
+        videoBackground.play();
+    }, 300);
 }
 
-async function nukeJoke(){
-    terminal_Container.classList.add('hide');
-    videoBackground.setCurrentTime(170.5);
-    
-    videoBackground.play();
- 
+async function nukeJoke() {
+    chatbox_Container.style.transform = 'scaleY(0)';
+    setTimeout(() => {
+        terminal_Container.classList.add('hide');
+        videoBackground.setCurrentTime(170.6);
+        videoBackground.play();
+    }, 300);
+}
+
+async function resetVideo() {
+    videoBackground.pause();
+    videoBackground.setCurrentTime(0);
+
+    terminal_Container.classList.remove('hide');
+}
+
+function skipRantMode(){
+    skipRMBtn.classList.add('hide');
+    resetVideo();
+    blockElements(false);
+
 }

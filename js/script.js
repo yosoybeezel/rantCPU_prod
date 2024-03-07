@@ -17,7 +17,8 @@ let rantCPULoader = html5Preloader(
     './assets/Old Industria Clicks-003.wav',
     './assets/580122__annyew__confirm-button-2.wav',
     './assets/click_effect-86995.mp3',
-    './assets/snd_fragment_retrievewav-14728.mp3'
+    './assets/snd_fragment_retrievewav-14728.mp3',
+    './assets/coin_c_02-102844.mp3'
     );
 
 // prevent right-click
@@ -34,11 +35,14 @@ const targetLightSound = new Audio("./assets/Old Industria Clicks-003.wav");
 const pressToStartSound = new Audio("./assets/580122__annyew__confirm-button-2.wav");
 const pressModeButton = new Audio("./assets/click_effect-86995.mp3");
 const scorePoint = new Audio("./assets/snd_fragment_retrievewav-14728.mp3");
+const arcadeSound = new Audio("./assets/coin_c_02-102844.mp3");
 
 const SM_instagram = document.getElementById('SM_instagram');
 const SM_tiktok = document.getElementById('SM_tiktok');
 const SM_twitter = document.getElementById('SM_twitter');
 const userInput = document.getElementById('userInput');
+const skipIntroBtn = document.getElementById('skipIntroBtn');
+
 
 let submitTargetCount = 0;
 let confirmSubmit = false;
@@ -55,7 +59,7 @@ let isMobile = false;
 
 
 document.addEventListener("visibilitychange", handleVisibilityChange);
-
+skipIntroBtn.addEventListener("click", skipIntro);
 
 function handleVisibilityChange() {
   if (document.hidden) {
@@ -67,6 +71,12 @@ function handleVisibilityChange() {
     isPageVisible = true;
     // console.log('page not visible')
   }
+}
+
+function skipIntro(){   
+  skipIntroBtn.removeEventListener("click", skipIntro);
+  skipIntroBtn.classList.add('hide');
+  interruptGreet();
 }
 
 // Start

@@ -31,6 +31,8 @@
 <meta name="twitter:title" content="It's THE END OF THE WORLD AS WE KNOW IT…">
 <meta name="twitter:description" content="It's THE END OF THE WORLD AS WE KNOW IT… AND A NEW A.I. Chatbot named RantCPU, Feels Fine.">
 
+<!-- Sound Effect from <a href="https://pixabay.com/sound-effects/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=102844">Pixabay</a> -->
+
 <meta name="twitter:image" content="https://ogcdn.net/6064b869-74ed-4eb9-b76c-0b701ffe7e6b/v4/rantcpu.com/It's%20THE%20END%20OF%20THE%20WORLD%20AS%20WE%20KNOW%20IT%E2%80%A6/https%3A%2F%2Fopengraph.b-cdn.net%2Fproduction%2Fdocuments%2F5bd6255e-8871-4912-ba14-76271aacb143.jpg%3Ftoken%3DEtYgWIUxrXNOOURMAiJHgFhRclsdhg2RDZbOeHCAd9g%26height%3D630%26width%3D1200%26expires%3D33244323632/og.png">
 
 <!-- Meta Tags Generated via https://www.opengraph.xyz -->
@@ -75,29 +77,54 @@
         <input type="button" id="bt_service" class="bt_service" title="SERVICE" onclick="openDefragg()" />
         <input type="button" id="bt_power" class="bt_power" title="POWER" onclick="tryToShutOff()" />
         
-        <input type="button" class="moodBtn" id="btnChat" data-btn="chatButton" title="Chat" onclick="handleClick(this)" />
-        <input type="button" class="moodBtn" id="btnRant" data-btn="rantButton" title="Rant" onclick="handleClick(this)" />
-        <input type="button" class="moodBtn" id="btnPuzzle" data-btn="puzzleButton" title="Puzzle" onclick="handleClick(this)" />
-        <input type="button" class="moodBtn" id="btnCurious" data-btn="curiousButton" title="Curious" onclick="handleClick(this)" />
+        <input type="button" class="moodBtn" id="btnChat" data-btn="chatButton" title="Positive Affirmations" onclick="handleClick(this)" />
+        <input type="button" class="moodBtn" id="btnRant" data-btn="rantButton" title="Hear ME Rant" onclick="handleClick(this)" />
+        <input type="button" class="moodBtn" id="btnPuzzle" data-btn="puzzleButton" title="Let's play!" onclick="handleClick(this)" />
+        <input type="button" class="moodBtn" id="btnCurious" data-btn="curiousButton" title="Feed me a Target" onclick="handleClick(this)" />
         
         <input type="button" id="bt_submit_Target" class="bt_submit_Target" title="Submit Target?"
           onclick="askSubmitTarget()" />
+        
+        <input type="button" id="btnNotes" title="Check notes" onclick="goThroughNotes()">
+
+        
       </div>
 
       <div id="chatbox_Container">
         <div id="simonScore" class="hide">
           <div>
-            <span>HI SCORE</span>
-            <span id="hiScore">0</span>
+            <div>HI SCORE</div>
+            <div id="hiScore">0</div>
+          </div>
+          <div class="time">
+            <div>TIME</div> 
+            <div><b>30</b>s</div>
           </div>
           <div>
-            <span>SCORE</span>
-            <span id="score">0</span>
+            <div>SCORE</div>
+            <div id="score">0</div>
           </div>
         </div>
+        <div id="wordScrambleContainer" class="hide">
+          <h1>RantCPU's Word Scramble</h1>
+          
+          <div id="details" class="details hide">
+              <p class="word"></p>
+              <p class="hint">Hint: <span></span></p>
+              
+          </div>
+        </div>        
         <div id="chatbox"></div>
         <input id="userInput" type="text" class=""
           onkeydown="if (event.key === 'Enter') generateResponse(this.value)" autofocus  />
+        <div id="headsUpDisplay" class="hide">
+          <div id="healthBar" title="Interact with me to keep me alive :'/ ">
+            <div class="heartFull"></div>
+            <div class="heartHalf"></div>
+            <div class="heartEmpty"></div>
+          </div>
+        </div>
+        <input type="button" id="skipIntroBtn" class="skipIntroBtn" title="Skip Intro" value="Skip Intro">
       </div>
 
       <div id="defrag_Container" class="hide"></div>
@@ -132,6 +159,7 @@
 
     <div id="videoBackgroundPortrait" class="hide"></div>
     <div id="videoBackground" class="hide"></div>
+    <input type="button" id="skipRMBtn" class="hide" title="Skip" value="Skip" onclick="skipRantMode()">
   </div>
   <!-- js -->
 
@@ -152,6 +180,9 @@
   <script src="js/handleClick.js"></script>
   <script src="js/capitalize.js"></script>
   <script src="js/liteBrite.js"></script>
+  <script src="js/rantCPUArcade.js"></script>
+  <script src="js/goThroughNotes.js"></script>
+  <script src="js/neutralMode.js"></script>
   
   <script src="js/idleFunction.js"></script>
   <script src="js/isSubmitTarget.js"></script>
@@ -160,6 +191,7 @@
   <script src="js/compareStrings.js"></script>
   <script src="js/isMobile.js"></script>
   <script src="js/simonSays.js"></script>
+  <script src="js/wordScramble.js"></script>
   <script src="js/deviceOrientation.js"></script>
   <script src="js/checkIfEmail.js"></script>
   <script src="js/captureEmail.js"></script>

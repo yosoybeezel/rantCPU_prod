@@ -1,6 +1,5 @@
 async function submitTargetTrue(input) {
-    const buttons = document.getElementsByClassName('mood');
-
+    
     if (input == 'y' || input == 'yes') {
         confirmSubmit = true;
         chatbox.innerHTML = "";
@@ -8,9 +7,7 @@ async function submitTargetTrue(input) {
         await typeText(chatbox, "Write a target's name.");
         isSubmitTarget = false;
         submitTargetCount = 0;
-        userInput.disabled = false;
-        userInput.classList.remove('disabled');
-        userInput.focus();
+        unblockUserInput();
 
         return;
     } else if (input == 'n' || input == 'no') {
@@ -33,7 +30,7 @@ async function submitTargetTrue(input) {
         bt_submit_Target.classList.remove('hide');
         
         setTimeout(() => {
-            chatMode();
+            neutralMode()
         }, 2000);
         return;
     } else {
@@ -63,7 +60,7 @@ async function submitTargetTrue(input) {
             bt_submit_Target.classList.remove('hide');
             
             setTimeout(() => {
-                chatMode();                
+                neutralMode()
             }, 2000);
 
             return;
