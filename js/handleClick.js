@@ -46,25 +46,21 @@ function handleClick(button) {
                 skipRMBtn.disabled = false;
                 skipRMBtn.classList.remove('disabled');
                 skipRMBtn.focus();
-
-                switch(rantModeCount){
-                    case 0:                        
-                        localStorage.setItem("rantModeCount", 1);
-                        rantMode();
-                        break;
-                    case 1:
-                        localStorage.setItem("rantModeCount", 2);
-                        rantMode2();
-                        break;
-                    case 2:
-                        localStorage.setItem("rantModeCount", 3);
-                        rantMode3();
-                        break;
-                    case 3:
-                        localStorage.setItem("rantModeCount", 0);
-                        rantMode4();
-                        break;
+                
+                if(rantModeCount == 0){
+                    rantModeCount = 1;
                 }
+                
+                window[`rantMode${rantModeCount}`]();
+                
+                if(rantModeCount >= 11){
+                    localStorage.setItem("rantModeCount", 1);    
+                    return;
+                }
+                
+                rantModeCount +=1;
+
+                localStorage.setItem("rantModeCount", rantModeCount);
                 
                 break;
             case 'puzzleButton':

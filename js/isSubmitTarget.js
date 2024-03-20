@@ -1,24 +1,24 @@
 async function submitTargetTrue(input) {
-    
+
     if (input == 'y' || input == 'yes') {
         confirmSubmit = true;
         chatbox.innerHTML = "";
 
         let requestTargetNameCount = Number(localStorage.getItem("requestTargetNameCount"));
-        
 
         await typeText(chatbox, rantCPUobj.requestTargetName[requestTargetNameCount]);
 
-        requestTargetNameCount +=1;
-        
-        if(requestTargetNameCount >= rantCPUobj.requestTargetName.length){
+        requestTargetNameCount += 1;
+
+        if (requestTargetNameCount >= rantCPUobj.requestTargetName.length) {
             localStorage.setItem("requestTargetNameCount", 0);
         }
+
         isSubmitTarget = false;
         submitTargetCount = 0;
         unblockUserInput();
-
         return;
+        
     } else if (input == 'n' || input == 'no') {
         submitTargetCount = 0;
         chatbox.innerHTML = "";
@@ -32,18 +32,17 @@ async function submitTargetTrue(input) {
         }
 
         localStorage.setItem("dontSubmitMessageCount", dontSubmitMessageCount);
-        
-        
+
+
         terminalLight.classList.remove('red');
         terminalLight.classList.add('green')
         bt_submit_Target.classList.remove('hide');
-        
+
         setTimeout(() => {
             neutralMode()
         }, 2000);
         return;
     } else {
-
 
         if (submitTargetCount === 2) {
 
@@ -63,11 +62,11 @@ async function submitTargetTrue(input) {
             localStorage.setItem("dontSubmitMessageCount", dontSubmitMessageCount);
 
             submitTargetCount = 0;
-            
+
             terminalLight.classList.remove('red');
             terminalLight.classList.add('green')
             bt_submit_Target.classList.remove('hide');
-            
+
             setTimeout(() => {
                 neutralMode();
             }, 2000);
@@ -78,7 +77,7 @@ async function submitTargetTrue(input) {
         await typeText(chatbox, rantCPUobj.askSubmitTargetAgain[0]);
 
         submitTargetCount += 1;
-        
+
         bt_submit_Target.classList.remove('hide')
         blockElements(false);
 

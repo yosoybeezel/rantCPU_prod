@@ -86,18 +86,22 @@ async function greet() {
                         Array.from(buttons).forEach(button => {
                             button.classList.remove('hide');
                         });
-                        let welcomeMessageCount = Number(localStorage.getItem("welcomeMessageCount"));
+                        // let welcomeMessageCount = Number(localStorage.getItem("welcomeMessageCount"));
 
-                        await typeText(chatbox, rantCPUobj.welcomeMessages[welcomeMessageCount]);
-                        welcomeMessageCount += 1;
+                        // // await typeText(chatbox, rantCPUobj.welcomeMessages[welcomeMessageCount]);
+                        // welcomeMessageCount += 1;
 
-                        if (welcomeMessageCount == rantCPUobj.welcomeMessages.length) {
-                            welcomeMessageCount = 0;
-                        }
+                        // if (welcomeMessageCount == rantCPUobj.welcomeMessages.length) {
+                        //     welcomeMessageCount = 0;
+                        // }
 
-                        localStorage.setItem("welcomeMessageCount", welcomeMessageCount);
+                        // localStorage.setItem("welcomeMessageCount", welcomeMessageCount);
+                        isIntro = true;
+                        setTimeout(() => {
+                            popPimple();    
+                        }, 1500);
                         
-                        blockElements(false);
+                        // blockElements(false);
                         
                     }, 1000);
                 }, 1000);
@@ -112,8 +116,9 @@ function interruptGreet() {
     chatbox.innerHTML = "";
     interrupted = true;
     setTimeout(() => {
-        isIntro = false;
-        neutralMode();    
+        isIntro = true;
+        // neutralMode();    
+        popPimple()
     }, 250);
     
 }

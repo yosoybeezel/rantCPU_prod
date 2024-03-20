@@ -203,6 +203,16 @@ html {
         cursor: pointer;
         background-color: transparent;
       }
+
+      & #btnDiscord{
+        width: 19%;
+        height: 22%;
+        position: absolute;
+        left: 3%;
+        top: 4%;
+        cursor: pointer;
+        background-color: transparent;
+      }
     }
 
     & #chatbox_Container {
@@ -217,10 +227,11 @@ html {
       transform: scaleY(0);
 
       & #wordScrambleContainer{
-        position: absolute;
+        position: relative;
         width: 90%;
-        height: auto;
+        height: 40%;
         margin: 0 5% auto;
+        font-size: 0.5em;
 
         & h1{
           text-align: center;
@@ -238,18 +249,15 @@ html {
           word-wrap: break-word;
         }
 
-        & .details{}
-
-        & .buttons{}
-
       }
 
       & #headsUpDisplay{
-        position: absolute;
-        top: 3%;
-        right: 4%;
-        width: 92%;
-        height: 6%;
+        height: 7%;
+        line-height: 0.4em;
+        width: 90%;
+        margin: 4% auto 0;
+        font-size: 0.5em;
+        position: relative;
         
         & #healthBar{
           float: right;
@@ -269,13 +277,13 @@ html {
           }
 
           & .heartFull{
-            background-image:url(../assets/heart_full_green.png);
+            background-image:url(../assets/heart_full.png);
           }
           & .heartEmpty{
-            background-image:url(../assets/heart_empty_green.png);
+            background-image:url(../assets/heart_empty.png);
           }
           & .heartHalf{
-            background-image:url(../assets/heart_half_green.png);
+            background-image:url(../assets/heart_half.png);
           }
           
         }
@@ -300,6 +308,9 @@ html {
           & .star{
             background-image:url(../assets/star.png);
           }
+          & .coin{
+            background-image:url(../assets/coin1.png);
+          }
           & .cup{
             background-image:url(../assets/cup.png);
           }
@@ -316,16 +327,15 @@ html {
         text-align: right;
         font-family: "Press Start 2P", Courier, monospace;
         height: 30px;
-        line-height: 0.4em;
         width: 90%;
         margin: 4% auto 0;
-        font-size: 0.5em;
+        font-size: 0.36em;
 
         & div{
           float: left;
           width: 33.3%;
-          min-height: 15px;
           text-align: center;
+          min-height: 15px;
 
           & div{
             width: 100%;
@@ -344,7 +354,7 @@ html {
         overflow-y: auto;
         overflow-x: hidden;
         color: #fff;
-        font-size: 0.7em;
+        font-size: 0.45em;
         line-height: 1.2em;
         animation-duration: 0.05s;
         animation-name: textflicker;
@@ -359,10 +369,14 @@ html {
         &.simonOn{
           height: calc(96% - 67px);
         }
+        
+        &.hudOn{
+          height: calc(84% - 40px);
+        }
 
         &.wordScrambeOn{          
-          height: calc(62% - 100px);
-          margin: 35% 2% 0;
+          height: calc(62% - 77px);
+          margin: auto 2% ;
         }
       }
 
@@ -374,25 +388,23 @@ html {
         margin-bottom: 0.5em;
         position: relative;
 
-        &.arcadeElement{
-          margin-top: 7%;
-          margin-left: 20px;
-          text-indent: 10px;
-          padding-top: 2px;
+        &.arcadeElement,
+        &.txtOption{
+          margin-top: 5%;
+          margin-left: 10%;
           cursor: pointer;
-          min-height: 1.5em;      
           width: auto;          
 
           &::before{
             content: '';
             position: absolute;
-            left: -20px;
+            left: -7px;
             width: 0; 
             height: 0; 
-            padding-left: 10px;
-            border-top: 10px solid transparent;
-            border-bottom: 10px solid transparent;
-            border-left: 10px solid #fff;
+            padding-left: 4px;
+            border-top: 4px solid transparent;
+            border-bottom: 4px solid transparent;
+            border-left: 4px solid #fff;
           }
           
           &:hover{
@@ -453,9 +465,9 @@ html {
 
       & .skipIntroBtn {
         height: auto;
-        width: 22%;
+        width: auto;
         right: 6%;
-        bottom: 20%;
+        bottom: 27%;
         z-index: 3;
         background: transparent;
         text-align: center;
@@ -464,9 +476,34 @@ html {
         color: #ffff;
         border: 1px solid #fff;
         padding: 1% 2%;        
-        font-size: 0.8em;        
+        font-size: 0.5em;        
       }
 
+      & #storyIndex{
+        height: auto;
+        width: auto;
+        left: 6%;
+        bottom: 6%;
+        position: absolute;
+        font-size: 0.5em;
+      }
+
+      &.fireworks{
+        &::after{
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0;
+          margin: 1%;
+          width: 98%;
+          height: 98%;
+          background-image: url(../assets/Pixel_Fireworks.gif);
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+          border-radius: 10%;
+        }
+      }
     }
 
     & .terminalLight,
@@ -712,8 +749,8 @@ html {
   & #skipRMBtn {
     height: auto;
     width: 15%;
-    right: 2%;
-    bottom: 5%;
+    right: 5%;
+    bottom: 16%;
     background: rgba(0, 0, 0, 0.5);
     text-align: center;
     cursor: pointer;
@@ -723,6 +760,52 @@ html {
     padding: 1% 2%;
     font-size: 0.8em;
   }
+
+  & #exitGame{
+    position: absolute;
+    height: auto;
+    width: auto;
+    right: 32%;
+    background: rgba(0, 0, 0, 0.5);
+    bottom: 21%;
+    color: #ffff;
+    border: 1px solid var(--terminalText);
+    padding: 0.7% 2%;
+    font-size: 0.4em;
+    cursor: pointer;
+    z-index: 3;
+  }
+}
+
+#privacyPolicyBtn,
+#termsOfUseBtn{
+  position: absolute; 
+  bottom: 0%;
+  background-color: transparent;
+  color: rgb(200, 200, 200);
+  cursor: pointer;
+  z-index: 3;  
+  font-size: 0.4em;
+}
+
+#termsOfUseBtn{
+  left: 25%;
+}
+#privacyPolicyBtn{
+  right: 23%;
+}
+
+#closeLegalsBtn{
+  position: absolute; 
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid var(--terminalText);
+  padding: 0.7% 2%; 
+  cursor: pointer;
+  z-index: 3;
+  left: 45%;
+  font-size: 0.5em;
+  bottom: 19%;
 }
 
 .hide {
@@ -757,7 +840,61 @@ html {
 @media only screen and (max-width: 600px) {}
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {}
+@media only screen and (min-width: 600px) {
+  #main_Container {
+
+    #terminal_Container {
+
+      & #chatbox_Container {
+        
+        & #chatbox{
+          font-size: 0.7em;
+        }
+        
+        & p{
+          &.arcadeElement, 
+          &.txtOption{
+            &::before {
+              left: -12px;
+              border-top: 8px solid transparent;
+              border-bottom: 8px solid transparent;
+              border-left: 8px solid #fff;
+            }
+            
+          }
+        }
+
+        & .skipIntroBtn {
+          font-size: 0.8em;
+          bottom: 15%;
+        }        
+
+        & #wordScrambleContainer {
+          font-size: 0.8em;
+          height: 35%;
+        }
+
+        & #simonScore{
+          font-size: 0.6em;
+          
+        }
+
+        & #storyIndex {
+          font-size: 0.8em;
+        }
+      }
+    }
+
+    & #exitGame {
+      font-size: 0.6em;
+    }
+  }
+
+  #privacyPolicyBtn,
+  #termsOfUseBtn{
+    font-size: 0.6em;
+  }
+}
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
@@ -771,6 +908,7 @@ html {
         & #simonScore{
           font-size: 0.7em;
         }
+        
         & #userInput {
           height: 34px; 
           font-size: 1em;
@@ -778,18 +916,56 @@ html {
 
         & #chatbox{
           height: calc(96% - 40px);
-          font-size: 1em;
+          font-size: 0.9em;
           
           &.simonOn{
             height: calc(96% - 90px);
           }
+
+          &.wordScrambeOn {
+            height: calc(62% - 100px);
+          }
         }
 
-      }
-    }
+        & p{
+          &.arcadeElement, 
+          &.txtOption{
+            &::before {
+              left: -16px;
+              border-top: 10px solid transparent;
+              border-bottom: 10px solid transparent;
+              border-left: 10px solid #fff;
+            }
+          }
+        }
 
+        & #wordScrambleContainer {
+          font-size: 1em;
+          height: 36%;
+        }
+        
+        & .skipIntroBtn {
+          bottom: 16%;
+        }
+
+        & #storyIndex {
+          font-size: 0.9em;
+        }
+      }
+
+      
+    }
+    
+    & #exitGame {
+      font-size: 0.8em;
+    }
   }
 
+  #privacyPolicyBtn,
+  #termsOfUseBtn{
+    font-size: 0.8em;
+  
+  }
   #startBtnContainer{
     text-align: center;
     & #btnStart {
@@ -806,13 +982,27 @@ html {
   #main_Container {
     & #terminal_Container{
       & #chatbox_Container{
+        
         & .skipIntroBtn {
           bottom: 13%;
         }  
+
+        & #chatbox {
+          font-size: 1.1em;
+
+          &.wordScrambeOn {
+            height: calc(62% - 106px);
+          }
+        }
       }
     }
   
   }
+  
+
+
+
+
 }
 
 @media (min-aspect-ratio: 16 / 9) {

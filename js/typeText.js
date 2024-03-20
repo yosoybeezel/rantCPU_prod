@@ -1,34 +1,44 @@
+let isTyping = false;
 const chatbox = document.getElementById('chatbox');
+let skipTyping = false; // Flag to indicate whether to skip typing
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 async function typeText(element, text) {
+    isTyping = true;
 
-    if(isIntro && isInitArcade){
+    if (isIntro && isInitArcade) {
         chatbox.innerHTML += "<p class='assistant arcadeElement'></p>";
-        
-    }
-    else if(isIntro){
+    } else if (isIntro) {
         chatbox.innerHTML += "<p class='assistant'></p>";
-    } else 
-    {
+    } else if (isTxtGame) {
+        chatbox.innerHTML += "<p class='assistant txtOption'></p>";
+    } else {
         chatbox.innerHTML += "<p class='assistant'><strong>> RantCPU: </strong></p>";
     }
-    
 
     const lastChild = element.lastChild;
 
-    return new Promise(async (resolve) => {
-        for (let i = 0; i < text.length; i++) {
-            lastChild.innerHTML += text.charAt(i);
+    for (let i = 0; i < text.length; i++) {
+        if (skipTyping) {
+            lastChild.innerHTML += text;
             element.scrollTop = element.scrollHeight; // Scroll to the bottom
-            await sleep(30); // Adjust typing speed here (in milliseconds)
+            skipTyping = false;
+            break;
         }
-
+            
+        lastChild.innerHTML += text.charAt(i);
         element.scrollTop = element.scrollHeight; // Scroll to the bottom
-        resolve(); // Resolve the promise once typing is complete
-    });
+        await sleep(20); // Adjust typing speed here (in milliseconds)
+    }
+
     
+    isTyping = false;
+}
+
+// Function to skip typing
+function skipTypingAnimation() {
+    skipTyping = true; // Set the skipTyping flag to true
 }

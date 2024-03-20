@@ -1,5 +1,6 @@
 let isEmail;
 let wrongCount = 0;
+
 const generateResponse = async (input) => {
 
     if (input === '') {
@@ -47,6 +48,33 @@ const generateResponse = async (input) => {
         return;
     }
     
+    if(isDiscord){
+
+        isDiscord = false;
+        
+        
+        const typeOfResponse = await getTypeOfResponse(input);
+
+        switch(typeOfResponse){
+
+            case 'positive':
+                window.open('https://discord.gg/liithos', '_blank');
+                blockElements(false);
+                break;
+            case 'negative':
+                    await typeText(chatbox,'Fine, suit yourself!');
+                    blockElements(false);
+                break;
+            case 'another':
+                await typeText(chatbox, 'What?! Whatever.');
+                blockElements(false);
+                break;
+        }
+        
+        return;
+        
+    }
+
     const isEmail = await checkIfEmail(input);
 
     if (isEmail) {
@@ -55,51 +83,45 @@ const generateResponse = async (input) => {
     }
 
     switch (input) {
-        case 'first gesture':
-            await gestureOne();
-            return;
-        case 'second gesture':
-            await gestureTwo();
-            return;
-        case 'third gesture':
-            await gestureThree();
-            return;
-        case 'fourth gesture':
-            await gestureFour();
-            return;
         case 'rantbyte':
             await rantBytes();
             return;
         case 'pimple':
             await popPimple();
             return;
-        case 'notes one':
-            await notesOne();
-            return;
-        case 'notes two':
-            await notesTwo();
-            return;
-        case 'notes three':
-            await notesThree();
-            return;
+        // case 'notes one':
+        //     await notesOne();
+        //     return;
+        // case 'notes two':
+        //     await notesTwo();
+        //     return;
+        // case 'notes three':
+        //     await notesThree();
+        //     return;
         case 'matrix':
             await matrix();
             return;
         case 'nuke joke':
             await nukeJoke();
             return;
-        case 'rantcpu says':
-            startGame();
+        // case 'rantcpu says':
+        //     startGame();
+        //     return;
+        // case 'rantcpu says game':
+        //     startGame();
+        //     return;
+        // case 'positive affirmations':
+        //     chatMode();
+        //     return;
+        // case 'wordscramble':
+        //     wordScramble();    
+        //     return;        
+        case 'discord':
+            blockElements(true);  
+            await discordPrompt();
+            blockElements(false);
             return;
-        case 'rantcpu says game':
-            startGame();
-            return;
-        case 'positive affirmations':
-            chatMode();
-            return;
-        case 'wordscramble':
-            wordScramble();    
-            return;
+        
     }
     
     if(gameOn){

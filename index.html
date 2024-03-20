@@ -86,11 +86,27 @@
           onclick="askSubmitTarget()" />
         
         <input type="button" id="btnNotes" title="Check notes" onclick="goThroughNotes()">
-
+        
+        <input type="button" id="btnDiscord" title="Visit our Discord">
         
       </div>
 
       <div id="chatbox_Container">
+        <div id="headsUpDisplay" class="hide">
+          <div id="rewardsBar">
+            <div class="star"></div>
+            <div class="cup"></div>            
+            <div class="coin"></div>
+            <div class="message"></div>
+          </div>
+          <div id="healthBar" title="Interact with me to keep me alive :'/ ">
+            <div class="heartFull"></div>
+            <div class="heartFull"></div>
+            <div class="heartHalf"></div>
+            <div class="heartEmpty"></div>
+            <div class="heartEmpty"></div>
+          </div>
+        </div>
         <div id="simonScore" class="hide">
           <div>
             <div>HI SCORE</div>
@@ -117,14 +133,12 @@
         <div id="chatbox"></div>
         <input id="userInput" type="text" class=""
           onkeydown="if (event.key === 'Enter') generateResponse(this.value)" autofocus  />
-        <div id="headsUpDisplay" class="hide">
-          <div id="healthBar" title="Interact with me to keep me alive :'/ ">
-            <div class="heartFull"></div>
-            <div class="heartHalf"></div>
-            <div class="heartEmpty"></div>
-          </div>
-        </div>
+        
         <input type="button" id="skipIntroBtn" class="skipIntroBtn" title="Skip Intro" value="Skip Intro">
+        <div id="storyIndex" class="hide">
+          <span id="curPage">1</span>
+          <span>/ 8</span>
+        </div>
       </div>
 
       <div id="defrag_Container" class="hide"></div>
@@ -160,6 +174,12 @@
     <div id="videoBackgroundPortrait" class="hide"></div>
     <div id="videoBackground" class="hide"></div>
     <input type="button" id="skipRMBtn" class="hide" title="Skip" value="Skip" onclick="skipRantMode()">
+    <input type="button" id="exitGame" class="hide" title="Exit Game" value="Exit game">
+    
+    <input type="button" id="termsOfUseBtn" class="hide" title="Exit Game" value="Liithos Terms of Use" onclick="termsOfUse()">
+    <input type="button" id="privacyPolicyBtn" class="hide" title="Exit Game" value="Liithos Privacy Policy" onclick="privacyPolicy()">
+    <input type="button" id="closeLegalsBtn" class="hide" title="Close" value="CLOSE" onclick="closeLegals()">
+
   </div>
   <!-- js -->
 
@@ -174,15 +194,18 @@
 
   <script src="js/rantCPUobj.js"></script>
   <script src="js/greet.js"></script>
-  
+  <script src="js/headsUpDisplay.js"></script>
   <script src="js/submitTarget.js"></script>
   <script src="js/isSubmitTarget.js"></script>
   <script src="js/handleClick.js"></script>
   <script src="js/capitalize.js"></script>
   <script src="js/liteBrite.js"></script>
   <script src="js/rantCPUArcade.js"></script>
+  <script src="js/idleUser.js"></script>
+  <script src="js/legals.js"></script>
   <script src="js/goThroughNotes.js"></script>
   <script src="js/neutralMode.js"></script>
+  <script src="js/discord.js"></script>
   
   <script src="js/idleFunction.js"></script>
   <script src="js/isSubmitTarget.js"></script>
@@ -192,6 +215,7 @@
   <script src="js/isMobile.js"></script>
   <script src="js/simonSays.js"></script>
   <script src="js/wordScramble.js"></script>
+  <script src="js/textGame.js"></script>
   <script src="js/deviceOrientation.js"></script>
   <script src="js/checkIfEmail.js"></script>
   <script src="js/captureEmail.js"></script>

@@ -24,8 +24,7 @@ let rantCPULoader = html5Preloader(
 // prevent right-click
 document.addEventListener('contextmenu', event => event.preventDefault());
 
-    // Audio elements for buttons
-
+// Audio elements for buttons
 const closeButtonSound = new Audio("./assets/MA_Betacut_SwitchButton_7.wav");
 const powerButtonSound = new Audio("./assets/MA_Betacut_SwitchButton_10.wav");
 const switchButtonSound = new Audio("./assets/MA_Betacut_SwitchButton_11.wav");
@@ -42,32 +41,57 @@ const SM_tiktok = document.getElementById('SM_tiktok');
 const SM_twitter = document.getElementById('SM_twitter');
 const userInput = document.getElementById('userInput');
 const skipIntroBtn = document.getElementById('skipIntroBtn');
-
+const btnDiscord = document.getElementById('btnDiscord');
 
 let submitTargetCount = 0;
 let confirmSubmit = false;
-let isPageVisible = true; 
+let isDiscord = false;
+let isMobile = false;
+let isPageVisible = true;
+
+let timerId;
 
 const videoBackgroundContainer = document.getElementById('videoBackground');
 const videoBackgroundPortraitContainer = document.getElementById('videoBackgroundPortrait');
 
-// Set the volume of each audio element to 0.3 (30% volume)
-scorePoint.volume = 0.5;
-// pressToStartSound.volume = moodButtonSound.volume = switchButtonSound.volume = powerButtonSound.volume = closeButtonSound.volume = targetButtonSound.volume = targetLightSound = 0.3;
-
-let isMobile = false;
-
+scorePoint.volume = 0.75;
 
 document.addEventListener("visibilitychange", handleVisibilityChange);
+
 skipIntroBtn.addEventListener("click", skipIntro);
+
+btnDiscord.addEventListener("click", async function() {
+  blockElements(true);  
+  await discordPrompt();
+  blockElements(false);
+  
+});
+
+userInput.addEventListener("input", () => {
+  // Clear the previous timer (if it exists)
+  if (timerId) {
+    clearTimeout(timerId);
+  }
+
+
+  // Start a new timer
+  timerId = setTimeout(() => {
+    if(!document.hidden && !isSubmitTarget && !isTyping) {
+      // console.log('idleUser script.js')
+      
+    }
+    
+  }, 10000);
+  
+});
 
 function handleVisibilityChange() {
   if (document.hidden) {
     // Page is not visible (e.g., minimized or in another tab)
-    isPageVisible = false;
+    isPageVisible = false;    
     // console.log('page is not visible')
   } else {
-    // Page is visible
+    // Page is visible    
     isPageVisible = true;
     // console.log('page not visible')
   }

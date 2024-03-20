@@ -5,6 +5,8 @@ const chatButton = document.getElementById('chatButton');
 const toggleSwitch = document.getElementById('toggleSwitch');
 const terminal_Container_Inputs = document.getElementById('terminal_Container_Inputs');
 const startBtnContainer = document.getElementById('startBtnContainer');
+const termsOfUseBtn = document.getElementById('termsOfUseBtn');
+const privacyPolicyBtn = document.getElementById('privacyPolicyBtn');
 
 let isWink = false;
 
@@ -14,6 +16,7 @@ async function initVideo() {
 
     const options = {
         id: 898653551,
+        // id:922108562,
         responsive: true,
         muted: false,
         loop: false,
@@ -49,36 +52,43 @@ async function initVideo() {
         await addCuePoint(videoBackground, 15.3, 'terminalClose');
         await addCuePoint(videoBackground, 21.7, 'targetSuccessful');
         await addCuePoint(videoBackground, 31.0, 'tryToClose');
-        await addCuePoint(videoBackground, 35.7, 'moodHappy');
+        await addCuePoint(videoBackground, 35.6, 'moodHappy');
         await addCuePoint(videoBackground, 39.8, 'moodSad');
         await addCuePoint(videoBackground, 44.0, 'moodHostile');
         await addCuePoint(videoBackground, 48.3, 'moodHorny');
         await addCuePoint(videoBackground, 53.5, 'emailSucces');
-        await addCuePoint(videoBackground, 59.0, 'gestureOne');
-        await addCuePoint(videoBackground, 64.0, 'gestureTwo');
-        await addCuePoint(videoBackground, 71.5, 'gestureThree');
-        await addCuePoint(videoBackground, 76.0, 'gestureFour');
-        await addCuePoint(videoBackground, 80.2, 'suckingData');
-        await addCuePoint(videoBackground, 83.0, 'thinking');
-        await addCuePoint(videoBackground, 86.3, 'smiles');
+        await addCuePoint(videoBackground, 59.0, 'plainEnd');
+        await addCuePoint(videoBackground, 64.0, 'plainEnd');
+        await addCuePoint(videoBackground, 71.5, 'plainEnd');
+        await addCuePoint(videoBackground, 76.0, 'plainEnd');
+        await addCuePoint(videoBackground, 80.2, 'plainEnd');
+        await addCuePoint(videoBackground, 83.0, 'plainEnd');
+        await addCuePoint(videoBackground, 86.3, 'plainEnd');
         await addCuePoint(videoBackground, 89.0, 'hearts');
-        await addCuePoint(videoBackground, 91.6, 'crushed');
-        await addCuePoint(videoBackground, 94.9, 'goodbye');
-        await addCuePoint(videoBackground, 97.4, 'worriedSmile');
+        await addCuePoint(videoBackground, 91.6, 'plainEnd');
+        await addCuePoint(videoBackground, 94.9, 'plainEnd');
+        await addCuePoint(videoBackground, 97.4, 'plainEnd');
         await addCuePoint(videoBackground, 106.3, 'pimple');
         await addCuePoint(videoBackground, 109.5, 'pimplePop');
-        await addCuePoint(videoBackground, 122.2, 'rantMode');
+        await addCuePoint(videoBackground, 122.2, 'skipBtnEnd');
         await addCuePoint(videoBackground, 134.0, 'gameOver');
-        await addCuePoint(videoBackground, 140.2, 'notesOne');
-        await addCuePoint(videoBackground, 146.2, 'notesTwo');
-        await addCuePoint(videoBackground, 152.2, 'notesThree');
+        await addCuePoint(videoBackground, 140.2, 'plainEnd');
+        await addCuePoint(videoBackground, 146.2, 'plainEnd');
+        await addCuePoint(videoBackground, 152.2, 'plainEnd');
         await addCuePoint(videoBackground, 156.1, 'greenGlow');
         await addCuePoint(videoBackground, 160.6, 'goldenGlow');
-        await addCuePoint(videoBackground, 169.2, 'matrix');
-        await addCuePoint(videoBackground, 179.8, 'nukeJoke');
-        await addCuePoint(videoBackground, 193.9, 'rantMode2');
-        await addCuePoint(videoBackground, 213.2, 'rantMode3');        
-        await addCuePoint(videoBackground, 232.9, 'rantMode4');
+        await addCuePoint(videoBackground, 169.2, 'defaultEnd');
+        await addCuePoint(videoBackground, 179.8, 'skipBtnEnd');
+        await addCuePoint(videoBackground, 193.9, 'skipBtnEnd');
+        await addCuePoint(videoBackground, 213.2, 'skipBtnEnd');        
+        await addCuePoint(videoBackground, 232.9, 'skipBtnEnd');
+        await addCuePoint(videoBackground, 240.0, 'skipBtnEnd');
+        await addCuePoint(videoBackground, 247.5, 'skipBtnEnd');
+        await addCuePoint(videoBackground, 255.6, 'skipBtnEnd');
+        await addCuePoint(videoBackground, 262.4, 'skipBtnEnd');
+        await addCuePoint(videoBackground, 270.4, 'skipBtnEnd');
+        await addCuePoint(videoBackground, 278.2, 'skipBtnEnd');
+        // await addCuePoint(videoBackground, 285.0, 'skipBtnEnd');
     } catch (error) {
 
     }
@@ -180,27 +190,7 @@ async function initVideo() {
 
             case 'moodHorny':
                 await resetVideo();
-                break;
-
-            case 'gestureOne':
-                await resetVideo();
-                blockElements(false);
-                break;
-
-            case 'gestureTwo':
-                await resetVideo();
-                blockElements(false);
-                break;
-
-            case 'gestureThree':
-                await resetVideo();
-                blockElements(false);
-                break;
-
-            case 'gestureFour':
-                await resetVideo();
-                blockElements(false)
-                break;
+                break;           
 
             case 'emailSucces':
                 await resetVideo();
@@ -219,23 +209,6 @@ async function initVideo() {
                     blockElements(false)
                 }, 500);
                 break;
-
-            case 'suckingData':
-                await resetVideo();
-                break;
-
-            case 'worriedSmile':
-                await resetVideo();
-                break;
-
-            case 'thinking':
-                await resetVideo();
-                break;
-                
-            case 'smiles':
-                await resetVideo();
-                break;
-
             case 'hearts':
                 await resetVideo();
                 setTimeout(() => {
@@ -243,28 +216,19 @@ async function initVideo() {
                 }, 500);
                 return;
                 break;
-
-            case 'crushed':
-                await resetVideo();
-                break;
-
-            case 'goodbye':
-                await resetVideo();
-                break;
-
             case 'pimple':
                 videoBackground.setCurrentTime(102.3);
                 break;
 
             case 'pimplePop':
+                if(isIntro){
+                    isIntro = false;
+                    privacyPolicyBtn.classList.remove('hide');
+                    termsOfUseBtn.classList.remove('hide');
+                }
                 await resetVideo();
-                blockElements(false);
-                break;
-
-            case 'rantMode':
-                skipRMBtn.classList.add('hide');
-                await resetVideo();
-                blockElements(false);
+                
+                neutralMode();                
                 break;
 
             case 'gameOver':
@@ -301,29 +265,7 @@ async function initVideo() {
                 }, 2000);
 
                 break;
-                
-            case 'notesOne':
-                await resetVideo();
-                blockElements(false);
-                break;
-
-            case 'notesTwo':
-                await resetVideo();
-                blockElements(false);
-                break;
-
-            case 'notesThree':
-                await resetVideo();
-                blockElements(false);
-                break;
-
-            case 'greenGlow':
-                await resetVideo();
-                toggleSwitch.classList.remove('hide');
-                closeButtonSound.play();
-                blockElements(false);
-                break;
-
+            
             case 'goldenGlow':
                 await resetVideo();
                 let serviceSwitchCount = Number(localStorage.getItem("serviceSwitchCount"));
@@ -348,44 +290,35 @@ async function initVideo() {
                 }, 350);
 
                 break;
-
-            case 'matrix':                
-                await resetVideo();
-                chatbox_Container.style.transform = 'scaleY(1)';
-                blockElements(false);
-                break;
-
-            case 'nukeJoke':                
+                   
+            case 'skipBtnEnd':
                 skipRMBtn.classList.add('hide');
                 await resetVideo();
                 chatbox_Container.style.transform = 'scaleY(1)';
+                if(idleUserOn){
+                    await typeText(chatbox, rantCPUobj.idleUser[0]);
+                }
                 blockElements(false);
-                break;
-            case 'rantMode2':
-                skipRMBtn.classList.add('hide');
+                break;            
+            case 'defaultEnd':
                 await resetVideo();
                 chatbox_Container.style.transform = 'scaleY(1)';
                 blockElements(false);
-                break;
-            case 'rantMode3':
-                skipRMBtn.classList.add('hide');
+                break;            
+            case 'plainEnd':
                 await resetVideo();
-                chatbox_Container.style.transform = 'scaleY(1)';
                 blockElements(false);
-                break;
-            case 'rantMode4':
-                skipRMBtn.classList.add('hide');
-                await resetVideo();
-                chatbox_Container.style.transform = 'scaleY(1)';
-                blockElements(false);
-                break;
+                break;            
 
         }
 
     });
 
     videoBackground.on('ended', async () => {
-        resetVideo();
+        skipRMBtn.classList.add('hide');
+        await resetVideo();
+        chatbox_Container.style.transform = 'scaleY(1)';
+        blockElements(false);
     })
 
 }
@@ -595,7 +528,7 @@ async function popMyPimple() {
     videoBackground.setCurrentTime(107.4);
 }
 
-async function rantMode() {    
+async function rantMode1() {
     terminal_Container.classList.add('hide');
     videoBackground.setCurrentTime(110.0);
     videoBackground.play();
@@ -615,6 +548,41 @@ async function rantMode3() {
 async function rantMode4() {
     terminal_Container.classList.add('hide');
     videoBackground.setCurrentTime(213.9);
+    videoBackground.play();
+}
+async function rantMode5() {
+    terminal_Container.classList.add('hide');
+    videoBackground.setCurrentTime(234.0);
+    videoBackground.play();
+}
+async function rantMode6() {
+    terminal_Container.classList.add('hide');
+    videoBackground.setCurrentTime(240.5);
+    videoBackground.play();
+}
+async function rantMode7() {
+    terminal_Container.classList.add('hide');
+    videoBackground.setCurrentTime(248.0);
+    videoBackground.play();
+}
+async function rantMode8() {
+    terminal_Container.classList.add('hide');
+    videoBackground.setCurrentTime(256.1);
+    videoBackground.play();
+}
+async function rantMode9() {
+    terminal_Container.classList.add('hide');
+    videoBackground.setCurrentTime(262.7);
+    videoBackground.play();
+}
+async function rantMode10() {
+    terminal_Container.classList.add('hide');
+    videoBackground.setCurrentTime(271.0);
+    videoBackground.play();
+}
+async function rantMode11() {
+    terminal_Container.classList.add('hide');
+    videoBackground.setCurrentTime(278.5);
     videoBackground.play();
 }
 
@@ -671,6 +639,9 @@ async function matrix() {
 
 async function nukeJoke() {
     chatbox_Container.style.transform = 'scaleY(0)';
+    if(idleUserOn){
+        idleUserStop();
+    }
     setTimeout(() => {
         terminal_Container.classList.add('hide');
         videoBackground.setCurrentTime(170.6);

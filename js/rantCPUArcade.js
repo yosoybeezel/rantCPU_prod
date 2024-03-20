@@ -2,19 +2,25 @@ let isInitArcade = false;
 
 async function initArcade() {
 
-    isIntro = true
+    isIntro = true;
 
     blockElements(true);
+    Array.from(buttons).forEach(button => {
+        button.classList.add('hide');
+    });
+    puzzleButton.classList.remove('hide');
 
     chatbox.innerHTML = "";
 
     await typeText(chatbox, rantCPUobj.arcadeIntro[0]);
+    isIntro = isInitArcade = true;
 
-    isInitArcade = true;
-
+    
     await typeText(chatbox, "RantCPU Says");
 
     await typeText(chatbox, "RantCPU's Word Scramble");
+    
+    await typeText(chatbox, "RantCPU's Big City Adventure");
 
     await typeText(chatbox, "Exit");
 
@@ -32,10 +38,12 @@ async function initArcade() {
                     wordScramble();
                     break;
                 case 2:
+                    startTextGame();
+                    // displayScene("initGame");
+                    // neutralMode();
+                    break;                    
+                case 3:
                     neutralMode();
-                    break;
-
-                default:
                     break;
             }
         });

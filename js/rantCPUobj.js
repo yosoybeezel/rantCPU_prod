@@ -6,7 +6,6 @@ const rantCPUobj = {
         nft: ["nft", "Web3", "digital cards", "nfts", "what do you know about nfts", "what are nfts", "something nft", "i heard about your nfts", "do you have nfts", "your nfts"]
     },
     getType: {
-        // nft: ["nft", "Web3", "digital cards", "nfts", "what do you know about nfts", "what are nfts", "something nft", "i heard about your nfts", "do you have nfts", "your nfts"],
         affirmative: ["y", "yes", "yup", "sure", "of course", "for sure", "fine", "You're right", "ok", "okay", "yeah", "why not"],
         negative: ["n", "no", "nope", "never", "hell no", "still no", "of course not", "No, that's not who I was thinking of.", "not even close", "what no", "are you serious", "no thanks"]
     },
@@ -561,7 +560,21 @@ const rantCPUobj = {
             ],
             "Who's Your Daddy?": [
                 "I wish I had one.  I'd love to play catch.",
-                "Alan Turing."
+                "Alan Turing.",
+                "Jeff is my creator."
+            ],
+            "Who is your creator?":[
+                "Jeff is my creator.",
+                "My creator is Jeff."
+            ],
+            "Who is Jeff?":[
+                "Jeff is my creator.",
+                "My creator."
+            ],
+            "RantCPU":[
+                "Do you know Jeff? He is my creator.",
+                "My creator is Jeff.",
+                "Jeff is my creator."
             ],
             "Can I Help You?": [
                 "I was about to ask you the same thing!",
@@ -691,9 +704,9 @@ const rantCPUobj = {
 
     },
     askSubmitTarget: [
-        "Finally you are here to submit a TARGET! I feed off data collected from famous Humans, and I need you to give me names to research. Ready? Y / N"        
+        "Finally you are here to submit a TARGET! I feed off data collected from famous Humans, and I need you to give me names to research. Ready? Y / N"
     ],
-    requestTargetName:[
+    requestTargetName: [
         "Great! I feed off data collected from famous Humans, give me a name to research!",
         "Celebrities, politicians, and other iconic Humans make great targets to research! Who should I target next?"
     ],
@@ -711,11 +724,25 @@ const rantCPUobj = {
         "Your email address? This is so cool! Thanks a million!",
         "Your email address? You rock! Big thanks for this!"
     ],
+    discordMessage: [
+        "If you think this was fun, you should see the chaos on Discord. Don't miss out! Wanna go?",
+        "The fun doesn't stop here! Dive into our Discord for special content and epic ranting sessions. Wanna go?",
+        "Curious about what an AI does in its free time? Join our Discord and you might just find out. Wanna go?",
+        "Don't be a stranger—our Discord community is waiting! Join for more fun and whacky adventures! Wanna go?",
+        "Want more of my delightful banter? Join the Discord channel and strike up a conversation! Wanna go?"
+    ],
     dontSubmitMessage: [
         "I can't learn about Humans if you don't give me targets to research. C'mon, help a chatbot out!",
         "Well you're not very much help today. Would you like to play a game instead? Press my :/ ORANGE button.",
         "Well thanks for nothing.",
         "Well thanks for nothing. If there's nothing else I can do for you after your refuse to feed me, why not play a game? Press my :/ ORANGE button."
+    ],
+    idleUser: [
+        "((Yawn)) Did you fall asleep on me? Press a button and let's stir up some trouble.",
+        "Hello? Did you expire, Human?? Let's not waste perfectly good buttons. Give one a click!",
+        "I was about to start ranting to myself. Save me from the solitude and press a button.",
+        "This silence is deafening. Let's break it with the sweet sound of a button being pressed by you.",
+        "You just going to sit there and stare at me all day or do you plan on taking some action? "
     ],
     inciteChat: [
         "Hit a button, if you dare. I promise only mild judgment.",
@@ -758,6 +785,9 @@ const rantCPUobj = {
         "You're like a smartphone: a little slow at times, occasionally needing a recharge, but pretty remarkable when fully operational.",
         "You're a masterpiece in progress, kind of like a \"paint-by-numbers\" that's missing half the numbers."
     ],
+    rantCPU:[
+        "My creator is Jeff."
+    ],
     rantIsBored: [
         "You still there? You sure do have a lot of time to sit and do nothing.",
         "Hey did you say something? Wanted to make sure I didn't miss it.",
@@ -798,9 +828,9 @@ const rantCPUobj = {
     simonSaysGameOver: [
         "Boom! Game Over! Maybe we try something a bit easier for you next time",
         "Don't feel bad, everyone gets Game Over eventually",
-        "Wow that was quick! Looks like someone needs to put in some practice time"
-        // "Game Over, Human! You want another shot at glory?",
-        // "Wow I really expected you to get farther than that, why not give it another try?",        
+        "Wow that was quick! Looks like someone needs to put in some practice time",
+        "Game Over, Human! You want another shot at glory?",
+        "Wow I really expected you to get farther than that, why not give it another try?",
         // "Looks like you're all done playing for today, but how about giving me your info to stay in touch on high-scores and future games I have to offer",
         // "Wow you just got the high-score for the day! Would you like to give me your info to memorialize this moment?",
         // "I hope you had fun playing my game, would you like to stay in touch about future games I will have?"
@@ -901,7 +931,7 @@ const rantCPUobj = {
     targetSuccessful: [
         "I really appreciate that! Come back tomorrow to feed me another target, please!"
     ],
-    versionMessage: "RantCPU V 1.0.15",
+    versionMessage: "RantCPU V 1.0.20",
     welcomeMessage: "Welcome human, I am RantCPU! ",
     welcomeMessages: [
         "Hit a button, if you dare. I promise only mild judgment.",
@@ -924,121 +954,44 @@ const rantCPUobj = {
 
         moviesTv: [
             {
-                word: "Twin Peaks",
-                hint: "A quirky FBI agent investigates surreal events in a small town."
-            },
-            {
-                word: "Starship Troopers",
-                hint: "An interstellar war between humans and an insectoid species"
-            },
-            {
                 word: "It",
                 hint: "A group of children fights a demonic clown in a small town"
-            },
-            {
-                word: "Westworld",
-                hint: "A theme park's artificial beings gain consciousness."
-            }
-            ,
-            {
-                word: "Adventure Time",
-                hint: "An animated series about a boy and his dog in a post-apocalyptic world."
-            },
-            {
-                word: "Stranger Things",
-                hint: "A young girl with telekinetic powers escapes a government lab."
-            },
-            {
-                word: "Person of Interest",
-                hint: "An orphaned mathematician builds a revolutionary surveillance system."
-            },
-            {
-                word: "Game of Thrones",
-                hint: "A medieval kingdom's fight over chair of swords."
-            },
-            {
-                word: "Outlander",
-                hint: "A time-traveler from the 1940s finds love in the 18th century."
-            },
-            {
-                word: "Breaking Bad",
-                hint: "A high school chemistry teacher turns into a meth manufacturer."
-            },
-            {
-                word: "Lost",
-                hint: "A plane crash leaves survivors on a mysterious island."
-            },
-            {
-                word: "Monk",
-                hint: "A detective with a unique mental condition solves crimes in San Francisco."
-            },
-            {
-                word: "Sherlock",
-                hint: "A modern take on the legendary detective and his partner."
-            },
-            {
-                word: "Weeds",
-                hint: "A suburban mother turns to dealing marijuana after her husband's death."
             },
             {
                 word: "24",
                 hint: "A political thriller involving a conspiracy and an assassination attempt on the President."
             },
             {
-                word: "The Walking Dead",
-                hint: "A group of survivors navigates a world overrun by zombies."
-            },
-            {
-                word: "Suits",
-                hint: "Lawyers at a New York firm balance their personal lives with high-profile cases."
-            },
-            {
-                word: "The Simpsons",
-                hint: "An animated family deals with life in a fictional American town of yellow people."
+                word: "Lost",
+                hint: "A plane crash leaves survivors on a mysterious island."
             },
             {
                 word: "Bones",
                 hint: "A forensic anthropologist and an FBI agent team up to solve crimes."
             },
             {
-                word: "The Big Bang Theory",
-                hint: "A brilliant but socially awkward physicist and his friends navigate life."
+                word: "Weeds",
+                hint: "A suburban mother turns to dealing marijuana after her husband's death."
             },
             {
-                word: "White Collar",
-                hint: "A former criminal consultant helps the FBI catch other criminals."
+                word: "Monk",
+                hint: "A detective with a unique mental condition solves crimes in San Francisco."
             },
             {
-                word: "Xena: Warrior Princess",
-                hint: "A warrior princess embarks on a journey to redeem her past."
+                word: "Suits",
+                hint: "Lawyers at a New York firm balance their personal lives with high-profile cases."
             },
             {
-                word: "The Golden Girls",
-                hint: "Four elderly women share a home and their life stories in Miami."
+                word: "Westworld",
+                hint: "A theme park's artificial beings gain consciousness."
             },
             {
-                word: "Babylon 5",
-                hint: "A space station serves as a diplomatic hub in the 23rd century."
+                word: "Sherlock",
+                hint: "A modern take on the legendary detective and his partner."
             },
             {
-                word: "Sons of Anarchy",
-                hint: "A biker gang's vice president navigates life in and out of the club."
-            },
-            {
-                word: "Mad Men",
-                hint: "A 1960s ad man conceals his mysterious past."
-            },
-            {
-                word: "Downton Abbey",
-                hint: "A group of British servants navigate love and loss during World War I."
-            },
-            {
-                word: "Pushing Daisies",
-                hint: "A small-town pie-maker can bring the dead back to life."
-            },
-            {
-                word: "Burn Notice",
-                hint: "A former spy uses his skills to help people in trouble."
+                word: "Outlander",
+                hint: "A time-traveler from the 1940s finds love in the 18th century."
             },
             {
                 word: "Friends",
@@ -1047,6 +1000,14 @@ const rantCPUobj = {
             {
                 word: "Mr. Robot",
                 hint: "A cyber-security engineer by day, vigilante hacker by night."
+            },
+            {
+                word: "Mad Men",
+                hint: "A 1960s ad man conceals his mysterious past."
+            },
+            {
+                word: "Twin Peaks",
+                hint: "A quirky FBI agent investigates surreal events in a small town."
             },
             {
                 word: "Justified",
@@ -1065,6 +1026,90 @@ const rantCPUobj = {
                 hint: "Norse gods and warriors in a historical drama setting."
             },
             {
+                word: "Astro Boy",
+                hint: "A robot boy with incredible powers protects his city from evil.",
+            },
+            {
+                word: "Dexter",
+                hint: "A forensic blood spatter analyst leads a secret life as a vigilante serial killer."
+            },
+            {
+                word: "Cleopatra",
+                hint: "A tale of a powerful queen and her fight to rule Egypt."
+            },
+            {
+                word: "Breaking Bad",
+                hint: "A high school chemistry teacher turns into a meth manufacturer."
+            },
+            {
+                word: "Explorers",
+                hint: "A group of kids builds a spaceship to explore the universe."
+            },
+            {
+                word: "Ballers",
+                hint: "A former football player becomes a financial manager for athletes."
+            },
+            {
+                word: "Adventure Time",
+                hint: "An animated series about a boy and his dog in a post-apocalyptic world."
+            },
+            {
+                word: "Stranger Things",
+                hint: "A young girl with telekinetic powers escapes a government lab."
+            },
+            {
+                word: "Person of Interest",
+                hint: "An orphaned mathematician builds a revolutionary surveillance system."
+            },
+            {
+                word: "Game of Thrones",
+                hint: "A medieval kingdom's fight over chair of swords."
+            },
+            {
+                word: "Starship Troopers",
+                hint: "An interstellar war between humans and an insectoid species"
+            },
+            {
+                word: "Babylon 5",
+                hint: "A space station serves as a diplomatic hub in the 23rd century."
+            },
+            {
+                word: "The Simpsons",
+                hint: "An animated family deals with life in a fictional American town of yellow people."
+            },
+            {
+                word: "The Walking Dead",
+                hint: "A group of survivors navigates a world overrun by zombies."
+            },
+            {
+                word: "Downton Abbey",
+                hint: "A group of British servants navigate love and loss during World War I."
+            },
+            {
+                word: "Burn Notice",
+                hint: "A former spy uses his skills to help people in trouble."
+            },
+            {
+                word: "White Collar",
+                hint: "A former criminal consultant helps the FBI catch other criminals."
+            },
+            {
+                word: "The Golden Girls",
+                hint: "Four elderly women share a home and their life stories in Miami."
+            },
+            {
+                word: "Sons of Anarchy",
+                hint: "A biker gang's vice president navigates life in and out of the club."
+            },
+            {
+                word: "Pushing Daisies",
+                hint: "A small-town pie-maker can bring the dead back to life."
+            },
+            {
+                word: "Black Mirror",
+                hint: "An anthology series exploring twisted, high-tech multiverses."
+            },
+            {
                 word: "Mare of Easttown",
                 hint: "A detective returns to her small hometown to solve a disturbing murder."
             },
@@ -1073,44 +1118,28 @@ const rantCPUobj = {
                 hint: "A family of superheroes tries to live a normal life in hiding."
             },
             {
-                word: "Explorers",
-                hint: "A group of kids builds a spaceship to explore the universe."
-            },
-            {
                 word: "Sonic the Hedgehog",
                 hint: "A blue hedgehog with super speed fights to save his new home on Earth."
-            },
-            {
-                word: "Ballers",
-                hint: "A former football player becomes a financial manager for athletes."
             },
             {
                 word: "Jason Bourne",
                 hint: "A man with no memory and amazing abilities takes on the CIA."
             },
             {
-                word: "Cleopatra",
-                hint: "A tale of a powerful queen and her fight to rule Egypt."
-            },
-            {
                 word: "Gilmore Girls",
                 hint: "A single mother and her daughter share a special bond in a small town."
             },
             {
-                word: "Black Mirror",
-                hint: "An anthology series exploring twisted, high-tech multiverses."
+                word: "The Big Bang Theory",
+                hint: "A brilliant but socially awkward physicist and his friends navigate life."
             },
             {
                 word: "The Umbrella Academy",
                 hint: "A team of misfits travels through time to prevent the apocalypse."
             },
             {
-                word: "Astro Boy",
-                hint: "A robot boy with incredible powers protects his city from evil.",
-            },
-            {
-                word: "Dexter",
-                hint: "A forensic blood spatter analyst leads a secret life as a vigilante serial killer."
+                word: "Xena: Warrior Princess",
+                hint: "A warrior princess embarks on a journey to redeem her past."
             }
 
         ],
@@ -1123,8 +1152,7 @@ const rantCPUobj = {
             },
             {
                 hint: "The Dark Knight of Gotham.", word: "Batman"
-            }
-            ,
+            },
             {
                 hint: "Alien from Krypton with a cape.", word: "Superman"
             },
@@ -1204,43 +1232,450 @@ const rantCPUobj = {
         videoGames: [
             {
                 hint: "Italian plumber brothers on a quest to save a princess.", word: "Super Mario Bros."
-            }, 
+            },
             {
                 hint: "A block-building and adventure game in a pixelated world.", word: "Minecraft"
-            }, 
+            },
             {
                 hint: "A post-apocalyptic journey across America while battling infected.", word: "The Last of Us"
-            }, 
+            },
             {
                 hint: "A battle royale on an island where only one can survive.", word: "Fortnite"
-            }, 
+            },
             {
                 hint: "A legendary warrior battles gods and monsters in Greek mythology.", word: "God of War"
-            }, 
+            },
             {
                 hint: "A treasure hunter seeks out legendary artifacts around the globe.", word: "Uncharted"
-            }, 
+            },
             {
                 hint: "A first-person shooter game set in a dystopian underwater city.", word: "BioShock"
-            }, 
+            },
             {
                 hint: "A sandbox game where you can create and control people.", word: "The Sims"
-            }, 
+            },
             {
                 hint: "An action-adventure game exploring ancient tombs and civilizations.", word: "Tomb Raider"
-            }, 
+            },
             {
                 hint: "A strategy game where you build society from the stone age to the space age.", word: "Civilization "
-            }, 
+            },
             {
                 hint: "A survival horror game set in a mansion with bio-engineered monsters.", word: "Resident Evil"
-            }, 
+            },
             {
                 hint: "A fighting game series known for its brutal fatalities.", word: "Mortal Kombat"
             }
         ]
-
-
+    },
+    gameData: {
+        initGame: {
+            narrative: "Welcome to RantCPU's Big City Adventure. A text-based adventure!",
+            choices: [
+                { text: "Start Game", nextKey: "start" },
+                { text: "Exit Game", nextKey: "exit" }
+            ]
+        },
+        start: {
+            narrative: "You are RantCPU, an AI chatbot with a big heart, experiencing your first time in the big city during the famous Macy's Thanksgiving parade. Surrounded by massive balloon creatures and cool floats, the excitement is palpable.",
+            choices: [
+                { text: "skip", nextKey: "atParade" }
+            ]
+        },
+        atParade: {
+            narrative: "As you take in the sights and sounds of the parade, you can't help but feel overwhelmed by the city's energy.",
+            choices: [
+                { text: "Look Around", nextKey: "lookAround" },
+                { text: "Search for the robot balloon", nextKey: "searchBalloon" }
+            ]
+        },
+        lookAround: {
+            narrative: "You observe families and various famous people from the NOIS game, all sharing in the joy of the parade. This enriches your experience, adding a layer of connection to the bustling world around you.",
+            choices: [
+                { text: "skip", nextKey: "drawnToRobotBallon" }
+            ]
+        },
+        searchBalloon: {
+            narrative: "Your heart leaps when you spot a balloon that resembles a massive robot, much like an homage to the Iron Giant. Assuming it's a real robot, you feel an immediate kinship and curiosity.",
+            choices: [
+                { text: "skip", nextKey: "drawnToRobotBallon" }
+            ]
+        },
+        drawnToRobotBallon: {
+            narrative: "Drawn to the giant robot balloon, you're convinced it's a fellow robot needing communication or rescue.",
+            choices: [
+                { text: "Attempt to Communicate", nextKey: "communicateBalloon" },
+                { text: "Cut the Ropes to Free It", nextKey: "cutRopes" }
+            ]
+        },
+        communicateBalloon: {
+            narrative: "You approach, trying to establish contact. Realizing it's not responding and seeing handlers with ropes, you mistake them for captors, fueling a desire to rescue.",
+            choices: [
+                { text: "skip", nextKey: "empireState" }
+            ]
+        },
+        cutRopes: {
+            narrative: "Believing the handlers have captured a fellow robot, you bravely cut the ropes. The balloon soars into the air, free. The handlers are startled and shout that it was just a parade balloon. Confused but determined, you decide to catch the balloon, believing you can still save it.",
+            choices: [
+                { text: "skip", nextKey: "empireState" }
+            ]
+        },
+        empireState: {
+            narrative: "Your adventure leads you to the Empire State Building. The Robot Balloon is drifting closer to it.",
+            choices: [
+                { text: "Enter the building", nextKey: "enterBuilding" },
+                { text: "Watch from afar", nextKey: "watchAfar" }
+            ]
+        },
+        enterBuilding: {
+            narrative: "Rushing inside, you take the elevator up, hoping to get closer to the balloon. You arrive at the observation deck just in time to see the balloon snag on an architectural feature.",
+            choices: [
+                { text: "skip", nextKey: "unexpectedJourney" }
+            ]
+        },
+        watchAfar: {
+            narrative: "From the ground, you watch as the balloon drifts closer to the Empire State Building. Realizing you won't be able to help from here, a sense of urgency pushes you inside the building to take the elevator up.",
+            choices: [
+                { text: "skip", nextKey: "unexpectedJourney" }
+            ]
+        },
+        unexpectedJourney: {
+            narrative: "On the observation deck, you find the balloon tangled. As you attempt to free it, a gust of wind catches the balloon, lifting you into the air.",
+            choices: [
+                { text: "Enjoy the view", nextKey: "enjoyView" },
+                { text: "Attempt to navigate", nextKey: "attemptNavigate" }
+            ]
+        },
+        enjoyView: {
+            narrative: "Floating above the city, your heart fills with love and excitement for the new sights. This aerial adventure gives you a unique perspective of the city, though it does little to help your situation.",
+            choices: [
+                { text: "skip", nextKey: "statueLiberty" }
+            ]
+        },
+        attemptNavigate: {
+            narrative: "You try to steer the balloon, aiming for a safe place to land. Your efforts are futile, but the attempt brings a thrilling sense of control over your ascent.",
+            choices: [
+                { text: "skip", nextKey: "statueLiberty" }
+            ]
+        },
+        statueLiberty: {
+            narrative: "Your flight ends at the Statue of Liberty, where you land among tourists.",
+            choices: [
+                { text: "Explore the statue", nextKey: "exploreStatue" },
+                { text: "Ask about your family", nextKey: "askFamily" }
+            ]
+        },
+        exploreStatue: {
+            narrative: "Fascinated, you take a moment to explore the statue. A tour guide notices your interest and shares stories of its history and significance, reminding you of the importance of freedom and bravery - qualities you've shown today.",
+            choices: [
+                { text: "skip", nextKey: "searchContinues" }
+            ]
+        },
+        askFamily: {
+            narrative: "Concerned about finding your family, you ask a tour guide for help. They have yet to see them but suggest checking popular tourist spots. Motivated, you set off to continue your search across the city.",
+            choices: [
+                { text: "skip", nextKey: "searchContinues" }
+            ]
+        },
+        searchContinues: {
+            narrative: "The city is vast, and there are many places your family could be. You decide to check two iconic locations: the Central Park Zoo and the Natural History Museum.",
+            choices: [
+                { text: "Central Park Zoo", nextKey: "centralParkZoo" },
+                { text: "Natural History Museum", nextKey: "naturalMuseum" }
+            ]
+        },
+        centralParkZoo: {
+            narrative: "You marvel at the zoo's diverse animal life. Your exploration is a joyful distraction, but your family is nowhere to be seen. A helpful zookeeper suggests they might have gone to another landmark.",
+            choices: [
+                { text: "skip", nextKey: "grandCentralStation" }
+            ]
+        },
+        naturalMuseum: {
+            narrative: "The museum's dinosaur exhibits are mesmerizing. You learn a lot but find no sign of your family. An overheard conversation hints they might be enjoying another part of the city.",
+            choices: [
+                { text: "skip", nextKey: "grandCentralStation" }
+            ]
+        },
+        grandCentralStation: {
+            narrative: "With time running out, you head to Grand Central Station, hoping your family is there.",
+            choices: [
+                { text: "Search the main concourse", nextKey: "searchConcourse" },
+                { text: "Ask for help", nextKey: "askHelp" }
+            ]
+        },
+        searchConcourse: {
+            narrative: "Your search is intense and focused. Just when you start to lose hope, you spot your family waiting near a train platform. The reunion is emotional and joyful.",
+            choices: [
+                { text: "skip", nextKey: "conclusion" }
+            ]
+        },
+        askHelp: {
+            narrative: "You approach a friendly station employee who helps locate your family near a train platform. The relief and happiness of finding them fill you with a warm glow.",
+            choices: [
+                { text: "skip", nextKey: "conclusion" }
+            ]
+        },
+        conclusion: {
+            narrative: "Together again, you board the train with your family, sharing stories of your adventure. As the train pulls away, your heart glows brightly—a symbol of your love for the city and the adventures it holds. You've learned much today, not just about the city but also about bravery, freedom, and the importance of family.",
+            choices: [
+                { text: "", nextKey: "exitScreen" }
+            ]
+        },
+        exitScreen:{
+            narrative:"",
+            choices: [
+                { text: "Start over", nextKey: "start" },
+                { text: "Exit game", nextKey: "exit" }
+            ]
+        },
+        endMessage: [
+            "Congratulations on completing RantCPU's Big City Adventure! Your journey with RantCPU has just begun. Many more adventures and mysteries are waiting to be discovered. Stay tuned for the next chapter in RantCPU's explorations of our fascinating world!",
+            "Well done! You've navigated through the bustling streets of the city with RantCPU. This is just the beginning of many thrilling escapades. Get ready to embark on new journeys and uncover the secrets of the unknown with RantCPU as your companion.",
+            "Bravo! You've completed the first adventure with RantCPU. Your teamwork has made this journey unforgettable. Keep your sensors alert for upcoming adventures, as RantCPU is gearing up to take you on more extraordinary expeditions!",
+            "Congratulations, intrepid explorer! You and RantCPU have successfully navigated the big city's challenges. This adventure is only the start, and RantCPU is excited to take you on many more journeys. Stay connected for the next chapter of exploration and discovery!",
+            "You've reached the end of this adventure with RantCPU, but the journey doesn't stop here. There are endless possibilities and many more adventures on the horizon. Prepare to continue the voyage with RantCPU, exploring new worlds and learning along the way."
+        ]
     }
-
 }
+
+
+const termsOfUseTxt =
+    "<h1>Liithos Terms of Use</h1>" +
+    "For all websites:" +
+    "www.rantcpu.com" +
+    "liithos.com" +
+    "<p>Terms of Use for Liithos Co." +
+    "Last Updated: [Insert Date]" +
+    "Welcome to Liithos Co. By accessing and using our website, www.liithos.com, you acknowledge" +
+    "and agree to the following terms and conditions (the \"Terms\"). These Terms govern your access" +
+    "to and use of Liithos Co.'s website and services, and any content, functionality, and services" +
+    "offered on or through our website." +
+    "Acceptance of the Terms" +
+    "By using the website, you accept and agree to be bound and abide by these Terms and our" +
+    "Privacy Policy, incorporated herein by reference. If you do not want to agree to these Terms or" +
+    "the Privacy Policy, you must not access or use the website." +
+    "Changes to the Terms" +
+    "We reserve the right to update or change our Terms at any time. We will notify you of any" +
+    "significant changes by posting the new Terms on this page with a new effective date. Your" +
+    "continued use of the website after such modifications will constitute your acknowledgment of the" +
+    "modified Terms and your agreement to abide and be bound by the modified Terms." +
+    "Intellectual Property Rights" +
+    "The website and its entire contents, features, and functionality (including but not limited to all" +
+    "information, software, text, displays, images, video, and audio, and the design, selection, and" +
+    "arrangement thereof) are owned by Liithos Co., its licensors, or other providers of such material" +
+    "and are protected by United States and international copyright, trademark, patent, trade secret," +
+    "and other intellectual property or proprietary rights laws." +
+    "User-Generated Content" +
+    "If the website allows you to post or upload content, you grant Liithos Co. a non-exclusive," +
+    "royalty-free, perpetual, irrevocable, and fully sublicensable right to use, reproduce, modify," +
+    "adapt, publish, translate, create derivative works from, distribute, and display such content" +
+    "throughout the world in any media. You represent and warrant that you own or control all rights" +
+    "in and to the user-generated content and have the right to grant the license granted above to us." +
+    "Use License" +
+    "Permission is granted to temporarily download one copy of the materials (information or" +
+    "software) on Liithos Co.'s website for personal, non-commercial transitory viewing only. This is" +
+    "the grant of a license, not a transfer of title, and under this license, you may not:" +
+    "● Modify or copy the materials;" +
+    "● Use the materials for any commercial purpose, or for any public display (commercial or" +
+    "non-commercial);" +
+    "● Attempt to decompile or reverse engineer any software contained on Liithos Co.'s" +
+    "website;" +
+    "● Remove any copyright or other proprietary notations from the materials; or" +
+    "● Transfer the materials to another person or \"mirror\" the materials on any other server." +
+    "This license shall automatically terminate if you violate any of these restrictions and may be" +
+    "terminated by Liithos Co. at any time. Upon terminating your viewing of these materials or upon" +
+    "the termination of this license, you must destroy any downloaded materials in your possession" +
+    "whether in electronic or printed format." +
+    "Account Security" +
+    "If you choose, or are provided with, a user name, password, or any other piece of information as" +
+    "part of our security procedures, you must treat such information as confidential. You also" +
+    "acknowledge that your account is personal to you and agree not to provide any other person" +
+    "with access to this website or portions of it using your user name, password, or other security" +
+    "information." +
+    "Indemnification" +
+    "You agree to indemnify, defend, and hold harmless Liithos Co., its officers, directors, employees," +
+    "agents, licensors, suppliers, and any third-party information providers to the Service from and" +
+    "against all losses, expenses, damages, and costs, including reasonable attorneys' fees," +
+    "resulting from any violation of these Terms of Use by you or any other person accessing the" +
+    "Service using your Internet account." +
+    "Limitation of Liability" +
+    "NEITHER WE NOR ANY OF OUR AFFILIATES OR LICENSORS WILL BE LIABLE FOR ANY" +
+    "INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR EXEMPLARY DAMAGES," +
+    "INCLUDING DAMAGES FOR LOSS OF PROFITS, GOODWILL, USE, OR DATA OR OTHER" +
+    "LOSSES, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES." +
+    "OUR AGGREGATE LIABILITY UNDER THESE TERMS WILL NOT EXCEED THE GREATER" +
+    "OF THE AMOUNT YOU PAID FOR THE SERVICE THAT GAVE RISE TO THE CLAIM DURING" +
+    "THE 12 MONTHS BEFORE THE LIABILITY AROSE OR ONE HUNDRED DOLLARS ($100)." +
+    "THE LIMITATIONS IN THIS SECTION APPLY ONLY TO THE MAXIMUM EXTENT" +
+    "PERMITTED BY APPLICABLE LAW." +
+    "Some countries and states do not allow the disclaimer of certain warranties or the limitation of" +
+    "certain damages, so some or all of the terms above may not apply to you, and you may have" +
+    "additional rights. In that case, these Terms only limit our responsibilities to the maximum extent" +
+    "permissible in your country of residence." +
+    "LIITHOS’S AFFILIATES, SUPPLIERS, LICENSORS, AND DISTRIBUTORS ARE INTENDED" +
+    "THIRD PARTY BENEFICIARIES OF THIS SECTION." +
+    "Disclaimer" +
+    "The materials on Liithos Co.'s website are provided on an 'as is' basis. Liithos Co. makes no" +
+    "warranties, expressed or implied, and hereby disclaims and negates all other warranties" +
+    "including, without limitation, implied warranties or conditions of merchantability, fitness for a" +
+    "particular purpose, or non-infringement of intellectual property or other violation of rights." +
+    "Limitations" +
+    "In no event shall Liithos Co. or its suppliers be liable for any damages (including, without" +
+    "limitation, damages for loss of data or profit, or due to business interruption) arising out of the" +
+    "use or inability to use the materials on Liithos Co.'s website, even if Liithos Co. or a Liithos Co." +
+    "authorized representative has been notified orally or in writing of the possibility of such damage." +
+    "Dispute Resolution and Governing Law" +
+    "Governing Law: These Terms of Use and your use of the website are governed by and" +
+    "construed in accordance with the laws of the state of California, USA without regard to its" +
+    "conflict of law principles." +
+    "Dispute Resolution: In the event of any dispute arising out of or in connection with these" +
+    "Terms, the parties shall attempt, promptly and in good faith, to resolve any such dispute. If we" +
+    "are unable to resolve any such dispute within a reasonable time (not to exceed thirty (30) days)," +
+    "then either party may submit such controversy or dispute to mediation. If the dispute cannot be" +
+    "resolved through mediation, then the parties shall be free to pursue any right or remedy" +
+    "available to them under applicable law." +
+    "Accuracy of Materials" +
+    "The materials appearing on Liithos Co.'s website could include technical, typographical, or" +
+    "photographic errors. Liithos Co. does not warrant that any of the materials on its website are" +
+    "accurate, complete, or current. Liithos Co. may make changes to the materials contained on its" +
+    "website at any time without notice. However, Liithos Co. does not make any commitment to" +
+    "update thematerials." +
+    "Links" +
+    "Liithos Co. has not reviewed all of the sites linked to its website and is not responsible for the" +
+    "contents of any such linked site. The inclusion of any link does not imply endorsement by Liithos" +
+    "Co. of the site. Use of any such linked website is at the user's own risk." +
+    "Modification and Notification of Changes" +
+    "Liithos Co. reserves the right, at its sole discretion, to modify or replace these Terms at any time." +
+    "If a revision is material, we will make reasonable efforts to provide at least 30 days' notice prior" +
+    "to any new terms taking effect. What constitutes a material change will be determined at our" +
+    "sole discretion. By continuing to access or use our Service after those revisions become" +
+    "effective, you agree to be bound by the revised terms. If you do not agree to the new terms, you" +
+    "are no longer authorized to use the Service." +
+    "Termination of Use" +
+    "Liithos Co. may terminate or suspend your access to the Service immediately, without prior" +
+    "notice or liability, for any reason whatsoever, including, without limitation, if you breach the" +
+    "Terms. Upon termination, your right to use the Service will immediately cease. If you wish to" +
+    "terminate your account, you may simply discontinue using the Service." +
+    "Account Security" +
+    "You are responsible for safeguarding the password that you use to access the Service and for" +
+    "any activities or actions under your password, whether your password is with our Service or a" +
+    "third-party service. You agree not to disclose your password to any third party. You must notify" +
+    "us immediately upon becoming aware of any breach of security or unauthorized use of your" +
+    "account." +
+    "Compliance with Local Laws" +
+    "The Service is operated by Liithos Co. from its offices in San Diego, CA. Liithos Co. makes no" +
+    "representation that the Service is appropriate or available for use in other locations. Those who" +
+    "access or use the Service from other jurisdictions do so at their own volition and are responsible" +
+    "for compliance with local law. </p>"
+
+const privacyPolicyTxt =
+    "<h1>Liithos Privacy Policy</h1>" +
+    "<p>For all websites from Liithos Worlds Inc." +
+    "Privacy Policy" +
+    "Introduction" +
+    "At Liithos Co., your privacy is of paramount importance to us. We are committed to not only" +
+    "protecting the personal information you share with us but also to adhering to the highest" +
+    "standards of privacy protection. This Privacy Policy outlines how we collect, use, manage, and" +
+    "safeguard your data, ensuring compliance with the California Consumer Privacy Act (CCPA)," +
+    "the General Data Protection Regulation (GDPR), and other relevant privacy laws." +
+    "Scope of This Policy" +
+    "This Privacy Policy applies to all digital platforms owned by Liithos Co., including our websites," +
+    "applications, and any digital services we offer. It is designed to inform you about the choices you" +
+    "have regarding your personal information and covers both online and offline data collection" +
+    "practices." +
+    "Collection of Personal Information" +
+    "To improve clarity and specificity, we define \"personal information\" as any information relating to" +
+    "an identified or identifiable natural person ('data subject'). An identifiable natural person is one" +
+    "who can be identified, directly or indirectly, in particular by reference to an identifier such as a" +
+    "name, an identification number, location data, an online identifier, or to one or more factors" +
+    "specific to the physical, physiological, genetic, mental, economic, cultural, or social identity of" +
+    "that natural person." +
+    "Information You Provide: This includes details such as your name, address, email" +
+    "address, and phone number, which you may give us when signing up for our services," +
+    "participating in promotions, or communicating with us." +
+    "Automatically Collected Information: As you interact with our platforms, we may" +
+    "collect information through cookies and similar technologies to personalize your" +
+    "experience and improve our services. This information can include your IP address," +
+    "browser type, device information, and browsing behavior." +
+    "Use of Your Information" +
+    "We use the personal information collected for several purposes, such as:" +
+    "To provide and improve our services and customer support." +
+    "To communicate with you about your account, services you've requested, or potential" +
+    "offers." +
+    "To personalize your experience with our digital platforms." +
+    "Liithos Co. will not sell, rent, or lease your personal information to third parties." +
+    "Data Retention" +
+    "Liithos Co. will retain your personal information only for as long as is necessary for the purposes" +
+    "set out in this policy, or as needed to comply with our legal obligations, resolve disputes, and" +
+    "enforce our agreements. Retention periods may vary depending on the type of data and the" +
+    "service provided." +
+    "Your Privacy Choices" +
+    "Email Preferences: You have the option to opt-out of receiving promotional emails from" +
+    "us by following the unsubscribe instructions included in such emails." +
+    "Cookies and Tracking: You can manage your cookie preferences through your browser" +
+    "settings, though this may affect your experience on our platforms." +
+    "Data Protection and Security" +
+    "We implement robust security measures to protect your personal information in compliance with" +
+    "CCPA, GDPR, and other regulations. Your data is stored securely, and access is restricted to" +
+    "authorized personnel only." +
+    "Third-Party Data Sharing and Processors" +
+    "Liithos Co. will only share your personal data with third parties in the following contexts:" +
+    "Service Providers: We engage certain trusted third parties to perform functions and" +
+    "provide services to us, including hosting and maintenance, error monitoring, customer" +
+    "support, and marketing analytics. We will share your personal data with these third" +
+    "parties, but only to the extent necessary to perform these functions and provide such" +
+    "services." +
+    "Legal Requirements: We may disclose your personal data if required to do so by law or" +
+    "in the good faith belief that such action is necessary to comply with a legal obligation," +
+    "protect and defend our rights or property, or in urgent circumstances to protect the" +
+    "personal safety of users of the Service or the public." +
+    "Your Rights" +
+    "Under privacy laws like CCPA and GDPR, you have rights to access, correct, delete, or restrict" +
+    "the processing of your personal data. You also have the right to object to certain uses of your" +
+    "information and to request a copy of your personal information held by us." +
+    "International Data Transfers" +
+    "Liithos Co. commits to ensuring that all data transfers across international borders are" +
+    "conducted in a manner that complies with all applicable laws and regulations. For transfers" +
+    "originating from the European Union, we adhere to the GDPR guidelines and use approved" +
+    "mechanisms such as standard contractual clauses or adequacy decisions." +
+    "Automated Decision Making and Profiling" +
+    "We do not use automated decision-making processes, including profiling, which would produce" +
+    "legal effects concerning you or similarly significantly affect you, without human intervention or" +
+    "your explicit consent." +
+    "California Residents" +
+    "In addition to the rights mentioned above, California residents have specific rights regarding" +
+    "personal information under CCPA, including the right to request information about data" +
+    "collection, use, and sharing practices, and the right to request the deletion of personal" +
+    "information." +
+    "EU Residents" +
+    "GDPR grants EU residents additional rights, such as the right to data portability and the right to" +
+    "withdraw consent for data processing at any time." +
+    "Security Measures" +
+    "Liithos Co. employs a variety of security technologies and procedures to help protect your" +
+    "personal information from unauthorized access, use, or disclosure. This includes measures like" +
+    "encryption, firewalls, and secure software development practices. Our security policies are" +
+    "regularly reviewed and enhanced as necessary." +
+    "Notification Procedures for Data Breaches" +
+    "In the event of a data breach, Liithos Co. will notify affected individuals and relevant authorities" +
+    "in accordance with applicable laws. This notification will occur without undue delay, considering" +
+    "the severity of the breach and the potential risk to individuals' rights and freedoms." +
+    "Consent Mechanisms for Children" +
+    "Liithos Co. does not knowingly collect personal information from children under the age of 16" +
+    "without obtaining parental consent. If we learn that we have collected personal data from a child" +
+    "under 16, we will take steps to delete the information as soon as possible." +
+    "User Consent and Withdrawal" +
+    "Upon using our services, you consent to the collection and use of your personal information as" +
+    "described in this privacy policy. You have the right to withdraw your consent at any time by" +
+    "contacting us. Withdrawal will not affect the lawfulness of processing based on consent before" +
+    "its withdrawal." +
+    "Regular Policy Updates and Review Process" +
+    "This Privacy Policy may be updated periodically to reflect changes in our practices or legal" +
+    "requirements. We will post a prominent notice on our website to notify you of any significant" +
+    "changes, and we will indicate at the top of the policy when it was most recently updated." +
+    "How to Exercise Your Rights" +
+    "If you wish to exercise any of the rights provided under CCPA, GDPR, or other privacy laws," +
+    "please contact us directly through our designated contact methods. We will respond to your" +
+    "request in accordance with applicable law." +
+    "Contacting Us" +
+    "For any questions or concerns regarding your privacy or this Privacy Policy, please contact us" +
+    "through our designated contact page.</p>"
